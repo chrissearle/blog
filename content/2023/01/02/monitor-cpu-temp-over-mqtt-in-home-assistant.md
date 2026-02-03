@@ -1,6 +1,7 @@
 ---
 title: Monitor CPU temp over MQTT in Home Assistant
 date: 2023-01-02 09:27 +0100
+category: Home Assistant
 tags: [mqtt, homeassistant, debian, linux, NUC]
 intro: A quick fix to get CPU temperature over time from a couple of Intel NUC units
 image: /images/posts/2023/01/temperatures.png

@@ -1,6 +1,7 @@
 ---
 title: TTC-450 wifi configuration and UGS connection
 date: 2025-03-02 13:47 +0100
+category: 3D Printing - Laser Cutting - CNC
 tags: [ttc-450, cnc, mac, osx, universal gcode sender, ugs, gcode, grbl]
 intro: How to connect TTC-450 to wifi when you can't enter the password and how to connect to it over the network from UGS.
 ---

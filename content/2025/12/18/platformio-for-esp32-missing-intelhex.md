@@ -1,6 +1,7 @@
 ---
 title: PlatformIO for ESP32 - missing intelhex
 date: 2025-12-18 10:03 +0100
+category: Home Assistant
 tags: [ arduino, esp32, platformio, intelhex ]
 intro: Updating the ESP32 platform in PlatformIO to later than 1.40501 gave an error about missing intelhex.
 ---
