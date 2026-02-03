@@ -9,13 +9,17 @@ const props = defineProps<{
 }>()
 
 const categories = splitList(props.post.category)
+
+const postPath = computed(() =>
+  props.post.path.endsWith("/") ? props.post.path : `${props.post.path}/`,
+)
 </script>
 
 <template>
   <UPageCard>
     <template #header>
       <h3 class="text-base font-semibold">
-        <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
+        <NuxtLink :to="postPath">{{ post.title }}</NuxtLink>
       </h3>
 
       <p class="text-sm text-muted">
@@ -37,7 +41,7 @@ const categories = splitList(props.post.category)
 
       <div class="flex justify-end">
         <UButton
-          :to="post.path"
+          :to="postPath"
           variant="soft"
           color="primary"
           size="sm"

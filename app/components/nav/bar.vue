@@ -42,12 +42,12 @@ const categoryItems = computed(() => {
           </span>
         </UDropdownMenu>
 
-        <NuxtLink to="/tags" class="text-sm font-medium hover:underline">
+        <NuxtLink to="/tags/" class="text-sm font-medium hover:underline">
           <span class="hidden lg:inline">All Tags</span>
           <span class="inline lg:hidden">Tags</span>
         </NuxtLink>
 
-        <NuxtLink to="/series" class="text-sm font-medium hover:underline">
+        <NuxtLink to="/series/" class="text-sm font-medium hover:underline">
           <span class="hidden lg:inline">All Series</span>
           <span class="inline lg:hidden">Series</span>
         </NuxtLink>

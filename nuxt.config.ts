@@ -72,4 +72,11 @@ export default defineNuxtConfig({
       imageTag: "",
     },
   },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
+    },
+  },
 })
