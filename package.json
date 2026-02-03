@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "NUXT_PUBLIC_PROMETHEUS_VERBOSE=false nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "NUXT_PUBLIC_PROMETHEUS_VERBOSE=false nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
