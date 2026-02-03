@@ -4,7 +4,7 @@ date: 2006-11-04 14:44:29 +0100
 tags: [mac, bluetooth, p990i]
 ---
 
-The changes from [this post](/2006/03/27/bluetooth-modem) about the S700i also work for the P990i (the string is P900).
+The changes from [this post](/2006/03/27/bluetooth-modem/) about the S700i also work for the P990i (the string is P900).
 
 To collect it in one place - this is taken from [http://www.macosxhints.com/article.php?story=20050731124746116](http://www.macosxhints.com/article.php?story=20050731124746116)
 

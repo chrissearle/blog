@@ -4,7 +4,7 @@ date: 2009-07-09 08:21:04 +0200
 tags: [bluetooth, iphone, stereo bluetooth, a2dp, avrcp]
 ---
 
-An update to [iPhone 3.0 firmware release and stereo bluetooth - missing AVRCP](/2009/06/25/iphone-3-0-firmware-release-and-stereo-bluetooth-missing-avrcp)
+An update to [iPhone 3.0 firmware release and stereo bluetooth - missing AVRCP](/2009/06/25/iphone-3-0-firmware-release-and-stereo-bluetooth-missing-avrcp/)
 
 It turns out that the iPhone does support AVRCP - that's giving us the play/pause functionality.
 

@@ -4,7 +4,7 @@ date: 2009-02-26 12:33:04 +0100
 tags: [linux, debian, firewall]
 ---
 
-As part of [Building a debian firewall on a CF card](/2008/04/05/building-a-debian-firewall-on-a-cf-card) I was trying to make sure that disk writes to the firewall CF card were kept to a minimum.
+As part of [Building a debian firewall on a CF card](/2008/04/05/building-a-debian-firewall-on-a-cf-card/) I was trying to make sure that disk writes to the firewall CF card were kept to a minimum.
 
 However - I've never really been able to test this. So I was pleased to find [http://samwel.tk/laptop_mode/faq](http://samwel.tk/laptop_mode/faq) - under section 5 there is a question titled "My disk spins up all the time and I have no clue what causes this. Can I debug this?".
 

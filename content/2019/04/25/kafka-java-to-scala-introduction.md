@@ -15,7 +15,7 @@ _It is important to understand that it is written from my viewpoint - someone wh
 ## Posts in this series
 
 1. [A simple java example running](/2019/04/25/kafka-java-to-scala-java/) - a basic producer and consumer pair
-1. [Convert java to scala](/2019/04/30/kafka-java-to-scala-scala-v1) - conversion of the basic producer and consumer to scala - on an almost line by line basis
+1. [Convert java to scala](/2019/04/30/kafka-java-to-scala-scala-v1/) - conversion of the basic producer and consumer to scala - on an almost line by line basis
 1. [Update the scala version](/2019/05/03/kafka-java-to-scala-scala-v2/) to be more "scala-like" and add a config file instead of hard coded values
 1. [A slight digression to look at basic akka-streams](/2019/05/08/kafka-java-to-scala-akka-streams-basics/)
 1. [Use akka-streams for the scala example](/2019/05/15/kafka-java-to-scala-akka-streams-kafka/)

@@ -9,4 +9,4 @@ In response to google turning off EAS support for free google apps accounts - th
 * [CalDAV](http://support.google.com/calendar/bin/answer.py?hl=no&answer=151674)
 * [CardDAV](http://support.google.com/mail/bin/answer.py?hl=en&answer=2753077)
 
-This post replaces [Syncing secondary google apps calendars to iPhone](/2011/05/13/syncing-secondary-google-apps-calendars-to-iphone)
+This post replaces [Syncing secondary google apps calendars to iPhone](/2011/05/13/syncing-secondary-google-apps-calendars-to-iphone/)

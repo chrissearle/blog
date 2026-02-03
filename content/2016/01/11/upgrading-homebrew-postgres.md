@@ -36,7 +36,7 @@ I started with [this article](https://kkob.us/2014/12/20/homebrew-and-postgresql
     mv /usr/local/var/postgres /usr/local/var/postgres9.4
     mv /usr/local/var/postgres9.5 /usr/local/var/postgres
 
-#### Start
+#### Start service
 
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
@@ -71,7 +71,7 @@ The result was a combination. Note that I'd already performed the installation v
     mv /usr/local/var/postgres /usr/local/var/postgres9.4
     mv /usr/local/var/postgres9.5 /usr/local/var/postgres
 
-#### Start
+#### Start service
 
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
