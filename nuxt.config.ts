@@ -79,4 +79,8 @@ export default defineNuxtConfig({
       routes: ["/"],
     },
   },
+
+  linkChecker: {
+    excludeLinks: ["https://www.chrissearle.org", "https://www.chrissearle.org/"],
+  },
 })
