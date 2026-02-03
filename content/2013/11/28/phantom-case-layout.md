@@ -2,7 +2,7 @@
 title: Phantom case layout
 date: 2013-11-28 21:07 +0100
 tags: [quadcopter, dji, phantom]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2013/11/case-layout.jpg
 intro: Foam lined case for transporting the phantom drone
 ---

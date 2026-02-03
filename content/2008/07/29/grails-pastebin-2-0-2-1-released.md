@@ -1,6 +1,7 @@
 ---
 title: Grails pastebin 2.0/2.1 released
 date: 2008-07-29 15:32:04 +0200
+category: Software Development
 tags: [software, pastebin, grails]
 ---
 

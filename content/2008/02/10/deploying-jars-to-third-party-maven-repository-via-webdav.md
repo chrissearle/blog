@@ -1,6 +1,7 @@
 ---
 title: Deploying jars to third party maven repository via WebDAV
 date: 2008-02-10 16:21:43 +0100
+category: Software Development
 tags: [java, maven, webdav]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Setting up custom routes depending on the network location in OSX
 date: 2007-11-06 11:06:00 +0100
-tags: [mac, networking, osx, route]
+tags: [mac, networking, route]
 ---
 
 Nearly all you need to know is available here:

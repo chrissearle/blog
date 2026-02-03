@@ -1,6 +1,7 @@
 ---
 title: DVD/CD RW under debian (2.6 kernel)
 date: 2006-01-17 10:14:01 +0100
+category: System Administration
 tags: [debian, dvd, cd-rom, ide-cd]
 ---
 

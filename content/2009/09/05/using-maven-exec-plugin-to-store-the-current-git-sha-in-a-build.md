@@ -1,6 +1,7 @@
 ---
 title: Using maven-exec-plugin to store the current git sha in a build
 date: 2009-09-05 11:52:27 +0200
+category: Software Development
 tags: [maven, git, buildnumber-maven-plugin, exec-maven-plugin]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Monitoring Exim4 mailstats with munin (greylisting)
 date: 2005-08-23 20:33:24 +0200
+category: System Administration
 tags: [debian, exim4, munin, greylisting]
 ---
 

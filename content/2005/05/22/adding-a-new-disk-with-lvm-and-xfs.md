@@ -1,6 +1,7 @@
 ---
 title: Adding a new disk with LVM and XFS
 date: 2005-05-22 11:41:53 +0200
+category: System Administration
 tags: [linux, lvm2]
 ---
 

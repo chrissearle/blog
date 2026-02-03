@@ -1,7 +1,7 @@
 ---
 title: Backing up Aperture Vault to a NAS
 date: 2008-10-01 08:52:23 +0200
-tags: [mac, backup, aperture, osx, rsync, nas, network attached storage, readynas]
+tags: [mac, backup, aperture, rsync, nas, network attached storage, readynas]
 ---
 
 Listening to [the digital story](http://www.thedigitalstory.com/blog/2008/09/its_not_just_your_ph.html) this morning prompted me to think about my Aperture setup.

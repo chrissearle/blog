@@ -1,6 +1,7 @@
 ---
 title: courier imap/pop3 with ssl
 date: 2006-07-14 09:35:59 +0200
+category: System Administration
 tags: [debian, ssl, courier, imap, pop3]
 ---
 

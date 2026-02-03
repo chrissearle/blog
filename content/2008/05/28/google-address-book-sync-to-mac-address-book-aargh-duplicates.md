@@ -1,7 +1,7 @@
 ---
 title: Google address book sync to mac address book - aargh - duplicates
 date: 2008-05-28 21:16:14 +0200
-tags: [mac, sync, osx, google, gmail, 10.5.3, address book, duplicate]
+tags: [mac, sync, google, gmail, 10.5.3, address book, duplicate]
 ---
 
 The latest update to Mac OSX 10.5.3 now includes inbuilt google/address book synchronization.

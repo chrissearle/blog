@@ -1,6 +1,7 @@
 ---
 title: Scanning QR codes with SwiftUI
 date: 2020-03-03 11:28 +0100
+category: Software Development
 tags: [ios, swift, swiftui, xcode]
 series: Revisiting the Sbanken API with SwiftUI
 image: /images/posts/2020/03/config.png

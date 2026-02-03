@@ -1,7 +1,7 @@
 ---
 title: First mavic mini test
 date: 2019-11-17 14:34 +0100
-category: Radio Control
+category: Drones & RC
 tags: [mavic, mavic mini, dji]
 image: /images/posts/2019/11/mini-2.jpg
 intro: Picked up the new mavic mini to test - thinking it might be a good training drone for the kids.

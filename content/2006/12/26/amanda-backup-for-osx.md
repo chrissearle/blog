@@ -1,6 +1,7 @@
 ---
 title: Amanda backup for OSX
 date: 2006-12-26 15:07:20 +0100
+category: System Administration
 tags: [mac, backup, amanda]
 ---
 

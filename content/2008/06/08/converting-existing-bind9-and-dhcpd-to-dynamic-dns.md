@@ -1,7 +1,8 @@
 ---
 title: Converting existing bind9 and dhcpd to dynamic dns
 date: 2008-06-08 14:54:03 +0200
-tags: [dns, bind9, dhcp, named, dhcp3, ddns, dynamic dns]
+category: System Administration
+tags: [dns, bind9, dhcp, named, dhcp3, ddns, dynamic dns, tutorial]
 ---
 
 I have a working dns (bind9) and dhcpd running on my home lan. This adds dynamic dns updates from dhcpd to bind9.

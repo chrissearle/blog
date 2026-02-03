@@ -1,7 +1,8 @@
 ---
 title: Clamav not starting (exim can't find clamav.ctl)
 date: 2007-12-17 18:36:14 +0100
-tags: [debian, exim4, clamav]
+category: System Administration
+tags: [debian, exim4, clamav, troubleshooting]
 ---
 
 My exim4 process is configured based on [this post](/2005/05/19/sendmail-exim4/) and other points [noted here](/tags/exim4/).

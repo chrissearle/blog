@@ -1,6 +1,7 @@
 ---
 title: Using a self-generated Certificate Authority for OpenSSL on debian etch
 date: 2008-08-09 09:40:47 +0200
+category: System Administration
 tags: [debian, ssl, openssl, ca.pl]
 ---
 

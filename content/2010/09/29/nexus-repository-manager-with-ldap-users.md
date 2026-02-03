@@ -1,6 +1,7 @@
 ---
 title: Nexus repository manager with LDAP users
 date: 2010-09-29 14:50:44 +0200
+category: Software Development
 tags: [ldap, maven, opends, nexus]
 image: /images/posts/2010/09/nexus-ss1.png
 ---

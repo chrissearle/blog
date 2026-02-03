@@ -1,6 +1,7 @@
 ---
 title: Kafka - java to kotlin
 date: 2022-12-01 13:38 +0100
+category: Software Development
 tags: [kafka, java, scala, kotlin]
 intro: Some time back I wrote about converting a simple java kafka project to scala. This is a just for fun look at how similar the kotlin code is.
 ---

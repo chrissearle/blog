@@ -1,6 +1,7 @@
 ---
 title: PDFKit on heroku on rails 3 - downloadable PDFs and avoiding Backlog too deep
 date: 2011-04-10 23:14:25 +0200
+category: Software Development
 tags: [ruby, rails, heroku, pdfkit]
 ---
 

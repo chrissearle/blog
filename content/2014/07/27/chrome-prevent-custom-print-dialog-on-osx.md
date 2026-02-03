@@ -1,7 +1,7 @@
 ---
 title: Chrome - prevent custom print dialog on OSX
 date: 2014-07-27 22:14 +0200
-tags: [chrome, mac, osx]
+tags: [chrome, mac]
 intro: I prefer the mac os print dialog instead of the chrome one. Use defaults to get it to use the system dialog.
 ---
 

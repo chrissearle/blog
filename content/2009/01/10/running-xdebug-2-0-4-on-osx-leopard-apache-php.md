@@ -1,7 +1,7 @@
 ---
 title: Running xdebug 2.0.4 on OSX Leopard apache/php
 date: 2009-01-10 21:36:31 +0100
-tags: [mac, osx, leopard, php, xdebug, debug]
+tags: [mac, leopard, php, xdebug, debug]
 ---
 
 This is based on the information on [http://developers.sugarcrm.com/wordpress/2008/11/25/enabling-xdebug-under-os-x-leopard/](http://developers.sugarcrm.com/wordpress/2008/11/25/enabling-xdebug-under-os-x-leopard/).

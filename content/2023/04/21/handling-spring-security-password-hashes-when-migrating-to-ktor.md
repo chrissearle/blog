@@ -1,6 +1,7 @@
 ---
 title: Handling spring-security password hashes when migrating to ktor
 date: 2023-04-21 10:13 +0200
+category: Software Development
 tags: [ktor, kotlin, spring, spring security, bcrypt, password]
 intro: When moving a spring boot project to ktor - how to handle existing password hashes in the database?
 ---

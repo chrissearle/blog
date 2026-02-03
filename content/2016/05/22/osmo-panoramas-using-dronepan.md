@@ -4,7 +4,7 @@ date: 2016-05-22 11:20 +0200
 tags: [osmo, dronepan, femsjøen, dji]
 image: /images/posts/2016/05/pano-images.png
 intro: Adding Osmo support to DronePan
-category: Radio Control
+category: Drones & RC
 updated: 2022-10-06 00:00
 ---
 

@@ -2,11 +2,11 @@
 title: Raspberry Pi - Home Assistant Kiosk
 date: 2023-01-18 21:19 +0100
 category: Home Assistant
-tags: [raspberry pi, homeassistant]
+tags: [raspberry pi, home assistant]
 intro: Setup of a simple pi + touch screen home assistant kiosk
 ---
 
-I wanted to set up a simple kiosk dashboard in homeassistant and make it available via a pi with the pi 7" touchscreen.
+I wanted to set up a simple kiosk dashboard in home assistant and make it available via a pi with the pi 7" touchscreen.
 
 ## Kiosk Dashboard
 

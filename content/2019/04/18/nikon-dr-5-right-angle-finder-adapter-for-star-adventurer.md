@@ -1,7 +1,7 @@
 ---
 title: Nikon DR-5 right angle finder adapter for Star Adventurer
 date: 2019-04-18 22:51 +0200
-tags: [sky-watcher, star adventurer, nikon, dr-5, right-angle finder]
+tags: [sky-watcher, star adventurer, nikon, dr-5, right-angle finder, astrophotography]
 category: [Photography, 3D Printing - Laser Cutting - CNC]
 image: /images/posts/2019/04/fusion.jpg
 intro: Adapter for the star adventurer polar scope to save my back

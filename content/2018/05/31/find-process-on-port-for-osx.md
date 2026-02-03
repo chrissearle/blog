@@ -1,7 +1,7 @@
 ---
 title: Find process on port for OSX with lsof
 date: 2018-05-31 08:25 +0200
-tags: [osx, mac, linux]
+tags: [mac, linux]
 intro: netstat -p doesn't work on mac - let's find the same info via lsof
 ---
 

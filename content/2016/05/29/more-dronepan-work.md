@@ -4,7 +4,7 @@ date: 2016-05-29 19:27 +0200
 tags: [osmo, dronepan, femsjøen, dji]
 image: /images/posts/2016/05/6x8-4.png
 intro: Adding Inspire support to DronePan
-category: Radio Control
+category: Drones & RC
 ---
 
 This article follows on from [Osmo panoramas using DronePan](../../22/osmo-panoramas-using-dronepan/)

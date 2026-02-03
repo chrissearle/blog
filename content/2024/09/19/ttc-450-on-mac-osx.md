@@ -1,7 +1,7 @@
 ---
 title: TTC-450 on Mac OSX
 date: 2024-09-19 11:48 +0200
-tags: [ttc-450, cnc, mac, osx, universal gcode sender, ugs, gcode, grbl]
+tags: [ttc-450, cnc, mac, universal gcode sender, ugs, gcode, grbl]
 category: 3D Printing - Laser Cutting - CNC
 intro: Running the TTC-450 desktop CNC on Mac OSX
 ---

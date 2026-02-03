@@ -1,6 +1,7 @@
 ---
 title: Rescuing a dead lvm install
 date: 2006-04-18 18:59:44 +0200
+category: System Administration
 tags: [debian, lvm2]
 ---
 

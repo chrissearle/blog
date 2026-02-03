@@ -1,6 +1,7 @@
 ---
 title: Apache2, NameVirtualHosts, SSL and SERVER_PORT
 date: 2008-02-29 22:53:22 +0100
+category: System Administration
 tags: [ssl, apache2, namevirtualhost, php]
 ---
 

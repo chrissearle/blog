@@ -1,6 +1,7 @@
 ---
 title: Kafka - java to scala - scala v1 - basic
 date: 2019-04-30 12:08 +0200
+category: Software Development
 tags: [kafka, scala, producer, consumer]
 series: Kafka - java to scala
 updated: 2020-01-23 00:00

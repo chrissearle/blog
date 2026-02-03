@@ -1,6 +1,7 @@
 ---
 title: Bathroom ready for replacement
 date: 2013-11-24 12:00 +0100
+category: DIY Projects
 tags: [bathroom, diy]
 series: Bathroom
 image: /images/posts/2013/11/24-bathroom-01.jpg

@@ -1,6 +1,7 @@
 ---
 title: Horse jump fence repair
 date: 2019-04-27 20:40 +0200
+category: DIY Projects
 tags: [horse, woodworking, stables]
 image: /images/posts/2019/04/img-3056.jpg
 intro: Helping out at the stables by repairing some showjumping equipment

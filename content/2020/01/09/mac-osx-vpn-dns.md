@@ -1,7 +1,7 @@
 ---
 title: Mac OSX VPN DNS
 date: 2020-01-09 12:12 +0100
-tags: [mac, osx, vpn, dns]
+tags: [mac, vpn, dns]
 intro: When you connect your OSX mac to a VPN using the inbuilt VPN setup - as long as you get the service order correct it should pick up the DNS servers. But it often doesn't.
 ---
 

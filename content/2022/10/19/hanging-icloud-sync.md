@@ -1,7 +1,7 @@
 ---
 title: Hanging iCloud sync
 date: 2022-10-19 14:07 +0200
-tags: [icloud, osx, mac, synchronization, bird]
+tags: [icloud, mac, synchronization, bird]
 intro: How to fix the issue when iCloud sync says its at X of X and doesn't progress?
 ---
 

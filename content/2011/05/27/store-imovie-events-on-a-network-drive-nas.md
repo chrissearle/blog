@@ -1,7 +1,7 @@
 ---
 title: Store iMovie events on a network drive/NAS
 date: 2011-05-27 09:07:09 +0200
-tags: [osx, network attached storage, imovie, ilife 11]
+tags: [mac, network attached storage, imovie, ilife 11]
 ---
 
 I'd found a lot of info on the net about using symlinks to allow iMovie to see network disks, but this always seemed like too much of an effort.

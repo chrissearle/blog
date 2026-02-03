@@ -1,6 +1,7 @@
 ---
 title: Grails pastebin 1.0 released
 date: 2008-07-28 15:23:36 +0200
+category: Software Development
 tags: [software, pastebin, grails]
 ---
 

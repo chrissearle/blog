@@ -2,7 +2,7 @@
 title: Out with Summit and Vorza
 date: 2015-02-21 15:51 +0100
 tags: [vorza, hpi, summit, traxxas]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2015/02/vorza.jpg
 intro: On Gaustadjordet with P and the Summit and Vorza
 ---

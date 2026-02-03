@@ -1,6 +1,7 @@
 ---
 title: Kafka - java to scala - scala v2 - config
 date: 2019-05-03 11:33 +0200
+category: Software Development
 tags: [kafka, scala, producer, consumer, pureconfig]
 series: Kafka - java to scala
 updated: 2020-01-23 00:00

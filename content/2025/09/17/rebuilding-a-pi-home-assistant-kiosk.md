@@ -2,7 +2,7 @@
 title: Rebuilding a PI Home Assistant kiosk
 date: 2025-09-17 12:35 +0200
 category: Home Assistant
-tags: [raspberry pi, homeassistant, kiosk] 
+tags: [raspberry pi, home assistant, kiosk] 
 intro: My old pi4 running home assistant kiosk finally killed its SD card - time to build a new one
 ---
 

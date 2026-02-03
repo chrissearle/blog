@@ -1,7 +1,7 @@
 ---
 title: Java deprecated on Mac OS X?
 date: 2010-10-21 07:23:13 +0200
-tags: [java, mac, osx]
+tags: [java, mac]
 ---
 
 There's an interesting paragraph in the latest Mac OS X Java update relasenotes [New and Noteworthy](http://developer.apple.com/library/mac/#releasenotes/Java/JavaSnowLeopardUpdate3LeopardUpdate8RN/NewandNoteworthy/NewandNoteworthy.html) - a paragraph called "Java Deprecation".

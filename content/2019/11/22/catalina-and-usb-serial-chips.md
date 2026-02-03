@@ -1,7 +1,7 @@
 ---
 title: Catalina and USB Serial chips
 date: 2019-11-22 22:59 +0100
-tags: [iot, wemos, lolin, esp8266, esp32, cp2102, ch341, ch340, osx, catalina, mac]
+tags: [iot, wemos, lolin, esp8266, esp32, cp2102, ch341, ch340, catalina, mac]
 intro: To get some devices running under Mac OSX I have been using the drivers from mac-usb-serial.com - it seems that the ones I need are now working in Catalina out of the box
 ---
 

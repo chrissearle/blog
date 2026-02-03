@@ -1,6 +1,7 @@
 ---
 title: Monitoring IP changes
 date: 2020-01-29 11:49 +0100
+category: System Administration
 tags: [ipify, cloudflare, node-red, mqtt, mosquitto, grafana, influx, cron]
 image: /images/posts/2020/01/cron-ip-output.png
 intro: My ISP connection to home does not offer a static IP address. It does maintain a stable IP address - but after a period offline (either a fault or a power failure or similar) then that IP address may change. How to monitor this?

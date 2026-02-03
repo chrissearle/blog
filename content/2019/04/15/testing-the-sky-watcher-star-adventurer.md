@@ -1,7 +1,7 @@
 ---
 title: Testing the Sky-Watcher Star Adventurer
 date: 2019-04-15 13:49 +0200
-tags: [sky-watcher, star adventurer, star, tracking, stacking, M101, pinwheel galaxy, galaxy]
+tags: [sky-watcher, star adventurer, star, tracking, stacking, M101, pinwheel galaxy, galaxy, astrophotography]
 category: Photography
 embedImage: https://live.staticflickr.com/7915/33727856238_ab0f2339d6_b.jpg
 intro: First tests of both wide angle and deep sky astrophotograhy with the Star Adventurer

@@ -1,7 +1,7 @@
 ---
 title: Axial Bomber RR10 build
 date: 2017-03-04 17:44 +0100
-category: Radio Control
+category: Drones & RC
 tags: [axial, car, bomber, rr10]
 image: /images/posts/2017/03/side.jpg
 intro: Building and painting a new rock crawler

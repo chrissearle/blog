@@ -2,7 +2,7 @@
 title: Replaced Traxxas Stampede suspension arms with RPM A-arms
 date: 2014-06-06 16:06 +0200
 tags: [traxxas, stampede, rpm]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2014/06/traxxas-1.jpg
 intro: Had a slight accident with my stampede - hit a jump ramp at slightly the wrong angle and bust a suspension arm.
 ---

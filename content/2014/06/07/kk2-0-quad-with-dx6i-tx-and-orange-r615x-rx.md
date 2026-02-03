@@ -2,7 +2,7 @@
 title: KK2.0 quad with DX6i TX and orange R615X RX
 date: 2014-06-07 20:33 +0200
 tags: [dx6i, kk2.0, quadcopter, spektrum]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2014/06/quad.jpg
 intro: Replacing the Turnigiy TGY 9X radio with the DX6i
 ---

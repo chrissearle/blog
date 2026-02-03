@@ -2,7 +2,7 @@
 title: Racing 250 - frame change
 date: 2015-04-21 09:10 +0200
 tags: [FPV, "250", kk2.1, naze32]
-category: Radio Control
+category: Drones & RC
 intro: Updating the frame and controller on an FPV drone
 ---
 

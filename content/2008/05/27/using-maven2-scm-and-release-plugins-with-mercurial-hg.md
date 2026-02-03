@@ -1,7 +1,8 @@
 ---
 title: Using maven2 scm and release plugins with mercurial/hg
 date: 2008-05-27 11:27:10 +0200
-tags: [maven, release-plugin, scm-plugin, mercurial, hg]
+category: Software Development
+tags: [maven, release-plugin, scm-plugin, mercurial, hg, tutorial]
 ---
 
 Mercurial - like some other distributed version control systems works such that each developer has a full value repository - there is no real *master* other than by convention in a team.

@@ -1,6 +1,7 @@
 ---
 title: evms patched kernel
 date: 2006-01-27 08:17:46 +0100
+category: System Administration
 tags: [debian, kernel, evms]
 ---
 

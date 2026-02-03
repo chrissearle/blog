@@ -1,7 +1,7 @@
 ---
 title: BankID on Mountain Lion
 date: 2013-04-16 21:53:08 +0200
-tags: [java, mac, osx, apple, mountain lion, bankid, oracle, applet]
+tags: [java, mac, apple, mountain lion, bankid, oracle, applet]
 ---
 
 Norwegian BankID (used by most banks in Norway) uses a java applet for login.

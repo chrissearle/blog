@@ -1,6 +1,7 @@
 ---
 title: Increase entropy on a 2.6 kernel linux box
 date: 2008-10-13 17:35:14 +0200
+category: System Administration
 tags: [linux, debian, entropy, rng-tools]
 ---
 

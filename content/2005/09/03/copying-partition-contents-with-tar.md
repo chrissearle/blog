@@ -1,6 +1,7 @@
 ---
 title: Copying partition contents with tar
 date: 2005-09-03 11:07:49 +0200
+category: System Administration
 tags: [linux, tar]
 ---
 

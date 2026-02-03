@@ -1,7 +1,8 @@
 ---
 title: Tunnelling IPv6 from a mac over IPv4 tunnel through a debian firewall using tunnelbroker.net
 date: 2010-10-24 16:28:57 +0200
-tags: [mac, debian, firewall, osx, iptables, ipv4, ipv6, tunnel, tunnelbroker.net]
+category: System Administration
+tags: [mac, debian, firewall, iptables, ipv4, ipv6, tunnel, tunnelbroker.net]
 ---
 
 ## Tunnel configuration

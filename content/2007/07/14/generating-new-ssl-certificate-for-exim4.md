@@ -1,6 +1,7 @@
 ---
 title: Generating new SSL certificate for exim4
 date: 2007-07-14 11:36:24 +0200
+category: System Administration
 tags: [ssl, exim4]
 ---
 

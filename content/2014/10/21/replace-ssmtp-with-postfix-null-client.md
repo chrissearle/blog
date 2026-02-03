@@ -1,7 +1,8 @@
 ---
 title: Replace ssmtp with postfix null client
 date: 2014-10-21 09:49 +0200
-tags: [mail, gmail, ssmtp, postfix]
+category: System Administration
+tags: [mail, gmail, ssmtp, postfix, troubleshooting]
 intro: ssmtp failing to login to gmail for one machine - replacing with postfix null client
 ---
 

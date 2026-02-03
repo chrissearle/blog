@@ -1,6 +1,7 @@
 ---
 title: Compile Time Weaving of spring aspects in Intellij Idea
 date: 2008-04-22 13:41:54 +0200
+category: Software Development
 tags: [java, spring, aspectj, intellij idea]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: iSCSI on the ReadyNAS NV+ and OSX Snow Leopard
 date: 2010-02-05 09:34:41 +0100
-tags: [linux, mac, osx, network attached storage, readynas, snow leopard, iscsi]
+tags: [linux, mac, network attached storage, readynas, snow leopard, iscsi]
 ---
 
 The Pro series of NAS from ReadyNAS (Netgear) support iSCSI out of the box. But the NV+ 4disk unit does not. However - a [third party plugin is available](http://readynasfreeware.org/projects/nas-iscsi-target).

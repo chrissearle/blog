@@ -1,6 +1,7 @@
 ---
 title: Lets make a door nameplate
 date: 2020-11-11 17:12 +0100
+category: DIY Projects
 tags: [diy, woodworking, stencil]
 image: /images/posts/2020/11/corner.jpeg
 intro: Covid causes more deliveries - but they keep going to the wrong door. Let's make a door nameplate to help them.

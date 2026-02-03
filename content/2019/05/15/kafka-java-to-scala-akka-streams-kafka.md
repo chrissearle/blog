@@ -1,6 +1,7 @@
 ---
 title: Kafka - java to scala - akka streams kafka
 date: 2019-05-15 12:10 +0200
+category: Software Development
 tags: [scala, akka, akka streams, kafka, producer, consumer]
 series: Kafka - java to scala
 updated: 2020-01-23 00:00

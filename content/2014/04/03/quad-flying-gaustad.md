@@ -2,7 +2,7 @@
 title: Quad flying - Gaustad
 date: 2014-04-03 23:27 +0200
 tags: [quadcopter, phantom, gaustadjordet]
-category: Radio Control
+category: Drones & RC
 intro: Was out today with Fredrik and Bendik. Flew out three batteries.
 ---
 

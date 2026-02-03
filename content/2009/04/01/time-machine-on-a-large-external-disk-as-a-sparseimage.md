@@ -1,7 +1,7 @@
 ---
 title: Time machine on a large external disk as a sparseimage
 date: 2009-04-01 22:51:43 +0200
-tags: [mac, backup, osx, nas, network attached storage, time machine, readynas, storage]
+tags: [mac, backup, nas, network attached storage, time machine, readynas, storage]
 ---
 
 Having a very large external disk I wanted to limit Time Machine to use only part of it.

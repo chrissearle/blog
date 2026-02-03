@@ -1,6 +1,7 @@
 ---
 title: Spring, Aspects, @Configurable and Compile Time Weaving using maven
 date: 2008-05-22 10:09:16 +0200
+category: Software Development
 tags: [java, spring, maven, '@configurable', aspectj, compile time weaving]
 ---
 

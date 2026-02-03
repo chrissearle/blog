@@ -1,7 +1,8 @@
 ---
 title: mitmproxy with java
 date: 2020-12-09 08:05 +0100
-tags: [java, mitmproxy]
+category: Software Development
+tags: [java, mitmproxy, tutorial]
 image: /images/posts/2020/12/mitm-curl-response.png
 intro: Using mitmproxy to debug java web calls
 ---

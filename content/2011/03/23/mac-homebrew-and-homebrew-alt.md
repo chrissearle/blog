@@ -1,7 +1,7 @@
 ---
 title: Mac homebrew and homebrew-alt
 date: 2011-03-23 12:42:57 +0100
-tags: [mac, osx, rsync, homebrew]
+tags: [mac, rsync, homebrew]
 ---
 
 **Update 2012-08-23**

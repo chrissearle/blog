@@ -1,6 +1,7 @@
 ---
 title: LVM2 - Incorrect metadata area header checksum
 date: 2006-12-08 13:38:08 +0100
+category: System Administration
 tags: [debian, lvm2]
 ---
 

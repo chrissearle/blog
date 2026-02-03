@@ -1,7 +1,7 @@
 ---
 title: Leopard issues
 date: 2007-12-02 10:18:03 +0100
-tags: [mac, osx, leopard]
+tags: [mac, leopard]
 ---
 
 Folllowing issues after update (updated 8:55 wed 19th dec)

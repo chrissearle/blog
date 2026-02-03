@@ -1,7 +1,7 @@
 ---
 title: Running rvm ruby 1.9.2 with rvm packages on OSX Lion - failing to make due to readline
 date: 2011-08-16 10:05:44 +0200
-tags: [mac, ruby, osx, rvm, lion, readline]
+tags: [mac, ruby, rvm, lion, readline]
 ---
 
 Getting rvm rubies to compile with the rvm packages isn't turning out that easy.

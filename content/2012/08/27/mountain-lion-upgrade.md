@@ -1,7 +1,7 @@
 ---
 title: Mountain Lion upgrade
 date: 2012-08-27 08:59:32 +0200
-tags: [mac, osx, mountain lion]
+tags: [mac, mountain lion]
 ---
 
 Things I need to remember when updating to Mountain Lion. This list could well grow over time ;)

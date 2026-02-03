@@ -1,7 +1,7 @@
 ---
 title: Finding the current system JAVA_HOME on mac osx 10.5+
 date: 2012-01-03 10:40:48 +0100
-tags: [java, mac, osx]
+tags: [java, mac]
 ---
 
 I always forget where this file is located - so just as a reminder ;)

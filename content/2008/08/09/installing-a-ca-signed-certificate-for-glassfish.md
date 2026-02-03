@@ -1,6 +1,7 @@
 ---
 title: Installing a CA signed certificate for glassfish
 date: 2008-08-09 11:31:38 +0200
+category: System Administration
 tags: [ssl, keystore, keytool, glassfish, openssl]
 ---
 

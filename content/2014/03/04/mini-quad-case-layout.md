@@ -2,7 +2,7 @@
 title: Mini-quad case layout
 date: 2014-03-04 17:14 +0100
 tags: [quadcopter, hubsan, blade]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2014/03/case-2.jpg
 intro: Foam lined instrument case for a number of mini drones.
 ---

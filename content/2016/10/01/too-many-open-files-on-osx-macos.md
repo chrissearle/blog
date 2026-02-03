@@ -1,7 +1,7 @@
 ---
 title: Too many open files on OSX/macOS
 date: 2016-10-01 12:18 +0200
-tags: [osx, mac, ulimit]
+tags: [mac, ulimit]
 intro: Using launchd to bump max files - similar to sysctl on linux
 ---
 

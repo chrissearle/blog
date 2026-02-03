@@ -1,6 +1,7 @@
 ---
 title: Gradle toolchain detection of mise-en-place SDKs
 date: 2025-05-05 08:27 +0200
+category: Software Development
 tags: [java, kotlin, gradle, mise, mise-en-place]
 intro: Gradle toolchain support doesn't currently detect mise-en-place SDKs but there is a workaround.
 ---

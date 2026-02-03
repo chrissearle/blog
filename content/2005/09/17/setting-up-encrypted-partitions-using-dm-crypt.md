@@ -1,7 +1,8 @@
 ---
 title: Setting up encrypted partitions using dm-crypt
 date: 2005-09-17 10:16:47 +0200
-tags: [debian, lvm2, encryption]
+category: System Administration
+tags: [debian, lvm2, encryption, tutorial]
 ---
 
 All you need to know is found here [http://deb.riseup.net/storage/encryption/dmcrypt/](http://deb.riseup.net/storage/encryption/dmcrypt/)

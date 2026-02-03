@@ -1,7 +1,7 @@
 ---
 title: Importing custom CA certificates to OSX
 date: 2010-09-29 09:16:30 +0200
-tags: [mac, ssl, osx, openssl]
+tags: [mac, ssl, openssl]
 ---
 
 For my own sites I use SSL certificates [signed by my own CA](/2008/08/09/using-a-self-generated-certificate-authority-for-openssl-on-debian-etch)

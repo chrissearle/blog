@@ -1,7 +1,8 @@
 ---
 title: Unable to import openssl key to java keystore
 date: 2008-07-11 11:42:54 +0200
-tags: [ssl, keystore, openssl]
+category: System Administration
+tags: [ssl, keystore, openssl, troubleshooting]
 ---
 
 **UPDATE - progress - see end of article**

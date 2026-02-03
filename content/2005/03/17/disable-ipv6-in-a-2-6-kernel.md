@@ -1,6 +1,7 @@
 ---
 title: Disable IPv6 in a 2.6 kernel
 date: 2005-03-17 14:37:02 +0100
+category: System Administration
 tags: [debian, kernel, modprobe]
 ---
 

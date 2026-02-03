@@ -1,6 +1,7 @@
 ---
 title: UFW with Docker
 date: 2018-09-21 08:16 +0200
+category: System Administration
 tags: [ufw, docker, iptables, firewall]
 ---
 

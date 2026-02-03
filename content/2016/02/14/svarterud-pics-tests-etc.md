@@ -1,7 +1,7 @@
 ---
 title: Svarterud - pics, tests etc
 date: 2016-02-14 22:06 +0100
-category: Radio Control
+category: Drones & RC
 tags: [inspire1, quadcopter, dji, dronepan, autoflight]
 image: /images/posts/2016/02/lake.jpg
 intro: Testing DronePa and AutoPilot

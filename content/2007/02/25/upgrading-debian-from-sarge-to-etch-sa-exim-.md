@@ -1,6 +1,7 @@
 ---
 title: "Upgrading debian from sarge to etch : sa-exim "
 date: 2007-02-25 21:09:01 +0100
+category: System Administration
 tags: [debian, exim4, spamassassin, sa-exim]
 ---
 

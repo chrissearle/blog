@@ -1,6 +1,7 @@
 ---
 title: Debian sarge to etch test run
 date: 2006-12-19 12:38:20 +0100
+category: System Administration
 tags: [debian]
 ---
 

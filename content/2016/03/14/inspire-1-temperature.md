@@ -1,7 +1,7 @@
 ---
 title: Inspire 1 temperature
 date: 2016-03-14 10:45 +0100
-category: Radio Control
+category: Drones & RC
 tags: [inspire1, quadcopter, dji, healthydrones, flytrex]
 intro: Comparing flight temperature logs on flytrex and healthy drones
 ---

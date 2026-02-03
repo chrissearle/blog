@@ -1,6 +1,7 @@
 ---
 title: SSL certificates (apache2)
 date: 2006-01-30 21:34:50 +0100
+category: System Administration
 tags: [debian, ssl, apache2]
 ---
 

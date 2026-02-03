@@ -1,7 +1,8 @@
 ---
 title: r2dbc-postgresql - invalid ipv6 address when dockerized
 date: 2022-02-22 10:50 +0100
-tags: [docker, kotlin, spring, spring boot, postgresql, r2dbc, ipv6]
+category: Software Development
+tags: [docker, kotlin, spring, spring boot, postgresql, r2dbc, ipv6, troubleshooting]
 intro: A spring boot app using r2dbc was working fine locally but failing under docker - with "invalid ipv6 address"
 ---
 

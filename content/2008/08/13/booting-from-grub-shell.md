@@ -1,6 +1,7 @@
 ---
 title: Booting from grub shell
 date: 2008-08-13 12:11:23 +0200
+category: System Administration
 tags: [debian, grub]
 ---
 

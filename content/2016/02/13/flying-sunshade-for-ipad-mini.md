@@ -1,7 +1,7 @@
 ---
 title: Flying sunshade for iPad mini
 date: 2016-02-13 13:20 +0100
-category: Radio Control
+category: Drones & RC
 tags: [inspire1, quadcopter, dji, sunshade, ipad]
 image: /images/posts/2016/02/flat-view.jpg
 intro: Testing out sunshades for the iPad mini when flying with the Inspire

@@ -1,6 +1,7 @@
 ---
 title: Bathroom end of day 19
 date: 2013-12-13 17:44 +0100
+category: DIY Projects
 tags: [bathroom, diy]
 series: Bathroom
 image: /images/posts/2013/12/13-bathroom-01.jpg

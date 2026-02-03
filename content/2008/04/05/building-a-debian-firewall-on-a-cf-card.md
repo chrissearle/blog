@@ -1,6 +1,7 @@
 ---
 title: Building a debian firewall on a CF card
 date: 2008-04-05 20:56:53 +0200
+category: System Administration
 tags: [linux, debian, firewall, dns, bind, bind9, dhcp, iptables]
 ---
 

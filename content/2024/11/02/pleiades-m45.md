@@ -2,7 +2,7 @@
 title: Pleiades - M45
 date: 2024-11-02 10:37 +0100
 category: Photography
-tags: [seestar, s-50, zwo, star, tracking, m45, pleiades, seven sisters]
+tags: [seestar, s-50, zwo, star, tracking, m45, pleiades, seven sisters, astrophotography]
 intro: The Pleiades - also known as the Seven Sisters
 image: /images/posts/2024/11/02/m45.jpg
 ---

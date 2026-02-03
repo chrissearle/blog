@@ -1,6 +1,7 @@
 ---
 title: View refactor and save to keychain
 date: 2020-03-04 07:54 +0100
+category: Software Development
 tags: [ios, swift, swiftui, xcode]
 series: Revisiting the Sbanken API with SwiftUI
 intro: At this stage - we've a lot of stuff in the main ContentView. Let's do something about that first.

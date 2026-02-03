@@ -1,6 +1,7 @@
 ---
 title: LILO to grub the debian way
 date: 2005-05-23 22:30:54 +0200
+category: System Administration
 tags: [debian, lilo, grub]
 ---
 

@@ -2,7 +2,7 @@
 title: Using GoPro mount to attach FPV screen
 date: 2014-03-08 20:14 +0100
 tags: [quadcopter, phantom, dji, fpv]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2014/03/add-gopro-j-clip.jpg
 intro: THe usual adapters that fix the bar on the back are large and fiddly. This looks a lot simpler.
 ---

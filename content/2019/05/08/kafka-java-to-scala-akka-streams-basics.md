@@ -1,6 +1,7 @@
 ---
 title: Kafka - java to scala - akka streams basics
 date: 2019-05-08 12:41 +0200
+category: Software Development
 tags: [scala, akka, akka streams]
 series: Kafka - java to scala
 updated: 2020-01-23 00:00

@@ -1,7 +1,8 @@
 ---
 title: Exim4 shouldn't give up just because clamav died
 date: 2008-04-08 11:01:09 +0200
-tags: [debian, exim4, clamav]
+category: System Administration
+tags: [debian, exim4, clamav, troubleshooting]
 ---
 
 I was having the issue that if clamav died (usually due to freshclam update taking too long) that exim4 would start temporary rejecting ALL mail.

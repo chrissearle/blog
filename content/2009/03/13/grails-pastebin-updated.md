@@ -1,6 +1,7 @@
 ---
 title: Grails pastebin updated
 date: 2009-03-13 23:28:11 +0100
+category: Software Development
 tags: [java, pastebin, grails, groovy]
 ---
 

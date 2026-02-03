@@ -1,6 +1,7 @@
 ---
 title: Adding self-signed https certificates to java keystore
 date: 2007-10-25 11:57:37 +0200
+category: Software Development
 tags: [java, ssl, maven, keystore, webdav, keytool]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Spring AOP and maven dependencies"
 date: 2007-08-28 13:31:17 +0200
+category: Software Development
 tags: [java, aop, spring, maven, '@configurable', aspectj]
 ---
 

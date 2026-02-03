@@ -1,6 +1,7 @@
 ---
 title: Using continuum to build maven 2 projects that are in mercurial
 date: 2008-05-31 11:27:43 +0200
+category: Software Development
 tags: [maven, mercurial, continuum]
 ---
 

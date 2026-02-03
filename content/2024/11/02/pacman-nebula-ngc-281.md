@@ -2,7 +2,7 @@
 title: Pacman Nebula - NGC 281
 date: 2024-11-02 10:38 +0100
 category: Photography
-tags: [seestar, s-50, zwo, star, tracking, ngc-281, pacman nebula]
+tags: [seestar, s-50, zwo, star, tracking, ngc-281, pacman nebula, astrophotography]
 intro: The Pacman Nebula
 image: /images/posts/2024/11/02/ngc281.jpg
 ---

@@ -2,7 +2,7 @@
 title: Flying - Vinland
 date: 2014-09-21 20:44 +0200
 tags: [F550, hexcopter, dji]
-category: Radio Control
+category: Drones & RC
 intro: Flying the F550 hexcopter near Vinland/Gan
 ---
 

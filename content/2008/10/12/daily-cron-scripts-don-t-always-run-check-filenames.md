@@ -1,6 +1,7 @@
 ---
 title: Daily cron scripts don't always run - check filenames
 date: 2008-10-12 08:54:10 +0200
+category: System Administration
 tags: [debian, cron, cron.daily]
 ---
 

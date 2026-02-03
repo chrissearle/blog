@@ -1,6 +1,7 @@
 ---
 title: Monitoring and updating DNS for IP changes with ddclient
 date: 2024-10-12 11:37 +0200
+category: System Administration
 tags: [ipify, cloudflare, ddclient]
 intro: Replacing ipify and shell scripts with ddclient
 ---

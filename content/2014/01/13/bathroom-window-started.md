@@ -1,6 +1,7 @@
 ---
 title: Bathroom window started
 date: 2014-01-13 16:19 +0100
+category: DIY Projects
 tags: [bathroom, diy]
 series: Bathroom
 image: /images/posts/2014/01/bathroom-01.jpg

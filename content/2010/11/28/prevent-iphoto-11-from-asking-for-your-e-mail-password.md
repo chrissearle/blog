@@ -1,7 +1,7 @@
 ---
 title: Prevent iPhoto '11 from asking for your e-mail password
 date: 2010-11-28 19:46:06 +0100
-tags: [mac, smtp, osx, mail, passwords, iphoto, iphoto 11, keychain access, ilife 11]
+tags: [mac, smtp, mail, passwords, iphoto, iphoto 11, keychain access, ilife 11]
 image: /images/posts/2010/11/password-access.png
 ---
 

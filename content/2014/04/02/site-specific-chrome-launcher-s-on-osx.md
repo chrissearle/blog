@@ -1,7 +1,7 @@
 ---
 title: Site specific chrome launcher's on OSX
 date: 2014-04-02 10:44 +0200
-tags: [chrome, osx]
+tags: [chrome, mac]
 ---
 
 I was looking for a chrome based site specific browser (SSB) for mac. This is similar to http://fluidapp.com/ but chrome based.

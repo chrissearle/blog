@@ -1,6 +1,7 @@
 ---
 title: Recovering box after powercut
 date: 2005-08-03 07:28:16 +0200
+category: System Administration
 tags: [debian, lvm2]
 ---
 

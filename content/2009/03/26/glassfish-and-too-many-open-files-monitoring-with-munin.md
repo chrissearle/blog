@@ -1,6 +1,7 @@
 ---
 title: Glassfish and Too many open files - monitoring with munin
 date: 2009-03-26 09:39:43 +0100
+category: System Administration
 tags: [munin, glassfish, monitoring]
 ---
 

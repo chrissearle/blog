@@ -1,7 +1,8 @@
 ---
 title: Backup and restore of Unifi Cloud Key Gen2 Plus
 date: 2020-02-22 18:47 +0100
-tags: [unifi, unifi controller, unifi protect, unifi cloud key]
+category: System Administration
+tags: [unifi, unifi controller, unifi protect, unifi cloud key, tutorial]
 intro: After a cloudkey gen2 plus crash - how to get a backup restored when a factory reset installs an older software version.
 ---
 

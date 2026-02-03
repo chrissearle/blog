@@ -1,7 +1,7 @@
 ---
 title: Java Apps banned from new mac app store
 date: 2010-10-21 08:24:02 +0200
-tags: [java, mac, osx]
+tags: [java, mac]
 ---
 
 A follow up on [Java deprecated on Mac OS X](/2010/10/21/java-deprecated-on-mac-os-x)

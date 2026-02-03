@@ -2,7 +2,7 @@
 title: Flying at Svarterud
 date: 2015-10-26 12:03 +0100
 tags: [F550, hexcopter, dji, stables, svarterud]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2015/10/F550.jpg
 intro: First time flying down at Svarterud stables
 ---

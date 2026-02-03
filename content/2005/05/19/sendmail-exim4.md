@@ -1,6 +1,7 @@
 ---
 title: sendmail -> exim4
 date: 2005-05-19 12:18:29 +0200
+category: System Administration
 tags: [debian, exim4, sendmail, clamav, spamassassin]
 ---
 

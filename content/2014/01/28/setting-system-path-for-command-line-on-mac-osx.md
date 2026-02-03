@@ -1,7 +1,7 @@
 ---
 title: Setting system path for command line on Mac OSX
 date: 2014-01-28 08:42 +0100
-tags: [mac, osx, homebrew]
+tags: [mac, homebrew]
 ---
 
 There's plenty of information out there on how to set up the PATH variable for your local shell for OSX - it uses the same method as people are used to on linux - settings in your shell config files.

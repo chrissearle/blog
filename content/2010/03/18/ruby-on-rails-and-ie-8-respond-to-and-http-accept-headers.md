@@ -1,6 +1,7 @@
 ---
 title: Ruby on Rails and IE 8 - respond_to and HTTP accept headers
 date: 2010-03-18 23:35:15 +0100
+category: Software Development
 tags: [rails, ruby on rails, respond-to, http-accept, ie8]
 ---
 

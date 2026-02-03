@@ -1,6 +1,7 @@
 ---
 title: Switching between java JDK's on debian
 date: 2007-01-15 12:01:17 +0100
+category: Software Development
 tags: [java, debian, alternatives]
 ---
 

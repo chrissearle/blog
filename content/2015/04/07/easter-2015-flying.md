@@ -2,7 +2,7 @@
 title: Easter 2015 - Flying
 date: 2015-04-07 20:05 +0200
 tags: [easter, F550, hexcopter, dji]
-category: Radio Control
+category: Drones & RC
 intro: A quick flight near to Sangenuten
 ---
 

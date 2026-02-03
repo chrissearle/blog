@@ -1,6 +1,7 @@
 ---
 title: exim4 - dnslookup - ignore_target_hosts
 date: 2005-06-07 11:33:05 +0200
+category: System Administration
 tags: [linux, exim4, dns]
 ---
 

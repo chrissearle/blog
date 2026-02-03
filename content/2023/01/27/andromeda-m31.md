@@ -1,7 +1,7 @@
 ---
 title: Andromeda - M31
 date: 2023-01-27 11:08 +0100
-tags: [sky-watcher, star adventurer, star, tracking, stacking, m31, andromeda galaxy, galaxy, samyang]
+tags: [sky-watcher, star adventurer, star, tracking, stacking, m31, andromeda galaxy, galaxy, samyang, astrophotography]
 category: Photography
 intro: Andromeda (M31) taken from Sørkedalen - testing the Samyang 135mm f/2
 image: /images/posts/2023/01/m31.png

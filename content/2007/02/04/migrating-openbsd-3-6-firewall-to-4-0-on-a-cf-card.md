@@ -1,6 +1,7 @@
 ---
 title: Migrating OpenBSD 3.6 firewall to 4.0 on a CF card
 date: 2007-02-04 17:12:38 +0100
+category: System Administration
 tags: [openbsd, firewall, compact flash]
 ---
 

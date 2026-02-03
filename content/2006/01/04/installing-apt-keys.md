@@ -1,6 +1,7 @@
 ---
 title: Installing apt keys
 date: 2006-01-04 08:31:46 +0100
+category: System Administration
 tags: [debian, apt, gnupg]
 ---
 

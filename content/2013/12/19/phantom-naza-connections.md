@@ -2,7 +2,7 @@
 title: Phantom Naza connections
 date: 2013-12-19 15:48 +0100
 tags: [quadcopter, dji, phantom, naza]
-category: Radio Control
+category: Drones & RC
 image: /images/posts/2013/12/connections.jpg
 intro: Disconnected the wiring - but couldn't find the diagrams to reconnect online. Dealer helped
 ---
