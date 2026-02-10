@@ -81,6 +81,9 @@ export default defineNuxtConfig({
   },
 
   linkChecker: {
-    excludeLinks: ["https://www.chrissearle.org", "https://www.chrissearle.org/"],
+    excludeLinks: [
+      "https://www.chrissearle.org",
+      "https://www.chrissearle.org/",
+    ],
   },
 })

@@ -1,55 +1,58 @@
 #!/usr/bin/env node
 
-import { mkdir, writeFile } from "fs/promises";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { mkdir, writeFile } from "fs/promises"
+import { join, dirname } from "path"
+import { fileURLToPath } from "url"
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const args = process.argv.slice(2);
-const hasImages = args.includes("--images") || args.includes("-i");
-const title = args.filter((a) => !a.startsWith("-")).join(" ");
+const args = process.argv.slice(2)
+const hasImages = args.includes("--images") || args.includes("-i")
+const title = args.filter((a) => !a.startsWith("-")).join(" ")
 
 if (!title) {
-  console.error("Usage: post <title> [--images]");
-  process.exit(1);
+  console.error("Usage: post <title> [--images]")
+  process.exit(1)
 }
 
 const slug = title
   .toLowerCase()
   .replace(/[^a-z0-9]+/g, "-")
-  .replace(/^-|-$/g, "");
+  .replace(/^-|-$/g, "")
 
-const now = new Date();
-const pad = (n) => String(n).padStart(2, "0");
-const year = now.getFullYear();
-const month = pad(now.getMonth() + 1);
-const day = pad(now.getDate());
-const hours = pad(now.getHours());
-const minutes = pad(now.getMinutes());
-const tz = now.toLocaleTimeString("en", { timeZoneName: "shortOffset" }).split(" ").pop();
+const now = new Date()
+const pad = (n) => String(n).padStart(2, "0")
+const year = now.getFullYear()
+const month = pad(now.getMonth() + 1)
+const day = pad(now.getDate())
+const hours = pad(now.getHours())
+const minutes = pad(now.getMinutes())
+const tz = now
+  .toLocaleTimeString("en", { timeZoneName: "shortOffset" })
+  .split(" ")
+  .pop()
 
-const datePath = `${year}/${month}/${day}`;
-const dateStr = `${year}-${month}-${day} ${hours}:${minutes} ${tz}`;
+const datePath = `${year}/${month}/${day}`
+const dateStr = `${year}-${month}-${day} ${hours}:${minutes} ${tz}`
 
-const contentDir = join(__dirname, "..", "content", datePath);
-const postFile = join(contentDir, `${slug}.md`);
+const contentDir = join(__dirname, "..", "content", datePath)
+const postFile = join(contentDir, `${slug}.md`)
 
-const imageLine = hasImages ? `image: /images/posts/${datePath}/\n` : "";
+const imageLine = hasImages ? `image: /images/posts/${datePath}/\n` : ""
 const frontmatter = `---
 title: ${title}
 date: ${dateStr}
 tags:
 intro:
 ${imageLine}---
-`;
+`
 
-await mkdir(contentDir, { recursive: true });
-await writeFile(postFile, frontmatter);
-console.log(`Created: ${postFile}`);
+await mkdir(contentDir, { recursive: true })
+await writeFile(postFile, frontmatter)
+console.log(`Created: ${postFile}`)
 
 if (hasImages) {
-  const imageDir = join(__dirname, "..", "public", "images", "posts", datePath);
-  await mkdir(imageDir, { recursive: true });
-  console.log(`Created: ${imageDir}`);
+  const imageDir = join(__dirname, "..", "public", "images", "posts", datePath)
+  await mkdir(imageDir, { recursive: true })
+  console.log(`Created: ${imageDir}`)
 }

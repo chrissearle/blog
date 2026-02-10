@@ -89,30 +89,33 @@ const emit = defineEmits<{
 }>()
 
 const close = () => {
-  emit('close')
+  emit("close")
 }
 
 // Close on ESC key
 onMounted(() => {
   const handleEscape = (e: KeyboardEvent) => {
-    if (e.key === 'Escape' && props.isOpen) {
+    if (e.key === "Escape" && props.isOpen) {
       close()
     }
   }
 
-  window.addEventListener('keydown', handleEscape)
+  window.addEventListener("keydown", handleEscape)
 
   onUnmounted(() => {
-    window.removeEventListener('keydown', handleEscape)
+    window.removeEventListener("keydown", handleEscape)
   })
 })
 
 // Prevent body scroll when open
-watch(() => props.isOpen, (isOpen) => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
-  }
-})
+watch(
+  () => props.isOpen,
+  (isOpen) => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+  },
+)
 </script>

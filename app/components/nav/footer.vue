@@ -11,7 +11,11 @@ const hasCategories = computed(() => (countData.value ?? 0) > 0)
   <UFooter class="md:hidden">
     <UContainer class="py-4">
       <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
-        <NuxtLink v-if="hasCategories" to="/categories/" class="hover:underline">
+        <NuxtLink
+          v-if="hasCategories"
+          to="/categories/"
+          class="hover:underline"
+        >
           All Categories
         </NuxtLink>
 
