@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { PostPreview } from "~/types/post"
 
+const { dateFormat } = useDates()
 const { splitList } = useStrings()
 
 const props = defineProps<{
@@ -28,6 +29,10 @@ const categories = splitList(props.post.category)
 <template>
   <div>
     <h1 class="pageTitle">{{ props.post.title }}</h1>
+
+    <p class="text-sm text-muted mt-1">
+      {{ dateFormat(post.date) }}
+    </p>
 
     <div class="mt-2 flex flex-wrap gap-2">
       <SeriesBadge v-if="post.series" :series="post.series" />
