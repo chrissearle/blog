@@ -7,7 +7,7 @@ intro: The Pacman Nebula
 image: /images/posts/2024/11/02/ngc281.jpg
 ---
 
-![The Pacman Nebula - NTG 281](/images/posts/2024/11/02/ngc281.jpg)
+![The Pacman Nebula - NGC 281](/images/posts/2024/11/02/ngc281.jpg)
 
 Taken with the Seestar S-50 - which automatically applies darks to the fit files - using the newly released mosaic mode.
 
