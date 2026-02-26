@@ -9,6 +9,9 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN npm install -g pnpm
 
+# Timeouts on github fetching prebuilt binaries for better-sqlite3 cause it to try to build - and that requires python
+# which is not available by default in the arm64 image. Add so that it's there for fallback.
+
 RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
