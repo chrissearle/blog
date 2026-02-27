@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@artmizu/nuxt-prometheus": "3.0.0",
-    "@nuxt/content": "3.11.2",
+    "@nuxt/content": "3.12.0",
     "@nuxt/eslint": "1.15.2",
     "@nuxt/image": "2.0.0",
     "@nuxt/scripts": "0.13.2",
