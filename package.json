@@ -22,7 +22,7 @@
     "@nuxt/ui": "4.5.0",
     "@nuxtjs/seo": "3.4.0",
     "@nuxtjs/sitemap": "7.6.0",
-    "@unhead/vue": "2.1.9",
+    "@unhead/vue": "2.1.10",
     "better-sqlite3": "12.6.2",
     "eslint": "10.0.2",
     "eslint-config-prettier": "10.1.8",
