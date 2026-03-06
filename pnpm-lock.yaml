@@ -76,8 +76,8 @@ importers:
         specifier: 1.2.3
         version: 1.2.3
       '@iconify-json/lucide':
-        specifier: 1.2.95
-        version: 1.2.95
+        specifier: 1.2.96
+        version: 1.2.96
       debug:
         specifier: 4.4.3
         version: 4.4.3
@@ -557,8 +557,8 @@ packages:
   '@iconify-json/heroicons@1.2.3':
     resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
 
-  '@iconify-json/lucide@1.2.95':
-    resolution: {integrity: sha512-SxDM/NEJtcGGAiLAnaZ7rcmVxkJI8esswTZLCm5BfNcoPf/yawIImb4nNfsu4dtFzP/Cl6KRg+vZq521zOUOnQ==}
+  '@iconify-json/lucide@1.2.96':
+    resolution: {integrity: sha512-EICTusj67lvSmEaH/Lhe68ZyzcgfcPNpY00exAOkoo+z2fnLeNy31mdE3E/4/q8WjzZrICAZDxY3d6j7LzkgNA==}
 
   '@iconify/collections@1.0.657':
     resolution: {integrity: sha512-I9NQh96i/a3GroGjnF77Hb1/KimE7KhJ8B1NQPE8MuDkvN2W3oNl4DYzQR+sgiGVOFsFjzu20NHsQ/69rv1vSQ==}
@@ -7152,7 +7152,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.95':
+  '@iconify-json/lucide@1.2.96':
     dependencies:
       '@iconify/types': 2.0.0
 
