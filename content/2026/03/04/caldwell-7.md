@@ -9,6 +9,6 @@ image: /images/posts/2026/03/04/ngc2403.png
 
 ![Caldwell 7 - NGC 2403](/images/posts/2026/03/04/ngc2403.png)
 
-* Telesccope: Seestar S-50
+* Telescope: Seestar S-50
 * Date: 2026-03-03
 * Integration time - approx 1 hour 12 minutes

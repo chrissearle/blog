@@ -9,6 +9,6 @@ image: /images/posts/2026/02/22/m1.png
 
 ![The Crab Nebula - Messier 1 - NGC 1952](/images/posts/2026/02/22/m1.png)
 
-* Telesccope: Seestar S-50
+* Telescope: Seestar S-50
 * Date: 2026-02-21
 * Integration time - approx 2 hours
