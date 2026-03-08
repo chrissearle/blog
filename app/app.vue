@@ -2,7 +2,9 @@
   <UApp>
     <NavBar />
 
-    <NuxtPage />
+    <main class="flex-1">
+      <NuxtPage />
+    </main>
 
     <NavFooter />
   </UApp>

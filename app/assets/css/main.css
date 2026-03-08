@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
 .pageTitle {
   @apply mb-6 text-3xl font-semibold tracking-tight;
 }

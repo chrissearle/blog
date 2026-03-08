@@ -7,7 +7,7 @@ const { data: page } = await useAsyncData(`content-${route.path}`, () =>
 </script>
 
 <template>
-  <UContainer>
+  <UContainer class="pb-12">
     <PostsLong v-if="page" :post="page" />
   </UContainer>
 </template>
