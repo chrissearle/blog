@@ -1,3 +1,46 @@
+<script setup lang="ts">
+const props = defineProps<{
+  src: string
+  alt: string
+  isOpen: boolean
+}>()
+
+const emit = defineEmits<{
+  close: []
+}>()
+
+const close = () => {
+  emit("close")
+}
+
+// Close on ESC key
+onMounted(() => {
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && props.isOpen) {
+      close()
+    }
+  }
+
+  window.addEventListener("keydown", handleEscape)
+
+  onUnmounted(() => {
+    window.removeEventListener("keydown", handleEscape)
+  })
+})
+
+// Prevent body scroll when open
+watch(
+  () => props.isOpen,
+  (isOpen) => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+  },
+)
+</script>
+
 <template>
   <!-- Backdrop -->
   <Transition
@@ -76,46 +119,3 @@
     </div>
   </Transition>
 </template>
-
-<script setup lang="ts">
-const props = defineProps<{
-  src: string
-  alt: string
-  isOpen: boolean
-}>()
-
-const emit = defineEmits<{
-  close: []
-}>()
-
-const close = () => {
-  emit("close")
-}
-
-// Close on ESC key
-onMounted(() => {
-  const handleEscape = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && props.isOpen) {
-      close()
-    }
-  }
-
-  window.addEventListener("keydown", handleEscape)
-
-  onUnmounted(() => {
-    window.removeEventListener("keydown", handleEscape)
-  })
-})
-
-// Prevent body scroll when open
-watch(
-  () => props.isOpen,
-  (isOpen) => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
-    }
-  },
-)
-</script>

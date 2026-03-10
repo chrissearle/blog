@@ -35,6 +35,7 @@ const postPath = computed(() =>
       <NuxtLink
         v-if="post.image || post.embedImage"
         :to="postPath"
+        :aria-label="`Read post: ${post.title}`"
         class="block w-full rounded-lg mb-4 transition-all hover:scale-[1.02]"
       >
         <NuxtImg

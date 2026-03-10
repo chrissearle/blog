@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const route = useRoute()
 
 const { data: page } = await useAsyncData(`content-${route.path}`, () =>
