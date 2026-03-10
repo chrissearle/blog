@@ -32,12 +32,17 @@ const postPath = computed(() =>
         {{ post.intro }}
       </p>
 
-      <NuxtImg
+      <NuxtLink
         v-if="post.image || post.embedImage"
-        :src="post.image || post.embedImage"
-        :alt="post.title"
-        class="w-full rounded-lg mb-4"
-      />
+        :to="postPath"
+        class="block w-full rounded-lg mb-4 transition-all hover:scale-[1.02]"
+      >
+        <NuxtImg
+          :src="post.image || post.embedImage"
+          :alt="post.title"
+          class="w-full rounded-lg"
+        />
+      </NuxtLink>
 
       <div class="flex justify-end">
         <UButton
