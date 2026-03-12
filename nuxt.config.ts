@@ -80,6 +80,13 @@ export default defineNuxtConfig({
     },
   },
 
+  sitemap: {
+    exclude: [
+      '/version',
+      '/page/**',
+    ],
+  },
+
   linkChecker: {
     excludeLinks: [
       "https://www.chrissearle.org",
