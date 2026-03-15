@@ -42,7 +42,7 @@
     "@iconify-json/lucide": "1.2.97",
     "debug": "4.4.3",
     "husky": "9.1.7",
-    "lint-staged": "16.3.3",
+    "lint-staged": "16.4.0",
     "parse5": "8.0.0",
     "rehype-raw": "7.0.0",
     "remark-emoji": "5.0.2",
