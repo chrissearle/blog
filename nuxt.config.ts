@@ -93,4 +93,10 @@ export default defineNuxtConfig({
       "https://www.chrissearle.org/",
     ],
   },
+
+  vite: {
+    optimizeDeps: {
+      include: ["luxon"],
+    },
+  },
 })

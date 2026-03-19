@@ -20,7 +20,7 @@
     "@nuxt/image": "2.0.0",
     "@nuxt/scripts": "0.13.2",
     "@nuxt/ui": "4.5.1",
-    "@nuxtjs/seo": "3.4.0",
+    "@nuxtjs/seo": "4.0.2",
     "@nuxtjs/sitemap": "7.6.0",
     "@unhead/vue": "2.1.12",
     "better-sqlite3": "12.8.0",
