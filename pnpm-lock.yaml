@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@artmizu/nuxt-prometheus':
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
       '@nuxt/content':
         specifier: 3.12.0
         version: 3.12.0(better-sqlite3@12.8.0)(magicast@0.5.2)(valibot@1.2.0(typescript@6.0.2))
@@ -134,8 +134,8 @@ packages:
     peerDependencies:
       '@types/json-schema': ^7.0.15
 
-  '@artmizu/nuxt-prometheus@3.0.0':
-    resolution: {integrity: sha512-Qkxt7Cyjgen6DOof8Emu4tuRmScBhpv4pL0wJ9fDJEpvLSwkiKnu0pfDFVKn8Mb4huWIbCIKF5MrLfebtdl3kg==}
+  '@artmizu/nuxt-prometheus@3.0.1':
+    resolution: {integrity: sha512-I7JWql4/KHLckQ8OqERjXxxIoCSqdfT31jG/WJRTgtnrrAprC0+2k3fDSFYZxFXABKxg2trCmwc+bnY54gANCg==}
 
   '@babel/code-frame@7.29.0':
     resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
@@ -4155,15 +4155,6 @@ packages:
   h3@1.15.4:
     resolution: {integrity: sha512-z5cFQWDffyOe4vQ9xIqNfCZdV4p//vy6fBnr8Q1AWnVZ0teurKMG66rLj++TKwKPUP3u7iMUvrvKaEUiQw2QWQ==}
 
-  h3@1.15.5:
-    resolution: {integrity: sha512-xEyq3rSl+dhGX2Lm0+eFQIAzlDN6Fs0EcC4f7BNUmzaRX/PTzeuM+Tr2lHB8FoXggsQIeXLj8EDVgs5ywxyxmg==}
-
-  h3@1.15.6:
-    resolution: {integrity: sha512-oi15ESLW5LRthZ+qPCi5GNasY/gvynSKUQxgiovrY63bPAtG59wtM+LSrlcwvOHAXzGrXVLnI97brbkdPF9WoQ==}
-
-  h3@1.15.8:
-    resolution: {integrity: sha512-iOH6Vl8mGd9nNfu9C0IZ+GuOAfJHcyf3VriQxWaSWIB76Fg4BnFuk4cxBxjmQSSxJS664+pgjP6e7VBnUzFfcg==}
-
   has-property-descriptors@1.0.2:
     resolution: {integrity: sha512-55JNKuIW+vq4Ke1BjOTjM2YctQIvCT7GFzHwmfZPGo5wnrgkid0YQtnAleFSqumZm4az3n2BS+erby5ipJdgrg==}
 
@@ -6906,12 +6897,12 @@ snapshots:
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.1
 
-  '@artmizu/nuxt-prometheus@3.0.0':
+  '@artmizu/nuxt-prometheus@3.0.1':
     dependencies:
       '@mswjs/interceptors': 0.40.0
       consola: 3.4.2
       defu: 6.1.4
-      h3: 1.15.5
+      h3: 1.15.10
       prom-client: 15.1.3
 
   '@babel/code-frame@7.29.0':
@@ -7286,7 +7277,7 @@ snapshots:
       chokidar: 5.0.0
       esbuild: 0.27.3
       eslint: 10.1.0(jiti@2.6.1)
-      h3: 1.15.5
+      h3: 1.15.10
       tinyglobby: 0.2.15
       ws: 8.19.0
     transitivePeerDependencies:
@@ -7828,7 +7819,7 @@ snapshots:
       consola: 3.4.2
       defu: 6.1.4
       fontless: 0.2.1(db0@0.3.4(better-sqlite3@12.8.0))(ioredis@5.9.2)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))
-      h3: 1.15.8
+      h3: 1.15.10
       magic-regexp: 0.10.0
       ofetch: 1.5.1
       pathe: 2.0.3
@@ -8058,7 +8049,7 @@ snapshots:
       errx: 0.1.0
       escape-string-regexp: 5.0.0
       exsolve: 1.0.8
-      h3: 1.15.6
+      h3: 1.15.10
       impound: 1.1.5
       klona: 2.0.6
       mocked-exports: 0.1.1
@@ -8412,7 +8403,7 @@ snapshots:
       '@nuxt/kit': 4.4.2(magicast@0.5.2)
       consola: 3.4.2
       defu: 6.1.4
-      h3: 1.15.8
+      h3: 1.15.10
       nuxt-site-config: 3.2.21(magicast@0.5.2)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.31(typescript@6.0.2))
       pathe: 2.0.3
       pkg-types: 2.3.0
@@ -11349,42 +11340,6 @@ snapshots:
       ufo: 1.6.3
       uncrypto: 0.1.3
 
-  h3@1.15.5:
-    dependencies:
-      cookie-es: 1.2.2
-      crossws: 0.3.5
-      defu: 6.1.4
-      destr: 2.0.5
-      iron-webcrypto: 1.2.1
-      node-mock-http: 1.0.4
-      radix3: 1.1.2
-      ufo: 1.6.3
-      uncrypto: 0.1.3
-
-  h3@1.15.6:
-    dependencies:
-      cookie-es: 1.2.2
-      crossws: 0.3.5
-      defu: 6.1.4
-      destr: 2.0.5
-      iron-webcrypto: 1.2.1
-      node-mock-http: 1.0.4
-      radix3: 1.1.2
-      ufo: 1.6.3
-      uncrypto: 0.1.3
-
-  h3@1.15.8:
-    dependencies:
-      cookie-es: 1.2.2
-      crossws: 0.3.5
-      defu: 6.1.4
-      destr: 2.0.5
-      iron-webcrypto: 1.2.1
-      node-mock-http: 1.0.4
-      radix3: 1.1.2
-      ufo: 1.6.3
-      uncrypto: 0.1.3
-
   has-property-descriptors@1.0.2:
     dependencies:
       es-define-property: 1.0.1
@@ -11628,7 +11583,7 @@ snapshots:
       defu: 6.1.4
       destr: 2.0.5
       etag: 1.8.1
-      h3: 1.15.5
+      h3: 1.15.10
       image-meta: 0.2.2
       listhen: 1.9.0
       ofetch: 1.5.1
@@ -11928,7 +11883,7 @@ snapshots:
       crossws: 0.3.5
       defu: 6.1.4
       get-port-please: 3.2.0
-      h3: 1.15.8
+      h3: 1.15.10
       http-shutdown: 1.2.2
       jiti: 2.6.1
       mlly: 1.8.2
@@ -12486,7 +12441,7 @@ snapshots:
       exsolve: 1.0.8
       globby: 16.1.0
       gzip-size: 7.0.0
-      h3: 1.15.8
+      h3: 1.15.10
       hookable: 5.5.3
       httpxy: 0.1.7
       ioredis: 5.9.2
@@ -12785,7 +12740,7 @@ snapshots:
     dependencies:
       '@nuxt/devtools-kit': 3.2.4(magicast@0.5.2)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))
       '@nuxt/kit': 4.4.2(magicast@0.5.2)
-      h3: 1.15.8
+      h3: 1.15.10
       nuxt-site-config-kit: 3.2.21(magicast@0.5.2)(vue@3.5.31(typescript@6.0.2))
       pathe: 2.0.3
       pkg-types: 2.3.0
@@ -14633,7 +14588,7 @@ snapshots:
       anymatch: 3.1.3
       chokidar: 4.0.3
       destr: 2.0.5
-      h3: 1.15.5
+      h3: 1.15.10
       lru-cache: 10.4.3
       node-fetch-native: 1.6.7
       ofetch: 1.5.1
@@ -14647,7 +14602,7 @@ snapshots:
       anymatch: 3.1.3
       chokidar: 5.0.0
       destr: 2.0.5
-      h3: 1.15.8
+      h3: 1.15.10
       lru-cache: 11.2.5
       node-fetch-native: 1.6.7
       ofetch: 1.5.1
