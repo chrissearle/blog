@@ -8,10 +8,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const args = process.argv.slice(2)
 const hasImages = args.includes("--images") || args.includes("-i")
+const isAstro = args.includes("--astro") || args.includes("-a")
 const title = args.filter((a) => !a.startsWith("-")).join(" ")
 
 if (!title) {
-  console.error("Usage: post <title> [--images]")
+  console.error("Usage: post <title> [--images] [--astro]")
   process.exit(1)
 }
 
@@ -39,20 +40,55 @@ const dateStr = `${year}-${month}-${day} ${hours}:${minutes} ${tz}`
 const contentDir = join(__dirname, "..", "content", datePath)
 const postFile = join(contentDir, `${slug}.md`)
 
-const imageLine = hasImages ? `image: /images/posts/${datePath}/\n` : ""
-const frontmatter = `---
+let content
+
+if (isAstro) {
+  content = `---
+title: ${title}
+date: ${dateStr}
+category: Photography
+tags: [ astrophotography ]
+intro: ${title}
+image: /images/posts/${datePath}/${slug}.png
+---
+
+| Names     | ${title} |
+|-----------|---|
+| Magnitude |   |
+| Size      |   |
+| Ra        |   |
+| Dec       |   |
+
+TODO description.[^1]
+
+![${title}](/images/posts/${datePath}/${slug}.png)
+
+## Photo Details
+
+|                  |   |
+|------------------|---|
+| Telescope        |   |
+| Dates            |   |
+| Integration time |   |
+
+[^1]: [Wikipedia]()
+`
+} else {
+  const imageLine = hasImages ? `image: /images/posts/${datePath}/\n` : ""
+  content = `---
 title: ${title}
 date: ${dateStr}
 tags:
 intro:
 ${imageLine}---
 `
+}
 
 await mkdir(contentDir, { recursive: true })
-await writeFile(postFile, frontmatter)
+await writeFile(postFile, content)
 console.log(`Created: ${postFile}`)
 
-if (hasImages) {
+if (isAstro || hasImages) {
   const imageDir = join(__dirname, "..", "public", "images", "posts", datePath)
   await mkdir(imageDir, { recursive: true })
   console.log(`Created: ${imageDir}`)
