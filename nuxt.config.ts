@@ -23,14 +23,17 @@ export default defineNuxtConfig({
   },
 
   content: {
-    markdown: {
-      rehypePlugins: [
-        "rehype-external-links",
-        {
-          target: "_blank",
-          rel: "noopener noreferer nofollow",
+    build: {
+      markdown: {
+        rehypePlugins: {
+          "rehype-external-links": {
+            options: {
+              target: "_blank",
+              rel: "noopener noreferer nofollow",
+            },
+          },
         },
-      ],
+      },
     },
   },
 
@@ -81,10 +84,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: [
-      '/version',
-      '/page/**',
-    ],
+    exclude: ["/version", "/page/**"],
   },
 
   linkChecker: {
