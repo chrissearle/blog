@@ -2,6 +2,9 @@
 import withNuxt from "./.nuxt/eslint.config.mjs"
 
 export default withNuxt({
+  ignores: ["**/*.md"],
+},
+{
   rules: {
     semi: ["error", "never"],
     "vue/html-self-closing": [
@@ -26,5 +29,7 @@ export default withNuxt({
         varsIgnorePattern: "^_",
       },
     ],
+    "link-checker/valid-route": "off",
+    "link-checker/valid-sitemap-link": "off",
   },
 })
