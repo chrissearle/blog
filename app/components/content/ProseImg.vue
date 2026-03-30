@@ -43,14 +43,14 @@ const closeLightbox = () => {
   <figure class="my-5">
     <button
       type="button"
-      class="w-full cursor-zoom-in focus:outline-none rounded-lg transition-all hover:shadow-lg hover:scale-[1.02]"
+      class="group block mx-auto cursor-zoom-in focus:outline-none rounded-lg"
       :aria-labelledby="captionId"
       @click="openLightbox"
     >
       <NuxtImg
         :src="refinedSrc"
         :alt="alt"
-        class="w-full max-h-[600px] object-contain rounded-lg hover:opacity-90 transition-opacity"
+        class="block mx-auto max-w-full max-h-[600px] object-contain rounded-lg transition-all group-hover:opacity-90 group-hover:shadow-lg group-hover:scale-[1.02]"
       />
       <span class="sr-only">Click to view full size: {{ alt }}</span>
     </button>
