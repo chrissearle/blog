@@ -30,8 +30,6 @@ export default withNuxt(
           varsIgnorePattern: "^_",
         },
       ],
-      "link-checker/valid-route": "off",
-      "link-checker/valid-sitemap-link": "off",
     },
   },
 )

@@ -87,6 +87,11 @@ export default defineNuxtConfig({
     exclude: ["/version", "/page/**"],
   },
 
+  // Images are generated at build time, so we can skip the runtime signing etc
+  ogImage: {
+    zeroRuntime: true,
+  },
+
   linkChecker: {
     excludeLinks: [
       "https://www.chrissearle.org",
