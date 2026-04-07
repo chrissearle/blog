@@ -34,3 +34,35 @@ jobs:
         run: pnpm build
         env:
           NUXT_PUBLIC_PROMETHEUS_VERBOSE: false
+
+      - name: Start preview server
+        run: pnpm preview &
+        env:
+          NUXT_PUBLIC_PROMETHEUS_VERBOSE: false
+
+      - name: Wait for server to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000 > /dev/null 2>&1; then
+              echo "Server ready"
+              exit 0
+            fi
+            echo "Waiting for server... ($i/30)"
+            sleep 2
+          done
+          echo "Server did not start in time"
+          exit 1
+
+      - name: Check front page and latest article
+        run: |
+          LATEST=$(find content -name "*.md" | grep -E "^content/[0-9]{4}/" | sort | tail -1)
+          TITLE=$(grep "^title:" "$LATEST" | head -1 | sed "s/^title:[[:space:]]*//" | tr -d "\""\')
+          echo "Latest post file: $LATEST"
+          echo "Checking for title: $TITLE"
+          RESPONSE=$(curl -sf http://localhost:3000/)
+          if echo "$RESPONSE" | grep -qF "$TITLE"; then
+            echo "Latest article found on front page"
+          else
+            echo "Latest article NOT found on front page"
+            exit 1
+          fi
