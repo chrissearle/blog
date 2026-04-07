@@ -21,7 +21,7 @@
     "@nuxt/scripts": "0.13.2",
     "@nuxt/ui": "4.6.1",
     "@nuxtjs/seo": "5.1.2",
-    "@nuxtjs/sitemap": "8.0.11",
+    "@nuxtjs/sitemap": "8.0.12",
     "@unhead/vue": "2.1.13",
     "better-sqlite3": "12.8.0",
     "eslint": "10.2.0",
