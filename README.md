@@ -37,11 +37,13 @@ pnpm preview      # preview a production build locally
 ```
 
 **Node.js server** (after `pnpm build`):
+
 ```shell
 node .output/server/index.mjs
 ```
 
 **Docker** (multistage build):
+
 ```shell
 docker build -t chrissearle/blog:latest .
 ```
@@ -67,10 +69,10 @@ intro:
 
 ### Options
 
-| Flag | Short | Description |
-|------|-------|-------------|
-| `--images` | `-i` | Add an `image:` field to frontmatter and create `public/images/posts/YYYY/MM/DD/` |
-| `--astro` | `-a` | Use the astrophotography template (pre-fills category, tags, an object data table, and photo details section) |
+| Flag       | Short | Description                                                                                                   |
+| ---------- | ----- | ------------------------------------------------------------------------------------------------------------- |
+| `--images` | `-i`  | Add an `image:` field to frontmatter and create `public/images/posts/YYYY/MM/DD/`                             |
+| `--astro`  | `-a`  | Use the astrophotography template (pre-fills category, tags, an object data table, and photo details section) |
 
 ```shell
 node scripts/post "Orion Nebula" --astro     # astrophotography post
