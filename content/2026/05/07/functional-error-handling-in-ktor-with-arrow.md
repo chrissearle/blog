@@ -2,6 +2,7 @@
 title: Functional Error Handling in Ktor with Arrow
 date: 2026-05-07 10:18 +0200
 tags: [ kotlin, ktor, arrow ]
+category: Software Development
 intro: Using Arrow in Ktor for controlled error handling. Sealed interfaces for error types, Raise for propagation, and extension functions for HTTP responses.
 ---
 

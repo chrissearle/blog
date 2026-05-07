@@ -2,6 +2,7 @@
 title: Upgrading flux
 date: 2025-11-18 11:13 +0100
 tags: [k3s, fluxcd, upgrade, kubernetes]
+category: System Administration
 intro: Upgrading flux installs for k3s clusters
 ---
 
