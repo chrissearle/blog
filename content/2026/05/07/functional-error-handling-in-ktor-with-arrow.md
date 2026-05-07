@@ -172,7 +172,7 @@ suspend fun RoutingContext.respond(error: ApiError) =
     call.respond(error.status(), error.messageMap())
 ```
 
-There is a discussion here between `onLeft`/`onRight`, vs `ifLeft`/`ifRight`. Both can work - but I have chosen on*. The
+There is a discussion here between `onLeft`/`onRight`, vs `ifLeft`/`ifRight`. Both can work - but I have chosen `on*`. The
 `if*` variants are for side effects that return `Unit`; the `on*` variants return the original `Either`, which keeps the
 type flowing correctly through the chain.
 
@@ -328,6 +328,23 @@ data class NoteId(val value: Int) {
 The `invoke` operator makes `NoteId("42")` return `Either<ApiError, NoteId>`. Inside a route's `either { }` block,
 `NoteId(call.parameters["id"]).bind()` either yields a valid `NoteId` or short-circuits the whole handler with the
 appropriate error — no try-catch, no manual null check.
+
+You can also use the raise context and avoid the either block which works nicely in some simple cases. For example it's
+very common to have a single string parameter expected on a request:
+
+```kotlin
+data class Tag(
+    val value: String,
+) {
+    companion object {
+        context(_: Raise<ApiError>)
+        operator fun invoke(raw: String?): Tag =
+            Tag(ensureNotNull(raw?.takeIf { it.isNotBlank() }) { TagNameMissing })
+    }
+}
+```
+
+Usage of `Tag` further in the call stack can then rely on the value being present.
 
 ## BuildInfo and the Version Endpoint
 
