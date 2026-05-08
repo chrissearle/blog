@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.23
 
-FROM node:25-trixie-slim AS build
+FROM node:26-trixie-slim AS build
 
 ARG IMAGE_TAG
 ENV NUXT_PUBLIC_IMAGE_TAG=$IMAGE_TAG
@@ -27,7 +27,7 @@ RUN pnpm nuxi prepare
 
 RUN pnpm run build
 
-FROM node:25-trixie-slim AS deploy
+FROM node:26-trixie-slim AS deploy
 
 ARG IMAGE_TAG
 ENV NUXT_PUBLIC_IMAGE_TAG=$IMAGE_TAG
