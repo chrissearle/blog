@@ -4,6 +4,7 @@ FROM node:26-trixie-slim AS build
 
 ARG IMAGE_TAG
 ENV NUXT_PUBLIC_IMAGE_TAG=$IMAGE_TAG
+ENV CI=true
 
 RUN npm install -g pnpm@11.0.8
 
