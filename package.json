@@ -14,7 +14,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "better-sqlite3": "12.9.0"
+    "better-sqlite3": "12.10.0"
   },
   "packageManager": "pnpm@11.1.0",
   "devDependencies": {
