@@ -13,6 +13,10 @@ scripts/      CLI utilities (see below)
 
 Content files live at `content/YYYY/MM/DD/slug.md` with YAML frontmatter. Images referenced in posts go under `public/images/posts/YYYY/MM/DD/`.
 
+## Requirements
+
+Tool versions are pinned in `mise.toml` (Node.js, pnpm).
+
 ## Setup
 
 ```shell
