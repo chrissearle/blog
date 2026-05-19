@@ -1,14 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "ignorePaths": ["content/**", "public/files/**", "public/images/**"],
-  "extends": ["config:recommended"],
-  "minimumReleaseAge": "3 days",
-  "regexManagers": [
-    {
-      "fileMatch": ["Dockerfile"],
-      "matchStrings": ["npm install -g pnpm@(?<currentValue>[\\d.]+)"],
-      "depNameTemplate": "pnpm",
-      "datasourceTemplate": "npm"
-    }
-  ]
+  "extends": ["config:recommended"]
 }
