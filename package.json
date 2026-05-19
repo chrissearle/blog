@@ -20,7 +20,7 @@
   "devDependencies": {
     "@artmizu/nuxt-prometheus": "3.0.1",
     "@iconify-json/heroicons": "1.2.3",
-    "@iconify-json/lucide": "1.2.107",
+    "@iconify-json/lucide": "1.2.108",
     "@nuxt/content": "3.13.0",
     "@nuxt/eslint": "1.15.2",
     "@nuxt/image": "2.0.0",
