@@ -1,9 +1,15 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const { data: page } = await useAsyncData(`content-${route.path}`, () =>
-  queryCollection("content").path(route.path).first(),
+const contentPath = route.path.replace(/\/$/, '') || '/'
+
+const { data: page } = await useAsyncData(`content-${contentPath}`, () =>
+  queryCollection("content").path(contentPath).first(),
 )
+
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page not found" })
+}
 </script>
 
 <template>

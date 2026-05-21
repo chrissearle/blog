@@ -90,6 +90,7 @@ export default defineNuxtConfig({
   // Images are generated at build time, so we can skip the runtime signing etc
   ogImage: {
     zeroRuntime: true,
+    enabled: process.env.NODE_ENV !== "development",
   },
 
   linkChecker: {
