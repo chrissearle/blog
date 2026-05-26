@@ -18,7 +18,7 @@
   },
   "packageManager": "pnpm@11.2.2",
   "devDependencies": {
-    "@artmizu/nuxt-prometheus": "3.0.1",
+    "@artmizu/nuxt-prometheus": "3.0.2",
     "@iconify-json/heroicons": "1.2.3",
     "@iconify-json/lucide": "1.2.109",
     "@nuxt/content": "3.14.0",
