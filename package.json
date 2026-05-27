@@ -16,7 +16,7 @@
   "dependencies": {
     "better-sqlite3": "12.10.0"
   },
-  "packageManager": "pnpm@11.2.2",
+  "packageManager": "pnpm@11.3.0",
   "devDependencies": {
     "@artmizu/nuxt-prometheus": "3.0.2",
     "@iconify-json/heroicons": "1.2.3",
