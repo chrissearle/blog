@@ -25,12 +25,18 @@ const categoryItems = computed(() => {
     to: categoryLink(c),
   }))
 })
+
+const colorMode = useColorMode()
+const isDark = computed(() => colorMode.value === "dark")
+const toggleColorMode = () => {
+  colorMode.preference = isDark.value ? "light" : "dark"
+}
 </script>
 
 <template>
-  <header class="mb-2">
+  <header class="mb-2 border-b border-zinc-200 dark:border-zinc-800">
     <UContainer class="flex h-16 items-center justify-between">
-      <NuxtLink to="/" class="text-lg font-semibold tracking-tight">
+      <NuxtLink to="/" class="text-xl font-bold tracking-tight">
         Chris Searle
       </NuxtLink>
 
@@ -67,6 +73,23 @@ const categoryItems = computed(() => {
         >
           Other Sites
         </a>
+
+        <UButton
+          variant="ghost"
+          size="sm"
+          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          @click="toggleColorMode"
+        >
+          <ClientOnly>
+            <UIcon
+              :name="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'"
+              class="h-4 w-4"
+            />
+            <template #fallback>
+              <UIcon name="i-heroicons-moon" class="h-4 w-4" />
+            </template>
+          </ClientOnly>
+        </UButton>
       </div>
     </UContainer>
   </header>

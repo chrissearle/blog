@@ -100,6 +100,12 @@ export default defineNuxtConfig({
     ],
   },
 
+  colorMode: {
+    preference: "system",
+    fallback: "dark",
+    storageKey: "nuxt-color-mode",
+  },
+
   vite: {
     optimizeDeps: {
       include: ["luxon"],

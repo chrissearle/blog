@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "NUXT_PUBLIC_PROMETHEUS_VERBOSE=false nuxt build",
-    "dev": "nuxt dev",
+    "// dev": "fixes a Nuxt 4.4.7 regression where the Vite IPC socket path exceeds macOS's 103-char Unix socket limit",
+    "dev": "TMPDIR=/tmp nuxt dev",
     "generate": "NUXT_PUBLIC_PROMETHEUS_VERBOSE=false nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
