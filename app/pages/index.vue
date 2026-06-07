@@ -19,19 +19,28 @@ const { data: posts } = await useAsyncData("Index", () =>
       "series",
     )
     .order("date", "DESC")
-    .limit(maxPostCount)
+    .limit(maxPostCount + 1)
     .all(),
 )
 
 const totalPages = computed(() =>
   pageCount(count.value === undefined ? 0 : count.value),
 )
+
+const featuredPost = computed(() => posts.value?.[0])
+const remainingPosts = computed(() => posts.value?.slice(1) ?? [])
 </script>
 
 <template>
   <UContainer>
-    <UPageGrid>
-      <PostsShort v-for="post in posts" :key="post.path" :post="post" />
+    <PostsFeatured v-if="featuredPost" :post="featuredPost" />
+
+    <UPageGrid v-if="remainingPosts.length > 0">
+      <PostsShort
+        v-for="post in remainingPosts"
+        :key="post.path"
+        :post="post"
+      />
     </UPageGrid>
 
     <PostsPagination

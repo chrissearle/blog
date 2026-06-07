@@ -26,20 +26,24 @@ useSeoMeta(opts)
 
 const categories = splitList(props.post.category)
 </script>
+
 <template>
   <div>
-    <h1 class="pageTitle">{{ props.post.title }}</h1>
+    <div class="border-l-4 border-violet-500 pl-4 mb-6">
+      <h1 class="pageTitle !mb-1">{{ props.post.title }}</h1>
+      <p class="font-mono text-xs text-muted">
+        {{ dateFormat(post.date) }}
+      </p>
+    </div>
 
-    <p class="text-sm text-muted mt-1">
-      {{ dateFormat(post.date) }}
-    </p>
-
-    <div class="mt-2 flex flex-wrap gap-2">
+    <div class="mb-8 flex flex-wrap gap-2">
       <SeriesBadge v-if="post.series" :series="post.series" />
       <CategoriesBadges :categories="categories" />
       <TagsBadges :tags="props.post.tags" />
     </div>
 
-    <ContentRenderer :value="props.post" />
+    <div class="post-content">
+      <ContentRenderer :value="props.post" />
+    </div>
   </div>
 </template>

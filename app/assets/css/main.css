@@ -22,3 +22,64 @@ body {
 .fingerprint {
   @apply my-6;
 }
+
+/* Post content typography */
+.post-content :where(h2) {
+  @apply mt-10 mb-4 text-2xl font-semibold tracking-tight;
+}
+
+.post-content :where(h3) {
+  @apply mt-8 mb-3 text-xl font-semibold;
+}
+
+.post-content :where(h4) {
+  @apply mt-6 mb-2 text-lg font-semibold;
+}
+
+.post-content :where(p) {
+  @apply my-4 leading-7;
+}
+
+.post-content :where(a) {
+  @apply text-violet-500 dark:text-violet-400 underline underline-offset-2 hover:text-violet-600 dark:hover:text-violet-300;
+}
+
+.post-content :where(code):not(:where(pre *)) {
+  @apply font-mono text-sm bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded;
+}
+
+.post-content :where(pre) {
+  @apply my-6 rounded-lg overflow-x-auto;
+}
+
+.post-content :where(blockquote) {
+  @apply border-l-4 border-violet-500 pl-4 italic my-6 opacity-75;
+}
+
+.post-content :where(ul) {
+  @apply my-4 list-disc pl-6;
+}
+
+.post-content :where(ol) {
+  @apply my-4 list-decimal pl-6;
+}
+
+.post-content :where(li) {
+  @apply my-1 leading-7;
+}
+
+.post-content :where(hr) {
+  @apply my-8 border-zinc-200 dark:border-zinc-700;
+}
+
+.post-content :where(table) {
+  @apply w-full my-6 text-sm border-collapse;
+}
+
+.post-content :where(th) {
+  @apply px-4 py-2 text-left font-semibold border-b border-zinc-200 dark:border-zinc-700;
+}
+
+.post-content :where(td) {
+  @apply px-4 py-2 border-b border-zinc-100 dark:border-zinc-800;
+}
