@@ -27,7 +27,7 @@
     "@nuxt/image": "2.0.0",
     "@nuxt/scripts": "1.2.1",
     "@nuxt/ui": "4.8.2",
-    "@nuxtjs/seo": "5.1.4",
+    "@nuxtjs/seo": "5.2.2",
     "@nuxtjs/sitemap": "8.1.0",
     "debug": "4.4.3",
     "eslint": "10.4.1",
