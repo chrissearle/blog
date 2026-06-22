@@ -1,7 +1,7 @@
 ---
 title: Osmo panoramas using DronePan
 date: 2016-05-22 11:20 +0200
-tags: [osmo, dronepan, femsjøen, dji]
+tags: [osmo, dronepan, femsjøen, dji, panorama, "360"]
 image: /images/posts/2016/05/pano-images.png
 intro: Adding Osmo support to DronePan
 category: Drones & RC
@@ -12,7 +12,16 @@ updated: 2022-10-06 00:00
 
 I recently restitched these using PTGui 12 pro as Autopano Pro and Panotour are sadly discontinued.
 
-They can be seen at [Momento360](https://momento360.com/e/uc/fea0e18032984e4dac669c47b5af4dd7?utm_campaign=embed&utm_source=other&size=medium)
+They're available via my [360 panoramas](https://360.chrissearle.org/)
+
+Or click one here:
+
+:::pano-grid
+:pano{id="2016-05-21-femsjoen1" title="View from the pier"}
+:pano{id="2016-05-21-femsjoen2" title="View from the point"}
+:pano{id="2016-05-21-femsjoen3" title="View from the old quay"}
+:pano{id="2016-05-21-femsjoen4" title="View from the beach"}
+:::
 
 ## Original:
 
