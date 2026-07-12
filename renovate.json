@@ -1,5 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "ignorePaths": ["content/**", "public/files/**", "public/images/**"],
-  "extends": ["config:recommended"]
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7.0.0"
+    }
+  ]
 }
