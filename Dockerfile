@@ -6,7 +6,7 @@ ARG IMAGE_TAG
 ENV NUXT_PUBLIC_IMAGE_TAG=$IMAGE_TAG
 ENV CI=true
 
-RUN npm install -g pnpm@11.10.0
+RUN npm install -g pnpm@11.11.0
 
 # Timeouts on github fetching prebuilt binaries for better-sqlite3 cause it to try to build - and that requires python
 # which is not available by default in the arm64 image. Add so that it's there for fallback.
