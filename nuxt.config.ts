@@ -108,7 +108,7 @@ export default defineNuxtConfig({
 
   vite: {
     optimizeDeps: {
-      include: ["luxon"],
+      include: ["@unhead/schema-org/vue", "luxon"],
     },
   },
 })
