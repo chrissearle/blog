@@ -3,6 +3,7 @@ import type { PostPreview } from "~/types/post"
 
 const { dateFormat } = useDates()
 const { splitList } = useStrings()
+const img = useImage()
 
 const props = defineProps<{
   post: PostPreview
@@ -15,7 +16,8 @@ const opts = {
 }
 
 if (props.post.image) {
-  opts.ogImage = useSiteConfig().url + props.post.image
+  const resizedImage = img(props.post.image, { width: 1200 }, { provider: "ipx" })
+  opts.ogImage = useSiteConfig().url + resizedImage
 }
 
 if (props.post.intro) {
