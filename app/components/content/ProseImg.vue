@@ -50,6 +50,8 @@ const closeLightbox = () => {
       <NuxtImg
         :src="refinedSrc"
         :alt="alt"
+        width="1600"
+        sizes="100vw sm:700px"
         class="block mx-auto max-w-full max-h-[600px] object-contain rounded-lg transition-all group-hover:opacity-90 group-hover:shadow-lg group-hover:scale-[1.02]"
       />
       <span class="sr-only">Click to view full size: {{ alt }}</span>
