@@ -41,6 +41,8 @@ const postPath = computed(() =>
         <NuxtImg
           :src="post.image || post.embedImage"
           :alt="post.title"
+          width="800"
+          sizes="100vw sm:50vw lg:400px"
           class="w-full rounded-lg"
         />
       </NuxtLink>

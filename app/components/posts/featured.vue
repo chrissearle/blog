@@ -28,6 +28,8 @@ const postPath = computed(() =>
       <NuxtImg
         :src="post.image || post.embedImage"
         :alt="post.title"
+        width="1600"
+        sizes="100vw sm:700px"
         class="w-full max-h-[360px] object-cover transition-transform duration-300 hover:scale-[1.01]"
       />
     </NuxtLink>

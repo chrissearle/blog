@@ -6,3 +6,6 @@ allowBuilds:
   unrs-resolver: true
   vue-demi: true
 
+overrides:
+  h3: "1.15.11"
+

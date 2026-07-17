@@ -6,7 +6,7 @@ intro: I wanted to get the depth curves for the lakes in Haldenvassdraget (Halde
 image: /images/posts/2026/07/17/depth_curves.png
 ---
 
-[NVE](https://www.nve.no/) have a lot of data available via [atlas](atlas.nve.no).
+[NVE](https://www.nve.no/) have a lot of data available via [atlas](https://atlas.nve.no).
 
 Under the beta area (*Tema (beta)*) is the water area (*Tema vann*) with access to the inland lakes database (*innsjødatabase*).
 
