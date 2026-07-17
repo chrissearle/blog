@@ -42,7 +42,7 @@ const postPath = computed(() =>
             {{ post.title }}
           </NuxtLink>
         </h2>
-        <p class="font-mono text-xs text-muted shrink-0">
+        <p class="font-mono text-xs text-secondary shrink-0">
           {{ dateFormat(post.date) }}
         </p>
       </div>
