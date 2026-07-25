@@ -20,7 +20,6 @@ if (import.meta.client) {
       {
         src: "https://embedr.flickr.com/assets/client-code.js",
         async: true,
-        charset: "utf-8",
       },
     ],
   })

@@ -21,16 +21,14 @@ const { data: allPosts } = await useAsyncData(`Tag-${slug}`, () =>
     .all(),
 )
 
-const posts = (allPosts.value || []).filter((post: { tags: string[] }) =>
+const posts = (allPosts.value || []).filter((post) =>
   (post.tags || []).some((tag: string) => {
     return safeString(tag) === slug
   }),
 )
 
 const originalTag =
-  posts.length > 0 && posts[0] !== undefined
-    ? posts[0].tags.find((tag: string) => safeString(tag) === slug)
-    : slug
+  posts[0]?.tags?.find((tag: string) => safeString(tag) === slug) ?? slug
 </script>
 
 <template>

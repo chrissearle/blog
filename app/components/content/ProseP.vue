@@ -2,7 +2,12 @@
 const slots = useSlots()
 
 const isImage = computed(() => {
-  return slots.default()[0].type.tag === "img"
+  const children = slots.default?.()
+  const first = children?.[0]
+
+  return typeof first?.type === "object" && "tag" in first.type
+    ? first.type.tag === "img"
+    : false
 })
 </script>
 

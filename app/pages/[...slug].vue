@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const contentPath = route.path.replace(/\/$/, '') || '/'
+const contentPath = route.path.replace(/\/$/, "") || "/"
 
 const { data: page } = await useAsyncData(`content-${contentPath}`, () =>
   queryCollection("content").path(contentPath).first(),

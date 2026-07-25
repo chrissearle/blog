@@ -22,7 +22,7 @@ const { data: allPosts } = await useAsyncData(`Series-${slug}`, () =>
 )
 
 const posts = (allPosts.value || []).filter(
-  (post: { series: string }) => post.series && safeString(post.series) === slug,
+  (post) => post.series && safeString(post.series) === slug,
 )
 
 const originalSeries =

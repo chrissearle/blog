@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { UseSeoMetaInput } from "@unhead/vue"
 import type { PostPreview } from "~/types/post"
 
 const { dateFormat } = useDates()
@@ -9,14 +10,18 @@ const props = defineProps<{
   post: PostPreview
 }>()
 
-const opts = {
+const opts: UseSeoMetaInput = {
   title: props.post.title,
   ogTitle: props.post.title,
   ogType: "article",
 }
 
 if (props.post.image) {
-  const resizedImage = img(props.post.image, { width: 1200 }, { provider: "ipx" })
+  const resizedImage = img(
+    props.post.image,
+    { width: 1200 },
+    { provider: "ipx" },
+  )
   opts.ogImage = useSiteConfig().url + resizedImage
 }
 

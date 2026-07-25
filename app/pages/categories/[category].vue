@@ -22,8 +22,7 @@ const { data: allPosts } = await useAsyncData(`Category-${slug}`, () =>
 )
 
 const posts = (allPosts.value || []).filter(
-  (post: { category: string }) =>
-    post.category && safeString(post.category) === slug,
+  (post) => post.category && safeString(post.category) === slug,
 )
 
 const originalCategory =
