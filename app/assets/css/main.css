@@ -41,11 +41,11 @@ body {
 }
 
 .post-content :where(a) {
-  @apply text-violet-500 dark:text-violet-400 underline underline-offset-2 hover:text-violet-600 dark:hover:text-violet-300;
+  @apply text-primary underline underline-offset-2 hover:text-primary/75;
 }
 
 .post-content :where(code):not(:where(pre *)) {
-  @apply font-mono text-sm bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded;
+  @apply font-mono text-sm bg-elevated px-1.5 py-0.5 rounded;
 }
 
 .post-content :where(pre) {
@@ -53,7 +53,7 @@ body {
 }
 
 .post-content :where(blockquote) {
-  @apply border-l-4 border-violet-500 pl-4 italic my-6 opacity-75;
+  @apply border-l-4 border-primary pl-4 italic my-6 opacity-75;
 }
 
 .post-content :where(ul) {
@@ -69,7 +69,7 @@ body {
 }
 
 .post-content :where(hr) {
-  @apply my-8 border-zinc-200 dark:border-zinc-700;
+  @apply my-8 border-default;
 }
 
 .post-content :where(table) {
@@ -77,9 +77,9 @@ body {
 }
 
 .post-content :where(th) {
-  @apply px-4 py-2 text-left font-semibold border-b border-zinc-200 dark:border-zinc-700;
+  @apply px-4 py-2 text-left font-semibold border-b border-default;
 }
 
 .post-content :where(td) {
-  @apply px-4 py-2 border-b border-zinc-100 dark:border-zinc-800;
+  @apply px-4 py-2 border-b border-muted;
 }

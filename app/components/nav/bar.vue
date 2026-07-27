@@ -34,7 +34,7 @@ const toggleColorMode = () => {
 </script>
 
 <template>
-  <header class="mb-2 border-b border-zinc-200 dark:border-zinc-800">
+  <header class="mb-2 border-b border-default">
     <UContainer class="flex h-16 items-center justify-between">
       <NuxtLink to="/" class="text-xl font-bold tracking-tight">
         Chris Searle

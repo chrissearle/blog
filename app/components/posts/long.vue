@@ -36,7 +36,7 @@ const categories = splitList(props.post.category)
 
 <template>
   <div>
-    <div class="border-l-4 border-violet-500 pl-4 mb-6">
+    <div class="border-l-4 border-primary pl-4 mb-6">
       <h1 class="pageTitle !mb-1">{{ props.post.title }}</h1>
       <p class="font-mono text-xs text-secondary">
         {{ dateFormat(post.date) }}

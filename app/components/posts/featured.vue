@@ -17,7 +17,7 @@ const postPath = computed(() =>
 
 <template>
   <div
-    class="rounded-xl border-2 border-violet-500 dark:border-violet-400 overflow-hidden mb-8 bg-white dark:bg-zinc-900"
+    class="rounded-xl border-2 border-primary overflow-hidden mb-8 bg-default"
   >
     <NuxtLink
       v-if="post.image || post.embedImage"
@@ -39,7 +39,7 @@ const postPath = computed(() =>
         <h2 class="text-2xl font-bold tracking-tight leading-tight">
           <NuxtLink
             :to="postPath"
-            class="hover:text-violet-500 dark:hover:text-violet-400 transition-colors"
+            class="hover:text-primary transition-colors"
           >
             {{ post.title }}
           </NuxtLink>
