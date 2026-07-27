@@ -22,8 +22,8 @@ importers:
         specifier: 1.2.3
         version: 1.2.3
       '@iconify-json/lucide':
-        specifier: 1.2.118
-        version: 1.2.118
+        specifier: 1.2.119
+        version: 1.2.119
       '@nuxt/content':
         specifier: 3.15.2
         version: 3.15.2(@valibot/to-json-schema@1.7.1(valibot@1.4.2(typescript@6.0.3)))(better-sqlite3@13.0.1)(esbuild@0.28.0)(magic-string@1.0.0)(magicast@0.5.3)(oxc-parser@0.140.0)(rolldown@1.2.0)(rollup@4.62.2)(supports-color@10.2.2)(valibot@1.4.2(typescript@6.0.3))(vite@7.3.5(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.47.0)(yaml@2.9.0))
@@ -801,8 +801,8 @@ packages:
   '@iconify-json/heroicons@1.2.3':
     resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
 
-  '@iconify-json/lucide@1.2.118':
-    resolution: {integrity: sha512-JBnK4YOq6K/lA0JP//27QxFxJ4120TjvfXAzGZZIGjCcXcRRRFxl1rcV7+IWdcVCe90KXdqVaAwLaLf6G3HELw==}
+  '@iconify-json/lucide@1.2.119':
+    resolution: {integrity: sha512-KbrC7fT5wPshV1KLRM0k91poP0OH4eKEVywEOH0FCczKb+qth8Pcq1Hy9kS2tXeF52s23qzLnG8AJsExPSupeA==}
 
   '@iconify/collections@1.0.711':
     resolution: {integrity: sha512-atGUurchVFc/O3fHhpDCrPAe30TLEbWBDkuM5ZXjr0720rLpVNTqydyvMxQS3lt5kvIwrYgHqLInZ1F26y9n5A==}
@@ -8036,7 +8036,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.118':
+  '@iconify-json/lucide@1.2.119':
     dependencies:
       '@iconify/types': 2.0.0
 
