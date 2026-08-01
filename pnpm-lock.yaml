@@ -16,8 +16,8 @@ importers:
         version: 13.0.2
     devDependencies:
       '@artmizu/nuxt-prometheus':
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 3.0.4
+        version: 3.0.4
       '@iconify-json/heroicons':
         specifier: 1.2.3
         version: 1.2.3
@@ -139,8 +139,8 @@ packages:
     peerDependencies:
       '@types/json-schema': ^7.0.15
 
-  '@artmizu/nuxt-prometheus@3.0.3':
-    resolution: {integrity: sha512-N18D8cpHPVy3lP1YUIrOh2/qU03VmWTV3r7PHI/omrtm8BJnqbaHvZ1jAdyt2B99vJsVdFyY93XlyMh1sSSD0Q==}
+  '@artmizu/nuxt-prometheus@3.0.4':
+    resolution: {integrity: sha512-VChGTV0ERVXDXOsSiL3i6B6D6LB/ylmLXH8kjzchhDGoE53Et1ta4smZrdBCCRKVRdX3M+knXb3/Q6NuCygqmQ==}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -7347,7 +7347,7 @@ snapshots:
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.1
 
-  '@artmizu/nuxt-prometheus@3.0.3':
+  '@artmizu/nuxt-prometheus@3.0.4':
     dependencies:
       '@mswjs/interceptors': 0.41.9
       consola: 3.4.2
