@@ -26,6 +26,23 @@ RUN pnpm nuxi prepare
 
 RUN pnpm run build
 
+# `pnpm run build` exits 0 even when prerendering dies part way through the crawl,
+# which leaves .output/server empty and ships an image that cannot start.
+# Fail the build here instead of pushing a broken image.
+
+RUN <<'SH'
+set -eu
+if [ ! -s .output/server/index.mjs ]; then
+  echo "build check failed: .output/server/index.mjs is missing or empty"
+  exit 1
+fi
+if [ -z "$(find .output/public/_ipx -type f -print -quit 2>/dev/null)" ]; then
+  echo "build check failed: no images were generated under .output/public/_ipx"
+  exit 1
+fi
+echo "build check passed"
+SH
+
 FROM node:26-trixie-slim AS deploy
 
 ARG IMAGE_TAG

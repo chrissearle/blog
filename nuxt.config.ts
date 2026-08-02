@@ -106,6 +106,20 @@ export default defineNuxtConfig({
     storageKey: "nuxt-color-mode",
   },
 
+  icon: {
+    clientBundle: {
+      icons: [
+        "heroicons:arrow-right-20-solid",
+        "heroicons:chevron-double-left",
+        "heroicons:chevron-double-right",
+        "heroicons:moon",
+        "heroicons:sun",
+        "heroicons:tag",
+        "heroicons:user-group",
+      ],
+    },
+  },
+
   vite: {
     optimizeDeps: {
       include: ["@unhead/schema-org/vue", "luxon"],
