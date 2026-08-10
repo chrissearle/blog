@@ -30,7 +30,7 @@
     "@nuxt/ui": "4.10.0",
     "@nuxtjs/seo": "5.3.10",
     "@nuxtjs/sitemap": "8.3.3",
-    "@types/luxon": "3.7.3",
+    "@types/luxon": "3.7.4",
     "debug": "4.4.3",
     "eslint": "10.8.0",
     "eslint-config-prettier": "10.1.8",
