@@ -104,9 +104,69 @@ jobs:
           build-args: |
             IMAGE_TAG=${{ env.SHORT_SHA_TAG }}
 
+  smoke:
+    runs-on: ubuntu-latest
+    needs: [meta, build-amd64]
+    env:
+      IMAGE_BASE: ghcr.io/${{ github.repository_owner }}/blog
+      SHORT_SHA_TAG: ${{ needs.meta.outputs.short_sha_tag }}
+
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Login to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      # `pnpm build` and the Dockerfile's output checks both pass when the
+      # dependency tree contains duplicate copies of a package, because Nitro
+      # only mangles .output/server/node_modules at trace time. The failure
+      # surfaces as ERR_MODULE_NOT_FOUND the first time the server starts, so
+      # actually booting the image is the only thing that catches it.
+      - name: Start image
+        run: |
+          docker run -d --name blog-smoke -p 3000:3000 \
+            "${IMAGE_BASE}:${SHORT_SHA_TAG}-amd64"
+
+      - name: Wait for server to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000 > /dev/null 2>&1; then
+              echo "Server ready"
+              exit 0
+            fi
+            echo "Waiting for server... ($i/30)"
+            sleep 2
+          done
+          echo "Server did not start in time"
+          docker logs blog-smoke
+          exit 1
+
+      - name: Check front page and latest article
+        run: |
+          LATEST=$(find content -name "*.md" | grep -E "^content/[0-9]{4}/" | sort | tail -1)
+          TITLE=$(grep "^title:" "$LATEST" | head -1 | sed "s/^title:[[:space:]]*//" | tr -d "\""\')
+          echo "Latest post file: $LATEST"
+          echo "Checking for title: $TITLE"
+          RESPONSE=$(curl -sf http://localhost:3000/)
+          if echo "$RESPONSE" | grep -qF "$TITLE"; then
+            echo "Latest article found on front page"
+          else
+            echo "Latest article NOT found on front page"
+            docker logs blog-smoke
+            exit 1
+          fi
+
+      - name: Stop image
+        if: always()
+        run: docker rm -f blog-smoke || true
+
   manifest:
     runs-on: ubuntu-latest
-    needs: [meta, build-amd64, build-arm64]
+    needs: [meta, build-amd64, build-arm64, smoke]
     env:
       IMAGE_BASE: ghcr.io/${{ github.repository_owner }}/blog
       SHORT_SHA_TAG: ${{ needs.meta.outputs.short_sha_tag }}

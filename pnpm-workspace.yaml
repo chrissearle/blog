@@ -7,4 +7,15 @@ allowBuilds:
   vue-demi: true
 
 overrides:
-  h3: "1.15.11"
+  # ipx (via @nuxt/image) pins h3 2.0.1-rc exactly, while the whole Nuxt stack
+  # is on 1.x. Without this we get two h3 copies and Nitro's tracing mangles
+  # the build output (see the nuxtseo-shared note below for the failure mode).
+  # Kept as a range, not an exact pin, so it follows h3 1.x without going stale.
+  h3: "^1.15.11"
+  # @nuxtjs/seo pins nuxtseo-shared exactly while its sibling modules use
+  # caret ranges. When those resolve to different versions, Nitro's external
+  # tracing collapses both copies into one .output/server/node_modules dir and
+  # drops files, producing ERR_MODULE_NOT_FOUND at runtime.
+  # "$@nuxtjs/seo" tracks the version pinned in package.json, so renovate's
+  # normal @nuxtjs/seo bumps keep this in step with no manual edit here.
+  nuxtseo-shared: "$@nuxtjs/seo"
