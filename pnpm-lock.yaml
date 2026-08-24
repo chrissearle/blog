@@ -44,8 +44,8 @@ importers:
         specifier: 5.3.14
         version: 5.3.14(47027140a0efccfe8f28c03f921d5141)
       '@nuxtjs/sitemap':
-        specifier: 8.3.4
-        version: 8.3.4(d87fc2db3d549526eb1ceb6bc5dff046)
+        specifier: 8.4.0
+        version: 8.4.0(d87fc2db3d549526eb1ceb6bc5dff046)
       '@types/luxon':
         specifier: 3.7.4
         version: 3.7.4
@@ -1329,8 +1329,8 @@ packages:
     peerDependencies:
       nuxt: ^3.16.0 || ^4.0.0 || ^5.0.0
 
-  '@nuxtjs/sitemap@8.3.4':
-    resolution: {integrity: sha512-7WHLwtDlBGnriqb33crzt92fghz5o1vvumPYK0J7vutClduG6yzhx5CM22S/lcrwl7xliyvIYjrZ/2OvgqqJjA==}
+  '@nuxtjs/sitemap@8.4.0':
+    resolution: {integrity: sha512-9XUGJDsV7UWPzXH1vlfWn0NaniJ+Lv2xFa/Bph6PgXbBCnIrfedy4su+/uiEKWx+KhWD+UwleE2greWVdAao8g==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: '>=3'
@@ -6104,8 +6104,8 @@ packages:
     peerDependencies:
       vue: ^3.5.30
 
-  sitemapd@0.2.1:
-    resolution: {integrity: sha512-ei/QCl/cxTPEC8b/KtibUalvORO4q1ZIN8h22gq6DaSUuHO9jolYViHSojEDPll/AmH4CQnFDkKNuiyMOs83ig==}
+  sitemapd@0.2.2:
+    resolution: {integrity: sha512-XAuW9x2cI3B757A/h2sFYfye5kBUHM8Gr6Muzwtve1oYRCv3BntoKMcgNu+GNF/LKIvUD1fQpBTVUCoHlzMihg==}
     engines: {node: '>=18.0.0'}
 
   skin-tone@2.0.0:
@@ -9029,7 +9029,7 @@ snapshots:
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.143.0)(rolldown@1.2.1)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.1)(rollup@4.62.3)(vite@8.2.1(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0)))
       '@nuxtjs/robots': 6.1.5(d87fc2db3d549526eb1ceb6bc5dff046)
-      '@nuxtjs/sitemap': 8.3.4(d87fc2db3d549526eb1ceb6bc5dff046)
+      '@nuxtjs/sitemap': 8.4.0(d87fc2db3d549526eb1ceb6bc5dff046)
       nuxt: 4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.143.0)(@types/node@26.1.2)(@vitejs/devtools-kit@0.4.10(cac@7.0.0)(srvx@0.11.22)(typescript@6.0.3)(vite@8.2.1(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0)))(@vue/compiler-sfc@3.5.41)(better-sqlite3@13.0.3)(cac@7.0.0)(db0@0.3.4(better-sqlite3@13.0.3))(esbuild@0.28.1)(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.4)(optionator@0.9.4)(oxc-parser@0.143.0)(rolldown@1.2.1)(rollup-plugin-visualizer@7.0.1(rolldown@1.2.1)(rollup@4.62.3))(rollup@4.62.3)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.49.0)(typescript@6.0.3)(vite@8.2.1(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))(vue-tsc@3.3.10(typescript@6.0.3))(yaml@2.9.0)
       nuxt-link-checker: 5.2.0(522b9c5e4f3149a7285fe6ad5b33e3e5)
       nuxt-og-image: 6.7.8(0d8a5f00c7b9cf56d1424c571abc4ac8)
@@ -9094,18 +9094,18 @@ snapshots:
       - webpack
       - zod
 
-  '@nuxtjs/sitemap@8.3.4(d87fc2db3d549526eb1ceb6bc5dff046)':
+  '@nuxtjs/sitemap@8.4.0(d87fc2db3d549526eb1ceb6bc5dff046)':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.143.0)(rolldown@1.2.1)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.1)(rollup@4.62.3)(vite@8.2.1(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0)))
       consola: 3.4.2
       defu: 6.1.7
-      nuxt-site-config: 4.2.0(d87fc2db3d549526eb1ceb6bc5dff046)
-      nuxtseo-shared: 5.3.14(14f1e884439d901e6dc51793ea6d95f0)
+      nuxt-site-config: 4.2.3(d87fc2db3d549526eb1ceb6bc5dff046)
+      nuxtseo-shared: 5.3.14(2acbd3d778d33e08644339b120abad61)
       ofetch: 1.5.1
       pathe: 2.0.3
       pkg-types: 2.3.1
       radix3: 1.1.2
-      sitemapd: 0.2.1
+      sitemapd: 0.2.2
       ufo: 1.6.4
       ultrahtml: 1.7.0
     optionalDependencies:
@@ -14500,7 +14500,7 @@ snapshots:
       ufo: 1.6.4
       vue: 3.5.41(typescript@6.0.3)
 
-  sitemapd@0.2.1:
+  sitemapd@0.2.2:
     dependencies:
       fast-xml-parser: 5.10.1
 
