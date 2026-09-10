@@ -27,6 +27,8 @@ const posts = (allPosts.value || []).filter(
 
 const originalCategory =
   posts.length > 0 && posts[0] !== undefined ? posts[0].category : slug
+
+useFeed(`/categories/${slug}/feed.xml`, `Chris Searle - ${originalCategory}`)
 </script>
 
 <template>

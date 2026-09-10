@@ -1,3 +1,7 @@
+<script setup lang="ts">
+useFeed("/feed.xml", "Chris Searle")
+</script>
+
 <template>
   <UApp>
     <NavBar />

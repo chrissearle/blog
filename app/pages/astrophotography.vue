@@ -25,6 +25,8 @@ useSeoMeta({
   description,
   ogDescription: description,
 })
+
+useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
 </script>
 
 <template>
