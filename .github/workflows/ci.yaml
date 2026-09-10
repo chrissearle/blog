@@ -145,20 +145,46 @@ jobs:
           docker logs blog-smoke
           exit 1
 
+      # The title is compared after HTML-entity decoding and whitespace
+      # normalisation: Vue SSR escapes ' & < > " on the way out, so a literal
+      # match fails on any title containing them.
       - name: Check front page and latest article
         run: |
           LATEST=$(find content -name "*.md" | grep -E "^content/[0-9]{4}/" | sort | tail -1)
-          TITLE=$(grep "^title:" "$LATEST" | head -1 | sed "s/^title:[[:space:]]*//" | tr -d "\""\')
           echo "Latest post file: $LATEST"
-          echo "Checking for title: $TITLE"
-          RESPONSE=$(curl -sf http://localhost:3000/)
-          if echo "$RESPONSE" | grep -qF "$TITLE"; then
-            echo "Latest article found on front page"
-          else
-            echo "Latest article NOT found on front page"
-            docker logs blog-smoke
-            exit 1
-          fi
+          curl -sf http://localhost:3000/ > /tmp/front.html
+          python3 - "$LATEST" /tmp/front.html <<'PYEOF'
+          import html, re, sys
+
+          title = None
+          with open(sys.argv[1], encoding="utf-8") as fh:
+              for line in fh:
+                  if line.startswith("title:"):
+                      title = line[len("title:"):].strip().strip("\"'")
+                      break
+
+          if not title:
+              print("No title found in front matter")
+              sys.exit(1)
+
+          with open(sys.argv[2], encoding="utf-8") as fh:
+              page = html.unescape(fh.read())
+
+          def norm(s):
+              return re.sub(r"\s+", " ", s)
+
+          print(f"Checking for title: {title}")
+
+          if norm(title) in norm(page):
+              print("Latest article found on front page")
+          else:
+              print("Latest article NOT found on front page")
+              sys.exit(1)
+          PYEOF
+
+      - name: Show server logs on failure
+        if: failure()
+        run: docker logs blog-smoke
 
       - name: Stop image
         if: always()
