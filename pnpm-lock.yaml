@@ -150,6 +150,9 @@ importers:
       '@types/luxon':
         specifier: 3.7.5
         version: 3.7.5
+      '@types/node':
+        specifier: 26.1.2
+        version: 26.1.2
       debug:
         specifier: 4.4.3
         version: 4.4.3(supports-color@10.2.2)

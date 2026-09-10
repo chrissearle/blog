@@ -2,17 +2,18 @@
 title: Leo Triplet
 date: 2026-03-28 23:12 +0100
 category: Photography
-tags: [  seestar, s-50, zwo, star, tracking, messier, messier 65, messier 66, ngc-3628, galaxy, astrophotography  ]
-intro: Leo Triplet
+tags: [ astrophotography, arp 317, galaxy, seestar, s-50, zwo, messier 65, ngc 3623, messier 66, ngc 3627, ngc 3628 ]
+intro: Arp 317, a group of galaxies in Leo.
 image: /images/posts/2026/03/28/leo_triplet.png
 ---
 
-| Names     | Leo Triplet, M66 Group |
-|-----------|------------------------|
-| Magnitude | 8.92                   |
-| Size      | 10.28' x 4.61'         |
-| Ra        | 11h 21m38.9s           |
-| Dec       | +12°50'42.8"           |
+| Names         | Leo Triplet, M66 Group, Arp 317 |
+|---------------|---------------------------------|
+| Type          | Group of galaxies               |
+| Constellation | Leo                             |
+| Distance      | ≈ 35 million ly                 |
+| RA            | 11h 19m 00.0s                   |
+| Dec           | +13° 12′ 00″                    |
 
 The Leo Triplet is a small group of galaxies about 35 million light-years away in the
 constellation Leo. This galaxy group consists of the spiral galaxies Messier 65. Messier 66, and NGC 3628.[^1]
@@ -39,14 +40,12 @@ the outer edge of its spiral arms, effectively transecting the galaxy to the vie
 
 ## Photo Details
 
-|                  |              |
-|------------------|--------------|
-| Telescope        | Seestar S-50 |
-| Dates            | 2026-03-28   |
-| Integration time |              |
+|           |                          |
+|-----------|--------------------------|
+| Telescope | Seestar S50 (250 mm f/5) |
+| Dates     | 2026-03-28               |
 
 [^1]: [Wikipedia - Leo Triplet](https://en.wikipedia.org/wiki/Leo_Triplet)
 [^2]: [Wikipedia - Messier 65](https://en.wikipedia.org/wiki/Messier_65)
 [^3]: [Wikipedia - Messier 66](https://en.wikipedia.org/wiki/Messier_66)
 [^4]: [Wikipedia - NGC 3628](https://en.wikipedia.org/wiki/NGC_3628)
-

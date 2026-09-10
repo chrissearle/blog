@@ -2,17 +2,18 @@
 title: Eastern Veil Nebula
 date: 2026-02-22 12:47 +0100
 category: Photography
-tags: [ seestar, s-50, zwo, star, tracking, ngc-6992, eastern veil nebula, astrophotography ]
-intro: The Eastern Veil Nebula
+tags: [ astrophotography, ngc 6992, caldwell 33, nebula, seestar, s-50, zwo ]
+intro: NGC 6992 / Caldwell 33, a supernova remnant in Cygnus.
 image: /images/posts/2026/02/22/ngc6992.png
 ---
 
-| Names     | Eastern Veil , NGC 6992, Caldwell 33 |
-|-----------|--------------------------------------|
-| Magnitude | 7.00                                 |
-| Size      | 60' x 8'                             |
-| Ra        | 20h 57m23.3s                         |
-| Dec       | +31°50'23.0"                         |
+| Names         | Eastern Veil Nebula, NGC 6992, Caldwell 33 |
+|---------------|--------------------------------------------|
+| Type          | Supernova remnant                          |
+| Constellation | Cygnus                                     |
+| Magnitude     | 7                                          |
+| RA            | 20h 56m 19.0s                              |
+| Dec           | +31° 44′ 36″                               |
 
 The Veil Nebula is a cloud of heated and ionized gas and dust in the constellation Cygnus. It constitutes the brightest
 parts of the visible portion of the Cygnus Loop, a supernova remnant, many portions of which have acquired their own
@@ -28,10 +29,10 @@ and age.)[^1]
 
 ## Photo Details
 
-|                  |                   |
-|------------------|-------------------|
-| Telescope        | Seestar S-50      |
-| Dates            | 2025-08-23        |
-| Integration time | approx 42 minutes |
+|                  |                          |
+|------------------|--------------------------|
+| Telescope        | Seestar S50 (250 mm f/5) |
+| Dates            | 2025-08-23               |
+| Integration time | 42m                      |
 
 [^1]: [Wikipedia - Veil Nebula](https://en.wikipedia.org/wiki/Veil_Nebula)

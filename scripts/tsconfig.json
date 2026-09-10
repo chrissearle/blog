@@ -1,0 +1,18 @@
+{
+  // The astro post script runs directly under Node's type stripping - this config is
+  // only for `pnpm typecheck:scripts`
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["astro/**/*.ts"]
+}

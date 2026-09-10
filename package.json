@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
+    "typecheck:scripts": "tsc -p scripts",
     "format": "prettier --write --list-different .",
     "prepare": "husky"
   },
@@ -31,6 +32,7 @@
     "@nuxtjs/seo": "5.3.14",
     "@nuxtjs/sitemap": "8.5.0",
     "@types/luxon": "3.7.5",
+    "@types/node": "26.1.2",
     "debug": "4.4.3",
     "eslint": "10.10.0",
     "eslint-config-prettier": "10.1.8",

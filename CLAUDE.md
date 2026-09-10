@@ -22,8 +22,24 @@ Always use the script — and ask if images are needed before running:
 ```bash
 node scripts/post "Post Title"            # Creates content/YYYY/MM/DD/post-title.md
 node scripts/post "Post Title" --images   # Also creates public/images/posts/YYYY/MM/DD/
-node scripts/post "Post Title" --astro    # Astrophotography template (category, tags, object table, photo details)
 ```
+
+### Creating an astrophotography post
+
+`node scripts/post --astro` is interactive (code in `scripts/astro/`, TypeScript run directly by Node):
+
+```bash
+node scripts/post --astro                        # asks for everything
+node scripts/post --astro "M 81"                 # target given; comma-separate for multi-target posts
+node scripts/post --astro "M 81" --image ~/x.png --dry-run   # print the post, write nothing
+```
+
+- Looks the target up in SIMBAD (coordinates, magnitude, size, catalog ids), Wikipedia (description, lead sentences, footnote link, infobox size) and Wikidata (constellation, distance, Caldwell numbers). Stellarium's Remote Control plugin on `localhost:8090` fills gaps if running.
+- Copies the image to `public/images/posts/YYYY/MM/DD/<CATALOG_ID>.<ext>`.
+- Asks for photo details. Equipment comes from `scripts/astro/equipment.json` ("add new ..." appends to it); the last setup used is remembered in the gitignored `scripts/astro/.last-setup.json`.
+- Title rule and intro wording live in `pickTitle()` / `buildIntro()` in `scripts/astro/render.ts`. Catalog whitelist and order are in `scripts/astro/catalogs.ts`.
+- Tags: `astrophotography`, every whitelisted catalog id (`messier 81`, `ngc 3031`, `sh2-142`), an object type (`galaxy` / `nebula` / `cluster`), and the optics' telescope + manufacturer tags. The script lists tags not used on any other post, for confirmation.
+- Check with `pnpm lint` and `pnpm typecheck:scripts`.
 
 ## Architecture
 

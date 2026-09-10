@@ -25,3 +25,6 @@ logs
 !.env.example
 
 .claude
+
+# Astro post script - remembers the last equipment used
+scripts/astro/.last-setup.json

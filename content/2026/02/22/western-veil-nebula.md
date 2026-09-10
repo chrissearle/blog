@@ -2,17 +2,17 @@
 title: Western Veil Nebula
 date: 2026-02-22 12:47 +0100
 category: Photography
-tags: [ seestar, s-50, zwo, star, tracking, ngc-6960, western veil nebula, astrophotography ]
-intro: The Western Veil Nebula
+tags: [ astrophotography, ngc 6960, caldwell 34, nebula, seestar, s-50, zwo ]
+intro: NGC 6960 / Caldwell 34, a supernova remnant in Cygnus.
 image: /images/posts/2026/02/22/ngc6960.png
 ---
 
-| Names     | Western Veil , NGC 6960, Caldwell 34 |
-|-----------|--------------------------------------|
-| Magnitude | 7.00                                 |
-| Size      | 210' x 160'                          |
-| Ra        | 20h 46m42.3s                         |
-| Dec       | +30°47'58.7"                         |
+| Names         | Western Veil Nebula, NGC 6960, Caldwell 34 |
+|---------------|--------------------------------------------|
+| Type          | Supernova remnant                          |
+| Constellation | Cygnus                                     |
+| RA            | 20h 45m 38.0s                              |
+| Dec           | +30° 42′ 30″                               |
 
 The Veil Nebula is a cloud of heated and ionized gas and dust in the constellation Cygnus. It constitutes the brightest
 parts of the visible portion of the Cygnus Loop, a supernova remnant, many portions of which have acquired their own
@@ -28,10 +28,10 @@ and age.)[^1]
 
 ## Photo Details
 
-|                  |                   |
-|------------------|-------------------|
-| Telescope        | Seestar S-50      |
-| Dates            | 2025-08-23        |
-| Integration time | approx 55 minutes |
+|                  |                          |
+|------------------|--------------------------|
+| Telescope        | Seestar S50 (250 mm f/5) |
+| Dates            | 2025-08-23               |
+| Integration time | 55m                      |
 
 [^1]: [Wikipedia - Veil Nebula](https://en.wikipedia.org/wiki/Veil_Nebula)

@@ -9,87 +9,72 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const args = process.argv.slice(2)
 const hasImages = args.includes("--images") || args.includes("-i")
 const isAstro = args.includes("--astro") || args.includes("-a")
-const title = args.filter((a) => !a.startsWith("-")).join(" ")
-
-if (!title) {
-  console.error("Usage: post <title> [--images] [--astro]")
-  process.exit(1)
-}
-
-const slug = title
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, "-")
-  .replace(/^-|-$/g, "")
-
-const now = new Date()
-const pad = (n) => String(n).padStart(2, "0")
-const year = now.getFullYear()
-const month = pad(now.getMonth() + 1)
-const day = pad(now.getDate())
-const hours = pad(now.getHours())
-const minutes = pad(now.getMinutes())
-const tzOffset = -now.getTimezoneOffset()
-const tzSign = tzOffset >= 0 ? "+" : "-"
-const tzHours = pad(Math.floor(Math.abs(tzOffset) / 60))
-const tzMins = pad(Math.abs(tzOffset) % 60)
-const tz = `${tzSign}${tzHours}${tzMins}`
-
-const datePath = `${year}/${month}/${day}`
-const dateStr = `${year}-${month}-${day} ${hours}:${minutes} ${tz}`
-
-const contentDir = join(__dirname, "..", "content", datePath)
-const postFile = join(contentDir, `${slug}.md`)
-
-let content
 
 if (isAstro) {
-  content = `---
-title: ${title}
-date: ${dateStr}
-category: Photography
-tags: [ astrophotography ]
-intro: ${title}
-image: /images/posts/${datePath}/${slug}.png
----
-
-| Names     | ${title} |
-|-----------|---|
-| Magnitude |   |
-| Size      |   |
-| Ra        |   |
-| Dec       |   |
-
-TODO description.[^1]
-
-![${title}](/images/posts/${datePath}/${slug}.png)
-
-## Photo Details
-
-|                  |   |
-|------------------|---|
-| Telescope        |   |
-| Dates            |   |
-| Integration time |   |
-
-[^1]: [Wikipedia]()
-`
+  // Interactive: looks the target up, copies the image in and asks for photo details
+  const { main } = await import("./astro/index.ts")
+  await main(args.filter((a) => a !== "--astro" && a !== "-a"))
 } else {
+  await createPost()
+}
+
+async function createPost() {
+  const title = args.filter((a) => !a.startsWith("-")).join(" ")
+
+  if (!title) {
+    console.error("Usage: post <title> [--images]")
+    console.error("       post --astro [target] [--image <file>] [--dry-run]")
+    process.exit(1)
+  }
+
+  const slug = title
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+
+  const now = new Date()
+  const pad = (n) => String(n).padStart(2, "0")
+  const year = now.getFullYear()
+  const month = pad(now.getMonth() + 1)
+  const day = pad(now.getDate())
+  const hours = pad(now.getHours())
+  const minutes = pad(now.getMinutes())
+  const tzOffset = -now.getTimezoneOffset()
+  const tzSign = tzOffset >= 0 ? "+" : "-"
+  const tzHours = pad(Math.floor(Math.abs(tzOffset) / 60))
+  const tzMins = pad(Math.abs(tzOffset) % 60)
+  const tz = `${tzSign}${tzHours}${tzMins}`
+
+  const datePath = `${year}/${month}/${day}`
+  const dateStr = `${year}-${month}-${day} ${hours}:${minutes} ${tz}`
+
+  const contentDir = join(__dirname, "..", "content", datePath)
+  const postFile = join(contentDir, `${slug}.md`)
+
   const imageLine = hasImages ? `image: /images/posts/${datePath}/\n` : ""
-  content = `---
+  const content = `---
 title: ${title}
 date: ${dateStr}
 tags:
 intro:
 ${imageLine}---
 `
-}
 
-await mkdir(contentDir, { recursive: true })
-await writeFile(postFile, content)
-console.log(`Created: ${postFile}`)
+  await mkdir(contentDir, { recursive: true })
+  await writeFile(postFile, content)
+  console.log(`Created: ${postFile}`)
 
-if (isAstro || hasImages) {
-  const imageDir = join(__dirname, "..", "public", "images", "posts", datePath)
-  await mkdir(imageDir, { recursive: true })
-  console.log(`Created: ${imageDir}`)
+  if (hasImages) {
+    const imageDir = join(
+      __dirname,
+      "..",
+      "public",
+      "images",
+      "posts",
+      datePath,
+    )
+    await mkdir(imageDir, { recursive: true })
+    console.log(`Created: ${imageDir}`)
+  }
 }
