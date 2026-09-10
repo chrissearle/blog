@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ngc 6992, caldwell 33, nebula, seestar, s-50, zwo ]
 intro: NGC 6992 / Caldwell 33, a supernova remnant in Cygnus.
 image: /images/posts/2026/02/22/ngc6992.png
+targets:
+  - name: Eastern Veil Nebula
+    ids: [ NGC 6992, Caldwell 33 ]
+    type: nebula
+    constellation: Cygnus
 ---
 
 | Names         | Eastern Veil Nebula, NGC 6992, Caldwell 33 |

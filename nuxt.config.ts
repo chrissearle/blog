@@ -116,6 +116,7 @@ export default defineNuxtConfig({
         "heroicons:sun",
         "heroicons:tag",
         "heroicons:user-group",
+        "lucide:telescope",
       ],
     },
   },

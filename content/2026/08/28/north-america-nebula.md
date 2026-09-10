@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ngc 7000, caldwell 20, sh2-117, nebula, seestar, s-30-pro, zwo ]
 intro: NGC 7000 / Caldwell 20 / Sh2-117, an emission nebula in Cygnus.
 image: /images/posts/2026/08/28/NGC_7000.png
+targets:
+  - name: North America Nebula
+    ids: [ NGC 7000, Caldwell 20, Sh2-117 ]
+    type: nebula
+    constellation: Cygnus
 ---
 
 | Names         | North America Nebula, NGC 7000, Caldwell 20, Sh2-117 |

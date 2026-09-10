@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, arp 317, galaxy, seestar, s-50, zwo, messier 65, ngc 3623, messier 66, ngc 3627, ngc 3628 ]
 intro: Arp 317, a group of galaxies in Leo.
 image: /images/posts/2026/03/28/leo_triplet.png
+targets:
+  - name: Leo Triplet
+    ids: [ Messier 65, Messier 66, NGC 3623, NGC 3627, NGC 3628, Arp 317 ]
+    type: galaxy
+    constellation: Leo
 ---
 
 | Names         | Leo Triplet, M66 Group, Arp 317 |

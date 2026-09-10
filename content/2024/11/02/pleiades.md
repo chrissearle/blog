@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, messier 45, melotte 22, collinder 42, cluster, seestar, s-50, zwo ]
 intro: Messier 45 / Melotte 22 / Collinder 42, a star cluster in Taurus.
 image: /images/posts/2024/11/02/m45.jpg
+targets:
+  - name: Pleiades
+    ids: [ Messier 45, Melotte 22, Collinder 42 ]
+    type: cluster
+    constellation: Taurus
 ---
 
 | Names         | Pleiades, Seven Sisters, Messier 45, Melotte 22, Collinder 42 |

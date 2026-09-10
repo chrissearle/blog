@@ -21,6 +21,18 @@ export default defineContentConfig({
           .optional(),
         embedImage: z.string().url().optional(),
         series: z.string().optional(),
+        // Astrophotography posts: one entry per object imaged - drives /astrophotography
+        targets: z
+          .array(
+            z.object({
+              name: z.string(),
+              // Display form from scripts/astro/catalogs.ts: "Messier 81", "NGC 3031", "Sh2-142"
+              ids: z.array(z.string()).default([]),
+              type: z.enum(["galaxy", "nebula", "cluster"]).optional(),
+              constellation: z.string().optional(),
+            }),
+          )
+          .optional(),
         sitemap: defineSitemapSchema(),
       }),
     }),

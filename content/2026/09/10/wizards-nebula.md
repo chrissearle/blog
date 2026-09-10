@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ngc 7380, sh2-142, collinder 452, nebula, seestar, s-50, zwo ]
 intro: NGC 7380 / Sh2-142 / Collinder 452, an emission nebula (H II region) in Cepheus.
 image: /images/posts/2026/09/10/Sh2_142.png
+targets:
+  - name: Wizard's Nebula
+    ids: [ NGC 7380, Sh2-142, Collinder 452 ]
+    type: nebula
+    constellation: Cepheus
 ---
 
 | Names         | Wizard's Nebula, NGC 7380, Sh2-142, Collinder 452 |

@@ -69,6 +69,7 @@ Post frontmatter schema (defined in `content.config.ts`):
 - `image` (optional URL, typically `/images/posts/YYYY/MM/DD/filename.ext`)
 - `embedImage` (optional URL)
 - `series` (optional string for grouping related posts)
+- `targets` (astrophotography posts: list of `{ name, ids, type, constellation }`, one per object imaged — written by `node scripts/post --astro`, drives the `/astrophotography` page)
 
 Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 
@@ -78,6 +79,7 @@ Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 - `pages/index.vue` - Paginated post list (12 per page)
 - `pages/[...slug].vue` - Individual post renderer using `PostsLong`
 - `pages/tags/`, `pages/categories/`, `pages/series/` - Taxonomy pages
+- `pages/astrophotography.vue` - "My targets" overview built from `targets` frontmatter (table on md+, cards below); astro posts link to it from the date line in `posts/long.vue`
 - `pages/keys.vue`, `pages/version.vue` - Utility pages
 
 **Components** (`app/components/`):
@@ -93,6 +95,7 @@ Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 - `usePaging.ts` - Pagination logic (12 posts/page)
 - `useDates.ts` - Date formatting via Luxon (parses `YYYY-MM-DD HH:mm ZZZ` and `YYYY-MM-DD HH:mm:ss ZZZ`)
 - `useLinks.ts`, `useStrings.ts`, `useBadges.ts` - Utility helpers
+- `useTargets.ts` - Rows, catalog columns and Messier/Caldwell progress for `/astrophotography`
 
 ### Querying content
 

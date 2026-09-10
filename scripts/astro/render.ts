@@ -152,9 +152,22 @@ export interface Frontmatter {
   tags: string[]
   intro: string
   image: string
+  // Written as the `targets:` block that drives the /astrophotography page
+  targets?: Target[]
   // Extra raw YAML lines to keep (e.g. an existing sitemap block)
   extra?: string[]
 }
+
+// One `targets:` entry: the name shown on /astrophotography plus the catalog ids
+export const targetYaml = (target: Target): string[] =>
+  [
+    `  - name: ${yamlValue(target.commonNames[0] ?? target.names[0]?.display ?? target.query)}`,
+    `    ids: [ ${target.names.map((n) => n.display).join(", ")} ]`,
+    target.typeTag ? `    type: ${target.typeTag}` : undefined,
+    target.constellation
+      ? `    constellation: ${yamlValue(target.constellation)}`
+      : undefined,
+  ].filter((line): line is string => line !== undefined)
 
 export const frontmatter = (fm: Frontmatter): string =>
   [
@@ -165,6 +178,9 @@ export const frontmatter = (fm: Frontmatter): string =>
     `tags: [ ${fm.tags.join(", ")} ]`,
     `intro: ${yamlValue(fm.intro)}`,
     `image: ${fm.image}`,
+    ...(fm.targets && fm.targets.length > 0
+      ? ["targets:", ...fm.targets.flatMap(targetYaml)]
+      : []),
     ...(fm.extra ?? []),
     "---",
   ].join("\n")

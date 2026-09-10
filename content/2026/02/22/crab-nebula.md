@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, messier 1, ngc 1952, sh2-244, nebula, seestar, s-50, zwo ]
 intro: Messier 1 / NGC 1952 / Sh2-244, a supernova remnant in Taurus.
 image: /images/posts/2026/02/22/m1.png
+targets:
+  - name: Crab Nebula
+    ids: [ Messier 1, NGC 1952, Sh2-244 ]
+    type: nebula
+    constellation: Taurus
 ---
 
 | Names         | Crab Nebula, Taurus A, Messier 1, NGC 1952, Sh2-244 |

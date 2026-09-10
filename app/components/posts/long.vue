@@ -40,6 +40,16 @@ const categories = splitList(props.post.category)
       <h1 class="pageTitle !mb-1">{{ props.post.title }}</h1>
       <p class="font-mono text-xs text-secondary">
         {{ dateFormat(post.date) }}
+        <template v-if="post.targets?.length">
+          <span class="mx-1.5 text-muted" aria-hidden="true">·</span>
+          <NuxtLink
+            to="/astrophotography/"
+            class="inline-flex items-center gap-1 align-bottom text-muted transition-colors hover:text-primary"
+          >
+            <UIcon name="i-lucide-telescope" class="size-3.5" />
+            All my targets
+          </NuxtLink>
+        </template>
       </p>
     </div>
 

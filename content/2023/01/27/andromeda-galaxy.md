@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, messier 31, ngc 224, galaxy, samyang, sony, a7riv, sky-watcher, star adventurer ]
 intro: Messier 31 / NGC 224, a barred spiral galaxy in the Local Group.
 image: /images/posts/2023/01/m31.png
+targets:
+  - name: Andromeda Galaxy
+    ids: [ Messier 31, NGC 224 ]
+    type: galaxy
+    constellation: Andromeda
 sitemap:
   lastmod: 2026-09-10
 ---

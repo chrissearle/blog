@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, messier 51, ngc 5194, arp 85, galaxy, seestar, s-50, zwo ]
 intro: Messier 51 / NGC 5194 / Arp 85, a galaxy in Canes Venatici.
 image: /images/posts/2026/04/09/m51.png
+targets:
+  - name: Whirlpool Galaxy
+    ids: [ Messier 51, NGC 5194, Arp 85 ]
+    type: galaxy
+    constellation: Canes Venatici
 ---
 
 | Names         | Whirlpool Galaxy, Messier 51, NGC 5194, Arp 85 |

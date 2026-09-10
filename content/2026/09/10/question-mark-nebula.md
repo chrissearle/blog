@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ngc 7822, sh2-171, nebula, seestar, s-30-pro, zwo ]
 intro: NGC 7822 / Sh2-171, a star forming region in Cepheus.
 image: /images/posts/2026/09/10/NGC_7822.png
+targets:
+  - name: Question Mark Nebula
+    ids: [ NGC 7822, Sh2-171 ]
+    type: nebula
+    constellation: Cepheus
 ---
 
 | Names         | Question Mark Nebula, NGC 7822, Sh2-171 |

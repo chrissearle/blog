@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, messier 81, ngc 3031, galaxy, seestar, s-50, zwo ]
 intro: Messier 81 / NGC 3031, a spiral galaxy in Ursa Major.
 image: /images/posts/2026/03/21/m81.png
+targets:
+  - name: Bode's Galaxy
+    ids: [ Messier 81, NGC 3031 ]
+    type: galaxy
+    constellation: Ursa Major
 ---
 
 | Names         | Bode's Galaxy, Messier 81, NGC 3031 |

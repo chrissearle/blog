@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ngc 6960, caldwell 34, nebula, seestar, s-50, zwo ]
 intro: NGC 6960 / Caldwell 34, a supernova remnant in Cygnus.
 image: /images/posts/2026/02/22/ngc6960.png
+targets:
+  - name: Western Veil Nebula
+    ids: [ NGC 6960, Caldwell 34 ]
+    type: nebula
+    constellation: Cygnus
 ---
 
 | Names         | Western Veil Nebula, NGC 6960, Caldwell 34 |

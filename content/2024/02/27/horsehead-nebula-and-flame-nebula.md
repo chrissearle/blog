@@ -5,6 +5,15 @@ category: Photography
 tags: [ astrophotography, barnard 33, ngc 2024, sh2-277, nebula, seestar, s-50, zwo, ic 434 ]
 intro: Barnard 33, a dark nebula in Orion. NGC 2024 / Sh2-277, an emission nebula in Orion.
 image: /images/posts/2024/02/27/ic434.png
+targets:
+  - name: Horsehead Nebula
+    ids: [ IC 434, Barnard 33 ]
+    type: nebula
+    constellation: Orion
+  - name: Flame Nebula
+    ids: [ NGC 2024, Sh2-277 ]
+    type: nebula
+    constellation: Orion
 ---
 
 | Names         | Horsehead Nebula, Barnard 33 |

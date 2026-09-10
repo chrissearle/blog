@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, messier 106, ngc 4258, galaxy, seestar, s-50, zwo ]
 intro: Messier 106 / NGC 4258, a galaxy in Canes Venatici.
 image: /images/posts/2026/03/06/m106.png
+targets:
+  - name: Messier 106
+    ids: [ Messier 106, NGC 4258 ]
+    type: galaxy
+    constellation: Canes Venatici
 ---
 
 | Names         | Messier 106, NGC 4258 |

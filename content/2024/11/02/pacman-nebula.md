@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ngc 281, ic 11, sh2-184, nebula, seestar, s-50, zwo ]
 intro: NGC 281 / IC 11 / Sh2-184, an emission nebula in Cassiopeia.
 image: /images/posts/2024/11/02/ngc281.jpg
+targets:
+  - name: Pacman Nebula
+    ids: [ NGC 281, IC 11, Sh2-184 ]
+    type: nebula
+    constellation: Cassiopeia
 ---
 
 | Names         | Pacman Nebula, NGC 281, IC 11, Sh2-184 |

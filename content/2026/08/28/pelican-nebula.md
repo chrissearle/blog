@@ -5,6 +5,11 @@ category: Photography
 tags: [ astrophotography, ic 5070, nebula, seestar, s-50, zwo ]
 intro: IC 5070, an H II region in Cygnus.
 image: /images/posts/2026/08/28/IC_5070.png
+targets:
+  - name: Pelican Nebula
+    ids: [ IC 5070 ]
+    type: nebula
+    constellation: Cygnus
 ---
 
 | Names         | Pelican Nebula, IC 5070 |
