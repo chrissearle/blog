@@ -121,11 +121,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}
 
-      # `pnpm build` and the Dockerfile's output checks both pass when the
-      # dependency tree contains duplicate copies of a package, because Nitro
-      # only mangles .output/server/node_modules at trace time. The failure
-      # surfaces as ERR_MODULE_NOT_FOUND the first time the server starts, so
-      # actually booting the image is the only thing that catches it.
       - name: Start image
         run: |
           docker run -d --name blog-smoke -p 3000:3000 \
@@ -145,42 +140,8 @@ jobs:
           docker logs blog-smoke
           exit 1
 
-      # The title is compared after HTML-entity decoding and whitespace
-      # normalisation: Vue SSR escapes ' & < > " on the way out, so a literal
-      # match fails on any title containing them.
       - name: Check front page and latest article
-        run: |
-          LATEST=$(find content -name "*.md" | grep -E "^content/[0-9]{4}/" | sort | tail -1)
-          echo "Latest post file: $LATEST"
-          curl -sf http://localhost:3000/ > /tmp/front.html
-          python3 - "$LATEST" /tmp/front.html <<'PYEOF'
-          import html, re, sys
-
-          title = None
-          with open(sys.argv[1], encoding="utf-8") as fh:
-              for line in fh:
-                  if line.startswith("title:"):
-                      title = line[len("title:"):].strip().strip("\"'")
-                      break
-
-          if not title:
-              print("No title found in front matter")
-              sys.exit(1)
-
-          with open(sys.argv[2], encoding="utf-8") as fh:
-              page = html.unescape(fh.read())
-
-          def norm(s):
-              return re.sub(r"\s+", " ", s)
-
-          print(f"Checking for title: {title}")
-
-          if norm(title) in norm(page):
-              print("Latest article found on front page")
-          else:
-              print("Latest article NOT found on front page")
-              sys.exit(1)
-          PYEOF
+        run: curl -sf http://localhost:3000/ | python3 scripts/check-front-page.py
 
       - name: Show server logs on failure
         if: failure()

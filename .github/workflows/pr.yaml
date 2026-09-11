@@ -51,15 +51,4 @@ jobs:
           exit 1
 
       - name: Check front page and latest article
-        run: |
-          LATEST=$(find content -name "*.md" | grep -E "^content/[0-9]{4}/" | sort | tail -1)
-          TITLE=$(grep "^title:" "$LATEST" | head -1 | sed "s/^title:[[:space:]]*//" | tr -d "\""\')
-          echo "Latest post file: $LATEST"
-          echo "Checking for title: $TITLE"
-          RESPONSE=$(curl -sf http://localhost:3000/)
-          if echo "$RESPONSE" | grep -qF "$TITLE"; then
-            echo "Latest article found on front page"
-          else
-            echo "Latest article NOT found on front page"
-            exit 1
-          fi
+        run: curl -sf http://localhost:3000/ | python3 scripts/check-front-page.py
