@@ -15,6 +15,7 @@ export interface CatalogId {
 
 interface CatalogDef {
   catalog: string
+  // Group 1 is the number; an optional group 2 is a component suffix ("IC 1396A")
   pattern: RegExp
   max?: number
   display: (n: string) => string
@@ -31,13 +32,13 @@ const CATALOGS: CatalogDef[] = [
   },
   {
     catalog: "NGC",
-    pattern: /^NGC\s*(\d{1,4})$/i,
+    pattern: /^NGC\s*(\d{1,4})\s*([A-Z])?$/i,
     display: (n) => `NGC ${n}`,
     short: (n) => `NGC ${n}`,
   },
   {
     catalog: "IC",
-    pattern: /^IC\s*(\d{1,4})$/i,
+    pattern: /^IC\s*(\d{1,4})\s*([A-Z])?$/i,
     display: (n) => `IC ${n}`,
     short: (n) => `IC ${n}`,
   },
@@ -106,10 +107,11 @@ export const parseCatalogId = (
     if (!allowShortForms && /^[CB]\s*\d/i.test(value)) {
       return undefined
     }
-    const n = String(Number(match[1]))
-    if (def.max !== undefined && Number(n) > def.max) {
+    if (def.max !== undefined && Number(match[1]) > def.max) {
       return undefined
     }
+    // "IC 1396a" and "IC 1396 A" both normalise to "IC 1396A"
+    const n = String(Number(match[1])) + (match[2]?.toUpperCase() ?? "")
     const display = def.display(n)
     return {
       catalog: def.catalog,

@@ -33,9 +33,10 @@ export interface TargetRow {
   posts: TargetPost[]
 }
 
-// "Messier 81" → Messier / 81, "Sh2-142" → Sh2 / 142
+// "Messier 81" → Messier / 81, "Sh2-142" → Sh2 / 142, "IC 1396a" → IC / 1396a
 const parseId = (id: string): CatalogRef => {
-  const match = /^(Sh2)-(\d+)$/.exec(id) ?? /^(.+?)\s+(\d+)$/.exec(id)
+  const match =
+    /^(Sh2)-(\d+[a-z]?)$/i.exec(id) ?? /^(.+?)\s+(\d+[a-z]?)$/i.exec(id)
   return match?.[1] && match[2]
     ? { id, catalog: match[1], number: match[2] }
     : { id, catalog: id, number: "" }
