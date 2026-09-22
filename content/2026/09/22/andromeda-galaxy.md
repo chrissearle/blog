@@ -33,7 +33,7 @@ The Andromeda Galaxy is a barred spiral galaxy and is the nearest major galaxy t
 |                  |                                                                                                                                                 |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Telescope        | Seestar S30 Pro (160 mm f/5.3)                                                                                                                  |
-| Dates            | 2026-09-19 ,2026-09-21                                                                                                                          |
+| Dates            | 2026-09-19, 2026-09-21                                                                                                                          |
 | Integration time | 3h 51m                                                                                                                                          |
 | Notes            | A second attempt at Andromeda - this time using the Seestar S30 Pro instead of a DSLR and imaging for just under 4 hours instead of 47 minutes. |
 
