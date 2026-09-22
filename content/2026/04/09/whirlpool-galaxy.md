@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 51, NGC 5194, Arp 85 ]
     type: galaxy
     constellation: Canes Venatici
+    ra: 202.470
+    dec: 47.195
 ---
 
 | Names         | Whirlpool Galaxy, Messier 51, NGC 5194, Arp 85 |

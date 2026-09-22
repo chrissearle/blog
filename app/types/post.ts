@@ -5,6 +5,9 @@ export interface PostTarget {
   ids?: string[]
   type?: "galaxy" | "nebula" | "cluster"
   constellation?: string
+  // J2000, in degrees
+  ra?: number
+  dec?: number
 }
 
 export interface PostPreview {

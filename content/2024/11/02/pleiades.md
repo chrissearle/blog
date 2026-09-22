@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 45, Melotte 22, Collinder 42 ]
     type: cluster
     constellation: Taurus
+    ra: 56.601
+    dec: 24.114
 ---
 
 | Names         | Pleiades, Seven Sisters, Messier 45, Melotte 22, Collinder 42 |

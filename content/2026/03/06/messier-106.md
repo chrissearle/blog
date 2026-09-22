@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 106, NGC 4258 ]
     type: galaxy
     constellation: Canes Venatici
+    ra: 184.740
+    dec: 47.304
 ---
 
 | Names         | Messier 106, NGC 4258 |

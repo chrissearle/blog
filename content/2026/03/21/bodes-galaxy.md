@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 81, NGC 3031 ]
     type: galaxy
     constellation: Ursa Major
+    ra: 148.888
+    dec: 69.065
 ---
 
 | Names         | Bode's Galaxy, Messier 81, NGC 3031 |

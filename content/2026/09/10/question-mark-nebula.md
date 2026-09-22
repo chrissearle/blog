@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 7822, Sh2-171 ]
     type: nebula
     constellation: Cepheus
+    ra: 0.286
+    dec: 67.421
 ---
 
 | Names         | Question Mark Nebula, NGC 7822, Sh2-171 |

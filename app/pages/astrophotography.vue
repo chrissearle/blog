@@ -175,5 +175,7 @@ useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
         </div>
       </li>
     </ul>
+
+    <AstroSkyMap :rows="rows" class="mt-10" />
   </UContainer>
 </template>

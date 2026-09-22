@@ -10,10 +10,14 @@ targets:
     ids: [ IC 434, Barnard 33 ]
     type: nebula
     constellation: Orion
+    ra: 85.246
+    dec: -2.458
   - name: Flame Nebula
     ids: [ NGC 2024, Sh2-277 ]
     type: nebula
     constellation: Orion
+    ra: 85.428
+    dec: -1.912
 ---
 
 | Names         | Horsehead Nebula, Barnard 33 |

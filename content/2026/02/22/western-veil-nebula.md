@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 6960, Caldwell 34 ]
     type: nebula
     constellation: Cygnus
+    ra: 311.408
+    dec: 30.708
 ---
 
 | Names         | Western Veil Nebula, NGC 6960, Caldwell 34 |

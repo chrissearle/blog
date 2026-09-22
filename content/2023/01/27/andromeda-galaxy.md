@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 31, NGC 224 ]
     type: galaxy
     constellation: Andromeda
+    ra: 10.685
+    dec: 41.269
 sitemap:
   lastmod: 2026-09-10
 ---

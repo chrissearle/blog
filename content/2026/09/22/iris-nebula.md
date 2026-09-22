@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 7023, Caldwell 4, Collinder 429 ]
     type: nebula
     constellation: Cepheus
+    ra: 315.404
+    dec: 68.163
 ---
 
 | Names         | Iris Nebula, NGC 7023, Caldwell 4, Collinder 429 |

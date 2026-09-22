@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 6992, Caldwell 33 ]
     type: nebula
     constellation: Cygnus
+    ra: 314.079
+    dec: 31.743
 ---
 
 | Names         | Eastern Veil Nebula, NGC 6992, Caldwell 33 |

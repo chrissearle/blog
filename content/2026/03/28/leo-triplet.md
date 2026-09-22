@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 65, Messier 66, NGC 3623, NGC 3627, NGC 3628, Arp 317 ]
     type: galaxy
     constellation: Leo
+    ra: 169.750
+    dec: 13.200
 ---
 
 | Names         | Leo Triplet, M66 Group, Arp 317 |

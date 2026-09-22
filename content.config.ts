@@ -30,6 +30,9 @@ export default defineContentConfig({
               ids: z.array(z.string()).default([]),
               type: z.enum(["galaxy", "nebula", "cluster"]).optional(),
               constellation: z.string().optional(),
+              // J2000, in degrees - places the target on the /astrophotography sky map
+              ra: z.number().optional(),
+              dec: z.number().optional(),
             }),
           )
           .optional(),

@@ -28,6 +28,9 @@ export interface TargetRow {
   name: string
   type?: PostTarget["type"]
   constellation?: string
+  // J2000 degrees, from the first post that gives them
+  ra?: number
+  dec?: number
   ids: CatalogRef[]
   // Newest first
   posts: TargetPost[]
@@ -63,6 +66,8 @@ export const useTargets = () => {
           ids: [],
           posts: [],
         }
+        row.ra ??= target.ra
+        row.dec ??= target.dec
         const known = new Set(row.ids.map((i) => i.id))
         row.ids.push(
           ...(target.ids ?? []).filter((id) => !known.has(id)).map(parseId),

@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 7635, Caldwell 11, Sh2-162 ]
     type: nebula
     constellation: Cassiopeia
+    ra: 350.201
+    dec: 61.202
 ---
 
 | Names         | Bubble Nebula, NGC 7635, Caldwell 11, Sh2-162 |

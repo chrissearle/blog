@@ -10,6 +10,8 @@ targets:
     ids: [ IC 5070 ]
     type: nebula
     constellation: Cygnus
+    ra: 312.750
+    dec: 44.367
 ---
 
 | Names         | Pelican Nebula, IC 5070 |

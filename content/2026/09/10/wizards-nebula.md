@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 7380, Sh2-142, Collinder 452 ]
     type: nebula
     constellation: Cepheus
+    ra: 341.883
+    dec: 58.048
 ---
 
 | Names         | Wizard's Nebula, NGC 7380, Sh2-142, Collinder 452 |

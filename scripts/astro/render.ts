@@ -167,6 +167,8 @@ export const targetYaml = (target: Target): string[] =>
     target.constellation
       ? `    constellation: ${yamlValue(target.constellation)}`
       : undefined,
+    target.ra !== undefined ? `    ra: ${target.ra.toFixed(3)}` : undefined,
+    target.dec !== undefined ? `    dec: ${target.dec.toFixed(3)}` : undefined,
   ].filter((line): line is string => line !== undefined)
 
 export const frontmatter = (fm: Frontmatter): string =>

@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 281, IC 11, Sh2-184 ]
     type: nebula
     constellation: Cassiopeia
+    ra: 13.105
+    dec: 56.565
 ---
 
 | Names         | Pacman Nebula, NGC 281, IC 11, Sh2-184 |

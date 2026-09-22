@@ -10,6 +10,8 @@ targets:
     ids: [ NGC 7000, Caldwell 20, Sh2-117 ]
     type: nebula
     constellation: Cygnus
+    ra: 314.696
+    dec: 44.330
 ---
 
 | Names         | North America Nebula, NGC 7000, Caldwell 20, Sh2-117 |

@@ -10,6 +10,8 @@ targets:
     ids: [ IC 1396A ]
     type: nebula
     constellation: Cepheus
+    ra: 324.000
+    dec: 57.400
 ---
 
 | Names         | Elephant's Trunk Nebula, IC 1396A |

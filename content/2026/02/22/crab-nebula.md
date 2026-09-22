@@ -10,6 +10,8 @@ targets:
     ids: [ Messier 1, NGC 1952, Sh2-244 ]
     type: nebula
     constellation: Taurus
+    ra: 83.632
+    dec: 22.017
 ---
 
 | Names         | Crab Nebula, Taurus A, Messier 1, NGC 1952, Sh2-244 |
