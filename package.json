@@ -24,7 +24,7 @@
     "@artmizu/nuxt-prometheus": "3.0.4",
     "@iconify-json/heroicons": "1.2.3",
     "@iconify-json/lucide": "1.2.135",
-    "@nuxt/content": "3.16.0",
+    "@nuxt/content": "3.16.1",
     "@nuxt/eslint": "1.17.0",
     "@nuxt/image": "2.1.0",
     "@nuxt/scripts": "1.3.9",
