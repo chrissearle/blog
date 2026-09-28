@@ -3,7 +3,7 @@ export interface PostTarget {
   name: string
   // "Messier 81", "NGC 3031", "Sh2-142", ...
   ids?: string[]
-  type?: "galaxy" | "nebula" | "cluster"
+  type?: "galaxy" | "nebula" | "cluster" | "planet" | "moon" | "star"
   constellation?: string
   // J2000, in degrees
   ra?: number

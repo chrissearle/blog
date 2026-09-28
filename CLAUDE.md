@@ -32,9 +32,12 @@ node scripts/post "Post Title" --images   # Also creates public/images/posts/YYY
 node scripts/post --astro                        # asks for everything
 node scripts/post --astro "M 81"                 # target given; comma-separate for multi-target posts
 node scripts/post --astro "M 81" --image ~/x.png --dry-run   # print the post, write nothing
+node scripts/post --astro --laminar ~/Saturn.json            # planetary: read a Laminar capture sidecar (repeatable)
 ```
 
 - Looks the target up in SIMBAD (coordinates, magnitude, size, catalog ids), Wikipedia (description, lead sentences, footnote link, infobox size) and Wikidata (constellation, distance, Caldwell numbers). Stellarium's Remote Control plugin on `localhost:8090` fills gaps if running.
+- Sun, Moon and planets (`scripts/astro/solar.ts`) skip SIMBAD: fixed facts are hard-coded, and constellation, distance, magnitude, apparent size, phase and Saturn's ring tilt are computed offline by `astronomy-engine` for the first capture date plus a time the script asks for. Their `targets` entries have no `ids`, `ra` or `dec` (they move, so they stay off the sky map); `type` is `planet`, `moon` or `star`.
+- Laminar (planetary capture app) JSON sidecars, via `--laminar` or asked for when a target is a planet (`scripts/astro/laminar.ts`): supply the default target, capture dates/times (UTC), duration, frame count, camera settings (gain, exposure, format, ROI), the camera (matched by model in `equipment.json`), a preselected telescope (matched by focal length), a Barlow note, and a pre-filled Conditions answer from the weather block. Site coordinates, observer and file names are deliberately not used.
 - Copies the image to `public/images/posts/YYYY/MM/DD/<CATALOG_ID>.<ext>`.
 - Asks for photo details. Equipment comes from `scripts/astro/equipment.json` ("add new ..." appends to it); the last setup used is remembered in the gitignored `scripts/astro/.last-setup.json`.
 - Title rule and intro wording live in `pickTitle()` / `buildIntro()` in `scripts/astro/render.ts`. Catalog whitelist and order are in `scripts/astro/catalogs.ts`.

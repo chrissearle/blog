@@ -21,6 +21,20 @@ import {
   safeTag,
   toSlug,
 } from "./format.ts"
+import {
+  cameraSettings,
+  captureDates,
+  captureFor,
+  captureMinutes,
+  conditions,
+  framesSummary,
+  type LaminarCapture,
+  loadLaminar,
+  magnifierNote,
+  matchCamera,
+  matchOptics,
+  sessionTimes,
+} from "./laminar.ts"
 import { lookupTarget, type Target } from "./lookup.ts"
 import {
   ask,
@@ -42,6 +56,7 @@ import {
   renderPost,
   targetTable,
 } from "./render.ts"
+import { ephemeris } from "./solar.ts"
 import { existingTagSlugs } from "./tags.ts"
 import { leadSentences } from "./wikipedia.ts"
 
@@ -53,11 +68,13 @@ const LARGE_IMAGE_BYTES = 10 * 1024 * 1024
 interface Flags {
   target?: string
   image?: string
+  // Laminar capture sidecars - repeat the flag for several videos
+  laminar: string[]
   dryRun: boolean
 }
 
 const parseFlags = (argv: string[]): Flags => {
-  const flags: Flags = { dryRun: false }
+  const flags: Flags = { dryRun: false, laminar: [] }
   const words: string[] = []
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i] ?? ""
@@ -65,6 +82,7 @@ const parseFlags = (argv: string[]): Flags => {
     const value = () => inline ?? argv[++i]
     if (name === "--target" || name === "-t") flags.target = value()
     else if (name === "--image") flags.image = value()
+    else if (name === "--laminar") flags.laminar.push(value() ?? "")
     else if (name === "--dry-run" || name === "-n") flags.dryRun = true
     else if (!arg.startsWith("-")) words.push(arg)
   }
@@ -199,16 +217,31 @@ const chooseComponent = async (
   return choice === "new" ? addComponent(kind, components) : choice
 }
 
-const chooseSetup = async (): Promise<Setup> => {
+// A Laminar capture names the camera exactly, so a registry match skips the
+// question. The telescope is only matched by focal length, so it is preselected
+// but still asked.
+const chooseSetup = async (captures: LaminarCapture[]): Promise<Setup> => {
   const components = await loadEquipment()
   const last = await loadLastSetup()
-  const optics = await chooseComponent("optics", components, last.optics)
+  const [capture] = captures
+  const knownOptics = capture ? matchOptics(capture, components) : undefined
+  const knownCamera = capture ? matchCamera(capture, components) : undefined
+
+  const optics = await chooseComponent(
+    "optics",
+    components,
+    knownOptics?.id ?? last.optics,
+  )
   if (!optics || optics.integrated) {
     return { optics }
   }
+  if (knownCamera) {
+    say(`\nCamera: ${describe(knownCamera)} (from Laminar)`)
+  }
   return {
     optics,
-    camera: await chooseComponent("camera", components, last.camera),
+    camera:
+      knownCamera ?? (await chooseComponent("camera", components, last.camera)),
     mount: await chooseComponent("mount", components, last.mount),
     control: await chooseComponent("control", components, last.control),
   }
@@ -252,9 +285,24 @@ const askIntegration = async (): Promise<IntegrationLine[]> => {
   }
 }
 
-const askPhotoDetails = async (): Promise<PhotoDetails> => {
-  const setup = await chooseSetup()
-  const cameraSettings = setup.camera
+// Dates, duration, frames and camera settings from Laminar - nothing to ask
+const laminarDetails = (captures: LaminarCapture[]) => {
+  const details = {
+    cameraSettings: cameraSettings(captures) || undefined,
+    dates: captureDates(captures),
+    times: sessionTimes(captures),
+    integration: [{ label: "", minutes: captureMinutes(captures) }],
+    frames: framesSummary(captures),
+  }
+  say(`\nFrom Laminar: ${details.times}, ${details.frames} frames`)
+  if (details.cameraSettings) {
+    say(`  camera settings: ${details.cameraSettings}`)
+  }
+  return details
+}
+
+const askCaptureDetails = async (hasCamera: boolean) => {
+  const settings = hasCamera
     ? await ask("Camera settings (e.g. ISO 400, gain 100 -10 °C)")
     : undefined
   const dates = await askValid(
@@ -263,18 +311,81 @@ const askPhotoDetails = async (): Promise<PhotoDetails> => {
     "",
     "Use YYYY-MM-DD, separated by commas",
   )
-  const integration = await askIntegration()
+  return {
+    cameraSettings: settings || undefined,
+    dates,
+    integration: await askIntegration(),
+  }
+}
+
+const askPhotoDetails = async (
+  captures: LaminarCapture[],
+): Promise<PhotoDetails> => {
+  const setup = await chooseSetup(captures)
+  const capture =
+    captures.length > 0
+      ? laminarDetails(captures)
+      : await askCaptureDetails(setup.camera !== undefined)
+  const weather = conditions(captures)
   return {
     setup,
-    cameraSettings: cameraSettings || undefined,
-    dates,
-    integration,
+    ...capture,
+    magnifier: magnifierNote(captures, setup.optics),
+    conditions:
+      captures.length > 0
+        ? (await ask("Conditions (optional)", weather)) || undefined
+        : undefined,
     calibration: (await ask("Calibration frames (optional)")) || undefined,
     processing:
       (await ask("Processing (optional, e.g. PixInsight, HOO palette)")) ||
       undefined,
     notes: (await ask("Notes (optional)")) || undefined,
   }
+}
+
+// Sun, Moon and planets move: fill in where they were on the first capture date.
+// The Moon moves its own width every hour, so the time is worth asking for.
+// Without a Laminar file, the time has to be asked for
+const askCaptureTime = async (
+  targets: Target[],
+  day: string,
+): Promise<Date> => {
+  const daytime = targets.every((t) => t.solar?.name === "Sun")
+  const time = await askValid(
+    `\nCapture time on ${day} (HH:mm, local)`,
+    (a) => (/^([01]\d|2[0-3]):[0-5]\d$/.test(a) ? a : undefined),
+    daytime ? "12:00" : "22:00",
+    "Use HH:mm, e.g. 22:30",
+  )
+  return new Date(`${day}T${time}`)
+}
+
+const addEphemerides = async (
+  targets: Target[],
+  photo: PhotoDetails,
+  captures: LaminarCapture[],
+): Promise<Target[]> => {
+  const [day] = photo.dates
+  if (!day || !targets.some((t) => t.solar)) {
+    return targets
+  }
+  // Each target at the middle of its own video, when there is one
+  const asked =
+    captures.length > 0 ? undefined : await askCaptureTime(targets, day)
+  return targets.map((target) => {
+    const when =
+      asked ??
+      (target.solar && captureFor(target.solar.name, captures)?.midpoint)
+    if (!target.solar || !when) {
+      return target
+    }
+    const withEphemeris = {
+      ...target,
+      ephemeris: ephemeris(target.solar, when),
+    }
+    say(`\n${targetTable(withEphemeris)}`)
+    return withEphemeris
+  })
 }
 
 const imageFileName = (
@@ -310,10 +421,38 @@ const confirmTags = async (tags: string[]): Promise<string[]> => {
     .filter(Boolean)
 }
 
+// Finder drops several files as one line: "/a/Saturn\\ 1.json '/b/Jupiter 2.json'"
+const splitPaths = (line: string): string[] =>
+  (line.match(/(?:\\.|'[^']*'|"[^"]*"|[^\s'"\\])+/g) ?? []).map(cleanPath)
+
+const loadCaptures = async (paths: string[]): Promise<LaminarCapture[]> => {
+  const captures: LaminarCapture[] = []
+  for (const path of paths) {
+    captures.push(await loadLaminar(cleanPath(path)))
+  }
+  return captures
+}
+
+const askCaptures = async (): Promise<LaminarCapture[]> =>
+  askValid(
+    "\nLaminar capture file(s) (optional - drag in, Enter to skip)",
+    (answer) => {
+      const paths = splitPaths(answer)
+      return paths.every((p) => existsSync(p)) ? paths : undefined
+    },
+    "",
+    "File not found",
+  ).then(loadCaptures)
+
 const run = async (flags: Flags): Promise<void> => {
+  let captures = await loadCaptures(flags.laminar)
+  const captured = [
+    ...new Set(captures.map((c) => c.target).filter((t) => t !== undefined)),
+  ].join(", ")
+
   const queries = (
     flags.target ??
-    (await ask("Target(s) - comma-separated for a multi-target post"))
+    (await ask("Target(s) - comma-separated for a multi-target post", captured))
   )
     .split(",")
     .map((q) => q.trim())
@@ -326,6 +465,9 @@ const run = async (flags: Flags): Promise<void> => {
   const [primary] = targets
   if (!primary) {
     throw new Error("No target given")
+  }
+  if (captures.length === 0 && targets.some((t) => t.solar)) {
+    captures = await askCaptures()
   }
 
   const descriptions: string[] = []
@@ -344,10 +486,11 @@ const run = async (flags: Flags): Promise<void> => {
     )
   }
 
-  const photo = await askPhotoDetails()
+  const photo = await askPhotoDetails(captures)
+  const located = await addEphemerides(targets, photo, captures)
 
-  const tags = await confirmTags(postTags(targets, photo.setup))
-  const intro = await ask("\nIntro", buildIntro(targets))
+  const tags = await confirmTags(postTags(located, photo.setup))
+  const intro = await ask("\nIntro", buildIntro(located))
 
   const date = postDate()
   const imageName = imageFileName(primary, slug, source)
@@ -359,7 +502,7 @@ const run = async (flags: Flags): Promise<void> => {
     tags,
     intro,
     image: imageUrl,
-    targets,
+    targets: located,
     descriptions,
     photo,
   })

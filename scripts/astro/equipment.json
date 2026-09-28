@@ -6,7 +6,11 @@
       "name": "Seestar S50",
       "maker": "ZWO",
       "details": "250 mm f/5",
-      "tags": ["seestar", "s-50", "zwo"],
+      "tags": [
+        "seestar",
+        "s-50",
+        "zwo"
+      ],
       "integrated": true
     },
     {
@@ -15,7 +19,11 @@
       "name": "Seestar S30 Pro",
       "maker": "ZWO",
       "details": "160 mm f/5.3",
-      "tags": ["seestar", "s-30-pro", "zwo"],
+      "tags": [
+        "seestar",
+        "s-30-pro",
+        "zwo"
+      ],
       "integrated": true
     },
     {
@@ -24,7 +32,10 @@
       "name": "SVBONY MAK127",
       "maker": "SVBONY",
       "details": "1500 mm f/11.8",
-      "tags": ["sv mak127", "svbony"]
+      "tags": [
+        "sv mak127",
+        "svbony"
+      ]
     },
     {
       "id": "svbony-mak127-reduced",
@@ -32,14 +43,19 @@
       "name": "SVBONY MAK127 with 0.65× reducer/flattener",
       "maker": "SVBONY",
       "details": "975 mm f/7.7",
-      "tags": ["sv mak127", "svbony"]
+      "tags": [
+        "sv mak127",
+        "svbony"
+      ]
     },
     {
       "id": "samyang-135",
       "kind": "optics",
       "name": "Samyang 135mm f/2",
       "maker": "Samyang",
-      "tags": ["samyang"],
+      "tags": [
+        "samyang"
+      ],
       "lens": true
     },
     {
@@ -47,7 +63,10 @@
       "kind": "camera",
       "name": "Sony A7R IV",
       "maker": "Sony",
-      "tags": ["sony", "a7riv"]
+      "tags": [
+        "sony",
+        "a7riv"
+      ]
     },
     {
       "id": "touptek-atr533c",
@@ -55,7 +74,11 @@
       "name": "ToupTek ATR533C",
       "maker": "ToupTek",
       "details": "IMX533 colour",
-      "tags": ["touptek", "atr533c", "imx533"]
+      "tags": [
+        "touptek",
+        "atr533c",
+        "imx533"
+      ]
     },
     {
       "id": "touptek-g3m662c",
@@ -63,28 +86,41 @@
       "name": "ToupTek G3M662C",
       "maker": "ToupTek",
       "details": "planetary, IMX662 colour",
-      "tags": ["touptek", "g3m662c", "imx662"]
+      "tags": [
+        "touptek",
+        "g3m662c",
+        "imx662"
+      ]
     },
     {
       "id": "star-adventurer",
       "kind": "mount",
       "name": "Sky-Watcher Star Adventurer",
       "maker": "Sky-Watcher",
-      "tags": ["sky-watcher", "star adventurer"]
+      "tags": [
+        "sky-watcher",
+        "star adventurer"
+      ]
     },
     {
       "id": "star-adventurer-gti",
       "kind": "mount",
       "name": "Sky-Watcher Star Adventurer GTi",
       "maker": "Sky-Watcher",
-      "tags": ["sky-watcher", "star adventurer gti"]
+      "tags": [
+        "sky-watcher",
+        "star adventurer gti"
+      ]
     },
     {
       "id": "asiair",
       "kind": "control",
       "name": "ASIAIR",
       "maker": "ZWO",
-      "tags": ["asiair", "zwo"]
+      "tags": [
+        "asiair",
+        "zwo"
+      ]
     },
     {
       "id": "pins",
@@ -92,7 +128,16 @@
       "name": "PINS",
       "maker": "",
       "details": "NINA on a Raspberry Pi with Touch'N'Stars",
-      "tags": ["pins"]
+      "tags": [
+        "pins"
+      ]
+    },
+    {
+      "id": "laminar",
+      "kind": "control",
+      "name": "Laminar",
+      "maker": "Mac Observatory",
+      "tags": []
     }
   ]
 }

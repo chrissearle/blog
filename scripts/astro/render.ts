@@ -5,9 +5,13 @@ import {
   formatDuration,
   formatMagnitude,
   formatRa,
+  formatApparentSize,
+  formatKm,
   formatSize,
+  formatSolarDistance,
 } from "./format.ts"
 import type { Target } from "./lookup.ts"
+import { type Ephemeris, moonPhaseName } from "./solar.ts"
 
 export interface IntegrationLine {
   // Filter / mode, e.g. "UV/IR cut" or "LP (Hα/OIII)". May be empty.
@@ -19,7 +23,15 @@ export interface PhotoDetails {
   setup: Setup
   cameraSettings?: string
   dates: string[]
+  // Replaces the plain dates in the table when capture times are known:
+  // "2026-09-26 21:42 UTC"
+  times?: string
   integration: IntegrationLine[]
+  // Planetary video frames, e.g. "344" or "1,032 in 3 videos"
+  frames?: string
+  // Barlow/reducer appended to the telescope: "2× Barlow (3000 mm f/23.6)"
+  magnifier?: string
+  conditions?: string
   calibration?: string
   processing?: string
   notes?: string
@@ -55,7 +67,43 @@ export const displayNames = (target: Target): string[] => [
   ...target.names.map((n) => n.display),
 ]
 
-export const targetTable = (target: Target): string =>
+// "Waxing gibbous, 68 % lit" for the Moon; "24 % lit" for a crescent Venus. Left
+// out when the disc is (near enough) full.
+const phaseRow = (ephemeris: Ephemeris): string | undefined => {
+  const lit = `${Math.round(ephemeris.illuminated * 100)} % lit`
+  if (ephemeris.moonPhase !== undefined) {
+    return `${moonPhaseName(ephemeris.moonPhase)}, ${lit}`
+  }
+  return ephemeris.illuminated < 0.99 ? lit : undefined
+}
+
+// Sun, Moon and planets: fixed facts, then where it was on the capture date
+const solarTable = (target: Target): string => {
+  const e = target.ephemeris
+  return table(
+    ["Names", cell(displayNames(target).join(", "))],
+    [
+      ["Type", target.type],
+      [
+        "Diameter",
+        target.solar ? formatKm(target.solar.diameterKm) : undefined,
+      ],
+      ["Constellation", e?.constellation],
+      ["Distance", e ? formatSolarDistance(e.distanceAu) : undefined],
+      ["Magnitude", e ? formatMagnitude(e.vmag) : undefined],
+      ["Apparent size", e ? formatApparentSize(e.sizeArcsec) : undefined],
+      ["Phase", e ? phaseRow(e) : undefined],
+      [
+        "Ring tilt",
+        e?.ringTilt !== undefined
+          ? `${Math.abs(e.ringTilt).toFixed(1)}°`
+          : undefined,
+      ],
+    ],
+  )
+}
+
+const deepSkyTable = (target: Target): string =>
   table(
     ["Names", cell(displayNames(target).join(", "))],
     [
@@ -79,6 +127,9 @@ export const targetTable = (target: Target): string =>
       ["Dec", target.dec !== undefined ? formatDec(target.dec) : undefined],
     ],
   )
+
+export const targetTable = (target: Target): string =>
+  target.solar ? solarTable(target) : deepSkyTable(target)
 
 export const totalMinutes = (photo: PhotoDetails): number =>
   photo.integration.reduce((sum, line) => sum + line.minutes, 0)
@@ -111,16 +162,20 @@ export const photoTable = (photo: PhotoDetails): string => {
     [
       [
         optics?.lens ? "Lens" : "Telescope",
-        optics ? describe(optics) : undefined,
+        optics
+          ? [describe(optics), photo.magnifier].filter(Boolean).join(" + ")
+          : undefined,
       ],
       ["Camera", cameraCell],
       ["Mount", mount ? describe(mount) : undefined],
       ["Control", control ? describe(control) : undefined],
-      ["Dates", photo.dates.join(", ")],
+      ["Dates", photo.times ?? photo.dates.join(", ")],
       ["Integration time", total > 0 ? formatDuration(total) : undefined],
+      ["Frames", photo.frames],
       ["Filters", filtersRow(photo)],
       ["Calibration", photo.calibration],
       ["Processing", photo.processing],
+      ["Conditions", photo.conditions],
       ["Notes", photo.notes],
     ],
   )
@@ -141,6 +196,8 @@ export const postTags = (targets: Target[], setup: Setup): string[] => [
   ...new Set([
     "astrophotography",
     ...targets.flatMap((t) => t.names.map((n) => n.tag)),
+    // No catalog ids - the body itself is the tag: "jupiter", "moon"
+    ...targets.flatMap((t) => (t.solar ? [t.solar.name.toLowerCase()] : [])),
     ...targets.flatMap((t) => (t.typeTag ? [t.typeTag] : [])),
     ...setupTags(setup),
   ]),
@@ -162,7 +219,9 @@ export interface Frontmatter {
 export const targetYaml = (target: Target): string[] =>
   [
     `  - name: ${yamlValue(target.commonNames[0] ?? target.names[0]?.display ?? target.query)}`,
-    `    ids: [ ${target.names.map((n) => n.display).join(", ")} ]`,
+    target.names.length > 0
+      ? `    ids: [ ${target.names.map((n) => n.display).join(", ")} ]`
+      : undefined,
     target.typeTag ? `    type: ${target.typeTag}` : undefined,
     target.constellation
       ? `    constellation: ${yamlValue(target.constellation)}`
@@ -246,8 +305,22 @@ const lowerFirst = (text: string): string =>
 const withArticle = (phrase: string): string =>
   `${/^([aeiou]|H II)/i.test(phrase) ? "an" : "a"} ${phrase}`
 
+// The intro sentence for the Sun, Moon or a planet. There are no catalog ids, and
+// the constellation is only where it happened to be that night - but target.ephemeris
+// (phase, constellation, ring tilt ...) is filled in by the time this runs.
+// TODO: pick the wording - for now it matches the deep-sky form.
+const describeSolar = (target: Target): string => {
+  const name = target.solar?.name ?? target.query
+  return target.type
+    ? `${name}, ${withArticle(lowerFirst(target.type))}.`
+    : `${name}.`
+}
+
 // "Messier 81 / NGC 3031, a spiral galaxy in Ursa Major."
 const describeTarget = (target: Target): string => {
+  if (target.solar) {
+    return describeSolar(target)
+  }
   const ids = target.names.map((n) => n.display)
   const name =
     ids.length > 0 ? ids.join(" / ") : (target.commonNames[0] ?? target.query)

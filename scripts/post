@@ -23,7 +23,16 @@ async function createPost() {
 
   if (!title) {
     console.error("Usage: post <title> [--images]")
-    console.error("       post --astro [target] [--image <file>] [--dry-run]")
+    console.error(
+      "       post --astro [target] [--image <file>] [--laminar <file>]... [--dry-run]",
+    )
+    console.error("")
+    console.error(
+      "  target     catalog id, name or Sun/Moon/planet; comma-separate for several",
+    )
+    console.error(
+      "  --laminar  Laminar capture JSON (planetary); repeat for several videos",
+    )
     process.exit(1)
   }
 

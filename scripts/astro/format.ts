@@ -1,6 +1,8 @@
 import slugify from "slugify"
 
-export type TypeTag = "galaxy" | "nebula" | "cluster"
+// Keep in sync with the `targets.type` enum in content.config.ts
+export type TypeTag =
+  "galaxy" | "nebula" | "cluster" | "planet" | "moon" | "star"
 
 const pad = (n: number, width = 2): string => String(n).padStart(width, "0")
 
@@ -43,6 +45,20 @@ export const formatDistance = (ly: number): string => {
   }
   return `≈ ${twoSig(ly).toLocaleString("en-GB")} ly`
 }
+
+// 142984 → "142,984 km"
+export const formatKm = (km: number): string =>
+  `${Math.round(km).toLocaleString("en-GB")} km`
+
+// Moon in km (it is never more than 0.003 AU away), everything else in AU
+export const formatSolarDistance = (au: number): string =>
+  au < 0.01
+    ? `≈ ${formatKm(Number((au * 149_597_870.7).toPrecision(3)))}`
+    : `${au.toFixed(au < 10 ? 2 : 1)} AU`
+
+// 1912.2 → "31.9′", 32.7 → "32.7″"
+export const formatApparentSize = (arcsec: number): string =>
+  arcsec >= 120 ? `${(arcsec / 60).toFixed(1)}′` : `${arcsec.toFixed(1)}″`
 
 // "3h55m", "3h 55m", "90m", "1.5h", "3h55m30s" → minutes
 export const parseDuration = (text: string): number | undefined => {

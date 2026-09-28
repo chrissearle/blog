@@ -28,9 +28,12 @@ export default defineContentConfig({
               name: z.string(),
               // Display form from scripts/astro/catalogs.ts: "Messier 81", "NGC 3031", "Sh2-142"
               ids: z.array(z.string()).default([]),
-              type: z.enum(["galaxy", "nebula", "cluster"]).optional(),
+              type: z
+                .enum(["galaxy", "nebula", "cluster", "planet", "moon", "star"])
+                .optional(),
               constellation: z.string().optional(),
-              // J2000, in degrees - places the target on the /astrophotography sky map
+              // J2000, in degrees - places the target on the /astrophotography sky map.
+              // Left out for the Sun, Moon and planets, which move
               ra: z.number().optional(),
               dec: z.number().optional(),
             }),

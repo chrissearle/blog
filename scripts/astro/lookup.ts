@@ -11,6 +11,7 @@ import {
   typeTag,
 } from "./format.ts"
 import { lookupSimbad, simbadCommonNames, type SimbadObject } from "./simbad.ts"
+import { type Ephemeris, type SolarBody, solarBody } from "./solar.ts"
 import { lookupStellarium } from "./stellarium.ts"
 import {
   isAstronomical,
@@ -43,6 +44,11 @@ export interface Target {
   ra?: number
   dec?: number
   wiki?: WikipediaPage
+  // Sun, Moon or a planet. Position, magnitude and size depend on the date, so
+  // they go in `ephemeris` once the capture date is known - ra/dec stay unset and
+  // the target stays off the sky map.
+  solar?: SolarBody
+  ephemeris?: Ephemeris
   warnings: string[]
 }
 
@@ -92,7 +98,29 @@ const findWikipedia = async (
   return searched ? tryTitle(searched) : undefined
 }
 
+const lookupSolarTarget = async (
+  query: string,
+  solar: SolarBody,
+): Promise<Target> => {
+  const wiki = await wikipediaSummary(solar.wikipedia)
+  return {
+    query,
+    commonNames: [solar.name],
+    names: [],
+    type: solar.type,
+    typeTag: solar.typeTag,
+    wiki,
+    solar,
+    warnings: wiki ? [] : ["no Wikipedia article found"],
+  }
+}
+
 export const lookupTarget = async (query: string): Promise<Target> => {
+  const solar = solarBody(query)
+  if (solar) {
+    return lookupSolarTarget(query, solar)
+  }
+
   const warnings: string[] = []
 
   let simbad = await lookupSimbad(query)
