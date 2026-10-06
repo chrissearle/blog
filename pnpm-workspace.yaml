@@ -11,7 +11,7 @@ overrides:
   # is on 1.x. Without this we get two h3 copies and Nitro's tracing mangles
   # the build output (see the nuxtseo-shared note below for the failure mode).
   # Kept as a range, not an exact pin, so it follows h3 1.x without going stale.
-  h3: "^1.15.11"
+  h3: "^2.0.0"
   # @nuxtjs/seo pins nuxtseo-shared exactly while its sibling modules use
   # caret ranges. When those resolve to different versions, Nitro's external
   # tracing collapses both copies into one .output/server/node_modules dir and
