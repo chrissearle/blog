@@ -41,7 +41,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "luxon": "3.7.2",
-    "nuxt": "4.5.2",
+    "nuxt": "4.6.0",
     "nuxt-gtag": "5.0.0",
     "parse5": "8.0.1",
     "prettier": "3.9.9",
