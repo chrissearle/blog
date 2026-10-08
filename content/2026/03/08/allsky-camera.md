@@ -7,6 +7,8 @@ intro: I finally got the allsky camera up and running
 image: https://allsky.chrissearle.org/image.jpg
 ---
 
+Updated post: [Updating Allsky to INDI Allsky](/2026/10/08/updating-allsky-to-indi-allsky/)
+
 A couple of years back I decided to build an [allsky](https://github.com/AllskyTeam/allsky) camera setup.
 
 ## Build
@@ -30,8 +32,6 @@ The camera is now on the garage roof.
 Public view is available at https://allsky.chrissearle.org/
 
 It contains the latest live image, and nightly generated keograms, timelapses and star trail images.
-
-![Current image](https://allsky.chrissearle.org/image.jpg)
 
 ## Timelapse
 
