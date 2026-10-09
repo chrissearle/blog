@@ -35,6 +35,6 @@ Sharpless 2-170, also known by the common name the Little Rosette Nebula is an e
 | Dates            | 2026-10-06, 2026-10-09                                                        |
 | Integration time | 8h 11m                                                                        |
 | Filters          | LP (Hα/OIII)                                                                  |
-| Processing       | Pixinsight - using Philippe Bernhard's "OSC dualband Hα/OIII images" workflow |
+| Processing       | Pixinsight - using Philippe Bernhard's "OSC dualband Hα/OIII images" workflow - result in Foraxx palette |
 
 [^1]: [Wikipedia - Sh 2-170](https://en.wikipedia.org/wiki/Sh_2-170)
