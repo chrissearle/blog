@@ -36,6 +36,6 @@ Westerhout 5 is an emission nebula located in Cassiopeia. Several small open clu
 | Integration time | 5h 41m                                                                        |
 | Filters          | LP (Hα/OIII)                                                                  |
 | Processing       | LP filter, processed with dbxtract to Ha/Oiii - result in Foraxx palette      |
-| Notes            | OIII was extremely faint - so there is a strong red tint here                 |
+| Notes            | OIII was extremely faint -                  |
 
 [^1]: [Wikipedia - Westerhout 5](https://en.wikipedia.org/wiki/Westerhout_5)
