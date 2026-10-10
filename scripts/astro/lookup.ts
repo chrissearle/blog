@@ -10,6 +10,7 @@ import {
   typeLabel,
   typeTag,
 } from "./format.ts"
+import { lookupSharpless, sharplessNumber } from "./sharpless.ts"
 import { lookupSimbad, simbadCommonNames, type SimbadObject } from "./simbad.ts"
 import { type Ephemeris, type SolarBody, solarBody } from "./solar.ts"
 import { lookupStellarium } from "./stellarium.ts"
@@ -49,8 +50,12 @@ export interface Target {
   // the target stays off the sky map.
   solar?: SolarBody
   ephemeris?: Ephemeris
+  // SIMBAD only had the nebula's embedded cluster, so its data wasn't used
+  clusterStandIn?: boolean
   warnings: string[]
 }
+
+export const CLUSTER_CATALOGS = new Set(["Collinder", "Melotte"])
 
 const unique = (values: (string | undefined)[]): string[] => [
   ...new Set(values.filter((v): v is string => v !== undefined && v !== "")),
@@ -172,18 +177,38 @@ export const lookupTarget = async (query: string): Promise<Target> => {
       ? stellariumRecord
       : undefined
 
+  // SIMBAD files some nebulae only under their embedded cluster (Sh2-199 and W 5 are
+  // IC 1848's record), so its magnitude, size and position are the cluster's
+  const clusterStandIn =
+    articleIsTarget &&
+    typeTag(wiki?.description, undefined, true) === "nebula" &&
+    typeTag(undefined, simbad?.otype, false) === "cluster"
   const names = mergeCatalogIds([
     ...knownIds,
     ...(stellarium?.designations ?? [])
       .map((d) => parseCatalogId(d))
       .filter((id): id is CatalogId => id !== undefined),
-  ])
+  ]).filter((id) => !(clusterStandIn && CLUSTER_CATALOGS.has(id.catalog)))
+
+  const measured = clusterStandIn ? undefined : simbad
+  const stellariumMeasured = clusterStandIn ? undefined : stellarium
+  const sharplessId = names
+    .map((id) => sharplessNumber(id.display))
+    .find((n) => n !== undefined)
+  const sharpless =
+    clusterStandIn && sharplessId !== undefined
+      ? await lookupSharpless(sharplessId)
+      : undefined
 
   // Keep major/minor from the same source
   const size = [
-    { major: simbad?.majorArcmin, minor: simbad?.minorArcmin },
+    { major: measured?.majorArcmin, minor: measured?.minorArcmin },
     { major: infobox.majorArcmin, minor: infobox.minorArcmin },
-    { major: stellarium?.majorArcmin, minor: stellarium?.minorArcmin },
+    { major: sharpless?.diameterArcmin, minor: undefined },
+    {
+      major: stellariumMeasured?.majorArcmin,
+      minor: stellariumMeasured?.minorArcmin,
+    },
   ].find((s) => s.major !== undefined)
 
   // A neighbour's article title or lead doesn't name this object
@@ -212,19 +237,31 @@ export const lookupTarget = async (query: string): Promise<Target> => {
     constellation:
       wikidata?.constellation ?? constellationFrom(wiki?.description),
     distanceLy: articleIsTarget ? wikidata?.distanceLy : undefined,
-    vmag:
-      simbad?.vmag ??
-      (articleIsTarget ? wikidata?.vmag : undefined) ??
-      infobox.vmag ??
-      stellarium?.vmag,
+    vmag: clusterStandIn
+      ? infobox.vmag
+      : (measured?.vmag ??
+        (articleIsTarget ? wikidata?.vmag : undefined) ??
+        infobox.vmag ??
+        stellariumMeasured?.vmag),
     majorArcmin: size?.major,
     minorArcmin: size?.minor,
-    ra: simbad?.ra ?? wikidata?.ra,
-    dec: simbad?.dec ?? wikidata?.dec,
+    ra: measured?.ra ?? sharpless?.ra ?? wikidata?.ra ?? simbad?.ra,
+    dec: measured?.dec ?? sharpless?.dec ?? wikidata?.dec ?? simbad?.dec,
     wiki,
+    clusterStandIn,
     warnings,
   }
 
+  if (clusterStandIn) {
+    warnings.push(
+      sharpless
+        ? `SIMBAD only has the ${simbad?.mainId} cluster - position (and size, if Wikipedia has none) from the Sharpless catalogue`
+        : `SIMBAD only has the ${simbad?.mainId} cluster - not using its magnitude and size`,
+    )
+    if (!sharpless && wikidata?.ra === undefined) {
+      warnings.push(`position is the ${simbad?.mainId} cluster's - check it`)
+    }
+  }
   if (!articleIsTarget) {
     warnings.push(
       `Wikipedia article "${wiki?.title}" may be about a neighbouring object`,
@@ -232,7 +269,8 @@ export const lookupTarget = async (query: string): Promise<Target> => {
   }
   if (!simbad) warnings.push("not found in SIMBAD")
   if (!wiki) warnings.push("no Wikipedia article found")
-  if (target.vmag === undefined) warnings.push("magnitude not found")
+  if (target.vmag === undefined && !clusterStandIn)
+    warnings.push("magnitude not found")
   if (target.majorArcmin === undefined)
     warnings.push("size not found - check Stellarium")
   if (target.distanceLy === undefined) warnings.push("distance not found")

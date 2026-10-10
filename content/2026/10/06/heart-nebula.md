@@ -10,8 +10,8 @@ targets:
     ids: [ IC 1805, Sh2-190, Melotte 15, Collinder 26 ]
     type: nebula
     constellation: Cassiopeia
-    ra: 38.210
-    dec: 61.471
+    ra: 38.175
+    dec: 61.450
 ---
 
 | Names         | Heart Nebula, IC 1805, Sh2-190, Melotte 15, Collinder 26 |
@@ -20,9 +20,9 @@ targets:
 | Constellation | Cassiopeia                                               |
 | Distance      | ≈ 6,200 ly                                               |
 | Magnitude     | 6.5                                                      |
-| Size          | 13.3′                                                    |
-| RA            | 02h 32m 50.4s                                            |
-| Dec           | +61° 28′ 16″                                             |
+| Size          | 150′                                                     |
+| RA            | 02h 32m 42.0s                                            |
+| Dec           | +61° 27′ 00″                                             |
 
 The Heart Nebula is an emission nebula, 7,500 light-years (2,300 pc) away from Earth and located in the Perseus Arm of the Galaxy in the constellation Cassiopeia. It was discovered by William Herschel on 3 November 1787.[^1]
 

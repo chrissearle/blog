@@ -19,7 +19,7 @@ targets:
 | Type          | Emission nebula               |
 | Constellation | Cassiopeia                    |
 | Distance      | ≈ 7,500 ly                    |
-| Size          | 120′                          |
+| Size          | 150′ × 75′                    |
 | RA            | 02h 54m 33.6s                 |
 | Dec           | +60° 24′ 33″                  |
 

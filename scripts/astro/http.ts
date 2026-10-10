@@ -27,6 +27,23 @@ export const getJson = async (
   return res.json()
 }
 
+export const getText = async (
+  url: string,
+  timeoutMs = 20000,
+): Promise<string | undefined> => {
+  const res = await fetch(url, {
+    headers: { "User-Agent": USER_AGENT },
+    signal: AbortSignal.timeout(timeoutMs),
+  })
+  if (res.status === 404) {
+    return undefined
+  }
+  if (!res.ok) {
+    throw new Error(`${res.status} ${res.statusText} from ${url}`)
+  }
+  return res.text()
+}
+
 export const str = (value: unknown): string | undefined =>
   typeof value === "string" && value.length > 0 ? value : undefined
 
