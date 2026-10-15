@@ -12,10 +12,9 @@ overrides:
   # the build output (see the nuxtseo-shared note below for the failure mode).
   # Kept as a range, not an exact pin, so it follows h3 1.x without going stale.
   h3: "^1.15.11"
-  # @nuxtjs/seo pins nuxtseo-shared exactly while its sibling modules use
-  # caret ranges. When those resolve to different versions, Nitro's external
-  # tracing collapses both copies into one .output/server/node_modules dir and
-  # drops files, producing ERR_MODULE_NOT_FOUND at runtime.
-  # "$@nuxtjs/seo" tracks the version pinned in package.json, so renovate's
-  # normal @nuxtjs/seo bumps keep this in step with no manual edit here.
-  nuxtseo-shared: "$@nuxtjs/seo"
+  # Every @nuxtjs/seo module depends on nuxtseo-shared. If two versions get
+  # locked, Nitro's external tracing collapses both copies into one
+  # .output/server/node_modules dir and drops files, producing
+  # ERR_MODULE_NOT_FOUND at runtime. One range for all of them keeps it to a
+  # single copy; renovate groups its major bumps with @nuxtjs/seo.
+  nuxtseo-shared: "^6.0.1"

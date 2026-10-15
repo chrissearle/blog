@@ -4,3 +4,6 @@ dist
 content/
 public/
 pnpm-lock.yaml
+# Written by scripts: sky.ts (minified on purpose) and equipment.ts (JSON.stringify)
+app/assets/sky.json
+scripts/astro/equipment.json

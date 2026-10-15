@@ -54,9 +54,9 @@ This is a **Nuxt 4** blog using **@nuxt/content** for markdown-based content man
 - `@nuxt/ui` + TailwindCSS 4 - UI components (UContainer, UPageGrid, UApp, etc.)
 - `@nuxt/image` - Image optimisation
 - `@nuxt/scripts` - Third-party script loading
-- `@nuxtjs/seo` - SEO including sitemap, robots, OG images, schema.org
+- `@nuxtjs/seo` - SEO including sitemap, robots, schema.org, link checker. Its OG image generation, skew protection and ai-ready modules are disabled in `nuxt.config.ts`; `og:image` comes from each post's own `image` (`posts/long.vue`)
 - `nuxt-gtag` - Google Analytics
-- `@artmizu/nuxt-prometheus` - Prometheus metrics endpoint
+- `@prometheus-io/client` - Prometheus metrics on a separate port (`server/plugins/metrics.ts`, `runtimeConfig.metricsPort`, default 9090); not a Nuxt module
 
 ### Content structure
 

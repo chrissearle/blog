@@ -1,13 +1,12 @@
 import { createInterface } from "node:readline"
+import { say } from "./say.ts"
 
 // Reads lines through one async iterator rather than rl.question(), so answers piped
 // in on stdin (e.g. for testing) aren't dropped before the question is asked.
 const rl = createInterface({ input: process.stdin, terminal: false })
 const lines = rl[Symbol.asyncIterator]()
 
-export const say = (text = ""): void => {
-  process.stdout.write(`${text}\n`)
-}
+export { say }
 
 export const close = (): void => {
   rl.close()

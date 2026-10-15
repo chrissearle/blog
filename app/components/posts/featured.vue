@@ -37,10 +37,7 @@ const postPath = computed(() =>
     <div class="p-6">
       <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
         <h2 class="text-2xl font-bold tracking-tight leading-tight">
-          <NuxtLink
-            :to="postPath"
-            class="hover:text-primary transition-colors"
-          >
+          <NuxtLink :to="postPath" class="hover:text-primary transition-colors">
             {{ post.title }}
           </NuxtLink>
         </h2>

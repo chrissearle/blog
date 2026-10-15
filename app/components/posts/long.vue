@@ -17,12 +17,11 @@ const opts: UseSeoMetaInput = {
 }
 
 if (props.post.image) {
-  const resizedImage = img(
-    props.post.image,
-    { width: 1200 },
-    { provider: "ipx" },
-  )
-  opts.ogImage = useSiteConfig().url + resizedImage
+  // External images (e.g. the live allsky frame) are shared as-is; ipx
+  // returns them unchanged, so prefixing the site URL would break them
+  opts.ogImage = URL.canParse(props.post.image)
+    ? props.post.image
+    : useSiteConfig().url + img(props.post.image, { width: 1200 })
 }
 
 if (props.post.intro) {

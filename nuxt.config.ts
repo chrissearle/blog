@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/scripts",
     "nuxt-gtag",
-    "@artmizu/nuxt-prometheus",
   ],
 
   css: ["~/assets/css/main.css"],
@@ -71,6 +70,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Prometheus scrapes this port in-cluster; the ingress only routes 3000.
+    // Override with NUXT_METRICS_PORT
+    metricsPort: 9090,
     public: {
       imageTag: "",
     },
@@ -87,16 +89,30 @@ export default defineNuxtConfig({
     exclude: ["/version", "/page/**"],
   },
 
-  // Images are generated at build time, so we can skip the runtime signing etc
+  // og:image is set per post from its own image in posts/long.vue; nothing
+  // uses generated OG images, and nuxt-og-image 7 needs a renderer for them
   ogImage: {
-    zeroRuntime: true,
-    enabled: process.env.NODE_ENV !== "development",
+    enabled: false,
+  },
+
+  // Both arrive with @nuxtjs/seo 6. Skew protection's asset store lives in a
+  // cache the Docker build discards, leaving only its client polling and
+  // cookie; nothing here consumes llms.txt or the per-page markdown copies.
+  skewProtection: {
+    enabled: false,
+  },
+
+  aiReady: {
+    enabled: false,
   },
 
   linkChecker: {
     excludeLinks: [
       "https://www.chrissearle.org",
       "https://www.chrissearle.org/",
+      // site-config's isPathFile() extension list lacks these, so the
+      // trailing-slash inspection treats download links as page routes
+      /\.(?:stl|kml)$/,
     ],
   },
 

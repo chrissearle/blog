@@ -29,13 +29,9 @@ jobs:
 
       - name: Build
         run: pnpm build
-        env:
-          NUXT_PUBLIC_PROMETHEUS_VERBOSE: false
 
       - name: Start preview server
         run: pnpm preview &
-        env:
-          NUXT_PUBLIC_PROMETHEUS_VERBOSE: false
 
       - name: Wait for server to be ready
         run: |
@@ -52,3 +48,8 @@ jobs:
 
       - name: Check front page and latest article
         run: curl -sf http://localhost:3000/ | python3 scripts/check-front-page.py
+
+      - name: Check metrics are served on the metrics port only
+        run: |
+          curl -sf http://localhost:9090/metrics | grep -qF 'blog_build_info{version="development"} 1'
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/metrics)" = 404

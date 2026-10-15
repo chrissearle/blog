@@ -1,0 +1,94 @@
+import { createServer } from "node:http"
+import {
+  collectDefaultMetrics,
+  Gauge,
+  Histogram,
+  register,
+} from "@prometheus-io/client"
+import type { H3Event } from "h3"
+
+// What a request was for. A bounded label rather than the raw path: one series
+// per URL would grow without limit as bots probe paths that don't exist
+const routeGroup = (path: string): string => {
+  if (path.startsWith("/_nuxt/") || path.startsWith("/_fonts/")) return "asset"
+  if (path.startsWith("/_ipx/")) return "image_resize"
+  if (path.startsWith("/images/")) return "image"
+  if (path.startsWith("/files/")) return "file"
+  if (path.startsWith("/__nuxt_content/")) return "content_api"
+  if (path.endsWith("/_payload.json")) return "payload"
+  if (path.endsWith("/feed.xml")) return "feed"
+  if (path === "/sitemap.xml" || path.startsWith("/__sitemap__/"))
+    return "sitemap"
+  if (path === "/robots.txt") return "robots"
+  return "page"
+}
+
+// Node accepts any registered HTTP method; only these say anything useful here
+const methodLabel = (method: string): string =>
+  ["GET", "HEAD", "POST"].includes(method) ? method : "OTHER"
+
+export default defineNitroPlugin((nitroApp) => {
+  // Prerender runs this server too, and dev restarts it on every change
+  if (import.meta.prerender || import.meta.dev) return
+
+  const config = useRuntimeConfig()
+
+  collectDefaultMetrics()
+
+  new Gauge({
+    name: "blog_build_info",
+    help: "Deployed build, from the image tag; always 1",
+    labelNames: ["version"],
+  }).set({ version: config.public.imageTag || "development" }, 1)
+
+  const duration = new Histogram({
+    name: "http_server_request_duration_seconds",
+    help: "Time to complete an HTTP request",
+    labelNames: ["method", "route_group", "status_code"],
+    // Up to 10s: an uncached _ipx resize of a large image can take seconds
+    buckets: [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10],
+  })
+
+  // The response's finish event, not Nitro's afterResponse hook: that one is
+  // skipped on the error path, so 404s and 500s would never be counted
+  nitroApp.hooks.hook("request", (event: H3Event) => {
+    // Nitro's own in-process fetches during SSR (Nuxt Content queries) use
+    // unenv's mock request, marked the same way Nitro detects them; they
+    // aren't visitor traffic
+    if ("__unenv__" in event.node.req) return
+    const start = performance.now()
+    const labels = {
+      method: methodLabel(event.method),
+      route_group: routeGroup(event.path.split("?")[0] ?? ""),
+    }
+    event.node.res.once("finish", () => {
+      duration.observe(
+        { ...labels, status_code: String(event.node.res.statusCode) },
+        (performance.now() - start) / 1000,
+      )
+    })
+  })
+
+  const server = createServer((req, res) => {
+    if (req.url !== "/metrics") {
+      res.writeHead(404).end()
+      return
+    }
+    register
+      .metrics()
+      .then((body) =>
+        res.writeHead(200, { "Content-Type": register.contentType }).end(body),
+      )
+      .catch((error: unknown) => res.writeHead(500).end(String(error)))
+  })
+
+  // A metrics port problem shouldn't take the site down with it
+  server.on("error", (error) =>
+    console.error(`[metrics] port ${config.metricsPort}: ${error.message}`),
+  )
+  server.listen(Number(config.metricsPort))
+
+  nitroApp.hooks.hook("close", () => {
+    server.close()
+  })
+})

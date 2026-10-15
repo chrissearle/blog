@@ -76,6 +76,7 @@ useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
                 <NuxtLink
                   v-if="row.posts[0]?.image"
                   :to="row.posts[0].path"
+                  :title="row.name"
                   tabindex="-1"
                   aria-hidden="true"
                   class="shrink-0"
@@ -142,6 +143,7 @@ useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
         <NuxtLink
           v-if="row.posts[0]?.image"
           :to="row.posts[0].path"
+          :title="row.name"
           tabindex="-1"
           aria-hidden="true"
           class="shrink-0"

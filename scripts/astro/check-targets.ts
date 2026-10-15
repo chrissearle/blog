@@ -11,6 +11,7 @@ import { parseCatalogId } from "./catalogs.ts"
 import { formatDec, formatMagnitude, formatRa, formatSize } from "./format.ts"
 import { CLUSTER_CATALOGS, lookupTarget, type Target } from "./lookup.ts"
 import { table } from "./render.ts"
+import { say } from "./say.ts"
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../..")
 const CONTENT = join(ROOT, "content")
@@ -301,11 +302,11 @@ const main = async () => {
           ),
         )
       } catch (error) {
-        console.log(
+        console.error(
           `${relative(ROOT, file)}: ${post.name}: lookup failed - ${String(error)}${error instanceof Error && error.cause ? ` (${String(error.cause)})` : ""}`,
         )
         if (isConnectFailure(error)) {
-          console.log("Can't connect - stopping. Try again later.")
+          console.error("Can't connect - stopping. Try again later.")
           process.exit(1)
         }
       }
@@ -318,10 +319,10 @@ const main = async () => {
     if (report.length === 0) {
       continue
     }
-    console.log(`\n${relative(ROOT, file)}`)
+    say(`\n${relative(ROOT, file)}`)
     for (const c of report) {
-      console.log(`  ${c.post.name}${c.table ? "" : " (table not found)"}`)
-      c.changes.forEach((line) => console.log(`    ${line}`))
+      say(`  ${c.post.name}${c.table ? "" : " (table not found)"}`)
+      c.changes.forEach((line) => say(`    ${line}`))
     }
     if (fix) {
       await writeFile(file, fixPost(markdown, checks))
@@ -329,7 +330,7 @@ const main = async () => {
     }
   }
   if (fix) {
-    console.log(`\n${changed} post(s) updated - review with git diff`)
+    say(`\n${changed} post(s) updated - review with git diff`)
   }
 }
 
