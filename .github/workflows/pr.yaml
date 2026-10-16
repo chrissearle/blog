@@ -55,5 +55,5 @@ jobs:
 
       - name: Check metrics are served on the metrics port only
         run: |
-          curl -sf http://localhost:9090/metrics | grep -qF 'blog_build_info{version="development"} 1'
+          curl -sf http://localhost:9090/metrics | grep -qF 'app_build_info{version="development"} 1'
           test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/metrics)" = 404

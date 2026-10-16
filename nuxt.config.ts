@@ -64,29 +64,27 @@ export default defineNuxtConfig({
     },
   },
 
-  // Self-hosted Umami on the hetzner cluster, loaded through useUmami only on
-  // a host listed in domains, so local dev, preview and blog.home (same image)
-  // never fetch the tracker. The id has to be here, at build time: pages are
-  // prerendered, so the browser gets the public runtime config baked into the
-  // HTML and a pod env var never reaches it. It isn't a secret: the tracker
-  // tag carries it in every page.
-  // Loaded directly rather than through the module's first-party proxy: its
-  // Umami proxy targets Umami Cloud, and bundling would fetch the script from
-  // the cluster at build time
+  // Infrastructure only: app/plugins/umami.client.ts loads the tracker with
+  // the deployment's settings. Without this entry the module bundles Umami
+  // Cloud's script at build time and proxies its sends to Umami Cloud, which
+  // overrides the self-hosted src
   scripts: {
     registry: {
-      umamiAnalytics: {
-        websiteId: "358c7105-f599-4570-9856-7576b89add87",
-        domains: ["www.chrissearle.org"],
-        scriptInput: { src: "https://stats.chrissearle.org/script.js" },
-        trigger: false,
-        proxy: false,
-        bundle: false,
-      },
+      umamiAnalytics: { trigger: false, proxy: false, bundle: false },
     },
   },
 
   runtimeConfig: {
+    // Umami, served to the client by server/api/analytics.get.ts. Set only by
+    // the production deployment (NUXT_UMAMI_WEBSITE_ID, NUXT_UMAMI_DOMAINS as
+    // a JSON array, NUXT_UMAMI_SRC). blog.home runs the same image without
+    // them, so it loads no tracker. Not public runtime config: prerendered
+    // pages carry that from build time, and a pod env var never reaches it
+    umami: {
+      websiteId: "",
+      domains: [] as string[],
+      src: "",
+    },
     // Prometheus scrapes this port in-cluster; the ingress only routes 3000.
     // Override with NUXT_METRICS_PORT
     metricsPort: 9090,

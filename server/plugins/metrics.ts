@@ -15,6 +15,7 @@ const routeGroup = (path: string): string => {
   if (path.startsWith("/images/")) return "image"
   if (path.startsWith("/files/")) return "file"
   if (path.startsWith("/__nuxt_content/")) return "content_api"
+  if (path.startsWith("/api/")) return "api"
   if (path.endsWith("/_payload.json")) return "payload"
   if (path.endsWith("/feed.xml")) return "feed"
   if (path === "/sitemap.xml" || path.startsWith("/__sitemap__/"))
@@ -42,7 +43,7 @@ export default defineNitroPlugin((nitroApp) => {
   collectDefaultMetrics()
 
   new Gauge({
-    name: "blog_build_info",
+    name: "app_build_info",
     help: "Deployed build, from the image tag; always 1",
     labelNames: ["version"],
   }).set({ version: config.public.imageTag || "development" }, 1)

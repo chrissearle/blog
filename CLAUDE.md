@@ -53,9 +53,9 @@ This is a **Nuxt 4** blog using **@nuxt/content** for markdown-based content man
 - `@nuxt/content` - Markdown content with SQLite-backed querying via `queryCollection("content")`
 - `@nuxt/ui` + TailwindCSS 4 - UI components (UContainer, UPageGrid, UApp, etc.)
 - `@nuxt/image` - Image optimisation
-- `@nuxt/scripts` - Third-party script loading. Used for Umami analytics, self-hosted at `stats.chrissearle.org`: the `scripts.registry.umamiAnalytics` entry in `nuxt.config.ts` is loaded through `useUmami` (from `app/plugins/umami.client.ts` and `error.vue`) only on a host listed in `domains`, so local dev, preview and blog.home (same image) never fetch the tracker. The id must be in the build, because prerendered pages carry their public runtime config; it isn't a secret, since every page's tracker tag carries it
+- `@nuxt/scripts` - Third-party script loading, used for self-hosted Umami analytics. `app/plugins/umami.client.ts` fetches `/api/analytics` (`server/api/analytics.get.ts`), which answers with the server's `NUXT_UMAMI_WEBSITE_ID`, `NUXT_UMAMI_DOMAINS` (JSON array) and `NUXT_UMAMI_SRC`, set only on the production deployment in flux-hetzner. Without them it answers 204 and no tracker loads, which is what keeps local dev, preview and blog.home (same image) out of the stats. A route rather than public runtime config, because prerendered pages carry public runtime config from build time. The plugin also sends `error-<status>` events with the path and referrer (the previous in-site path after client-side navigation). The `scripts.registry.umamiAnalytics` entry in `nuxt.config.ts` (`trigger: false, proxy: false, bundle: false`) must stay: without it the module bundles Umami Cloud's script and sends to Umami Cloud
 - `@nuxtjs/seo` - SEO including sitemap, robots, schema.org, link checker. Its OG image generation, skew protection and ai-ready modules are disabled in `nuxt.config.ts`; `og:image` comes from each post's own `image` (`posts/long.vue`)
-- `@prometheus-io/client` - Prometheus metrics on a separate port (`server/plugins/metrics.ts`, `runtimeConfig.metricsPort`, default 9090); not a Nuxt module. The same plugin logs each 404 as `[404] <method> <path> from <referer>`
+- `@prometheus-io/client` - Prometheus metrics on a separate port (`server/plugins/metrics.ts`, `runtimeConfig.metricsPort`, default 9090); not a Nuxt module. Series `app_build_info{version}` and `http_server_request_duration_seconds{method,route_group,status_code}`, the same as the other Nuxt apps, which share the "Nuxt Apps" Grafana dashboard. The same plugin logs each 404 as `[404] <method> <path> from <referer>`
 
 ### Content structure
 
@@ -78,7 +78,7 @@ Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 ### App structure (`app/`)
 
 - `app.vue` - Root component: NavBar + NuxtPage + NavFooter
-- `error.vue` - Error page (any status) in the same layout, using `UError`. Sends an Umami event `error-<status>` with the path and referrer (the previous in-site path after client-side navigation)
+- `error.vue` - Error page (any status) in the same layout, using `UError`
 - `pages/index.vue` - Paginated post list (12 per page)
 - `pages/[...slug].vue` - Individual post renderer using `PostsLong`
 - `pages/tags/`, `pages/categories/`, `pages/series/` - Taxonomy pages
@@ -99,7 +99,6 @@ Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 - `useDates.ts` - Date formatting via Luxon (parses `YYYY-MM-DD HH:mm ZZZ` and `YYYY-MM-DD HH:mm:ss ZZZ`)
 - `useLinks.ts`, `useStrings.ts`, `useBadges.ts` - Utility helpers
 - `useTargets.ts` - Rows, catalog columns and Messier/Caldwell progress for `/astrophotography`
-- `useUmami.ts` - The Umami script, or `undefined` on the server, without a website id, or on a host not in `domains`
 
 **Utils** (`app/utils/`):
 
@@ -112,6 +111,10 @@ Use `queryCollection("content")` in pages/components. The collection supports `.
 ### Code style
 
 ESLint runs Prettier through `eslint-plugin-prettier`, so `pnpm lint` fails on formatting differences and `pnpm lint:fix` applies Prettier: the two always agree. The Husky pre-commit hook runs lint-staged: `pnpm lint:fix` on staged `.js`, `.mjs`, `.ts`, `.vue` files, and `prettier --write` on staged Markdown, JSON, CSS and YAML (files in `.prettierignore`, such as `content/`, are skipped). CI (`pr.yaml`) runs `pnpm lint` and `pnpm format:check`.
+
+### Deployment settings
+
+The same image runs as www.chrissearle.org (nornour) and blog.home (bonnet), so nothing that differs between deployments may be in the code. Analytics ids and hosts, and anything else per-deployment, come from the deployment's env in the Flux repos (see `runtimeConfig` in `nuxt.config.ts`). The site's own identity is not a deployment setting: `site.url`, the link-checker excludes, links to the other sites (such as the 360 base URL in `content/Pano.vue`) and the deploy targets in the workflows stay in the code, since prerendering bakes them into the pages.
 
 ## Working with content files
 
