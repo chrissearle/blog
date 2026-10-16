@@ -111,7 +111,7 @@ Use `queryCollection("content")` in pages/components. The collection supports `.
 
 ### Code style
 
-ESLint + Prettier are configured with pre-commit hooks via Husky and lint-staged (runs `pnpm lint:fix` on staged `.js`, `.ts`, `.vue` files).
+ESLint runs Prettier through `eslint-plugin-prettier`, so `pnpm lint` fails on formatting differences and `pnpm lint:fix` applies Prettier: the two always agree. The Husky pre-commit hook runs lint-staged: `pnpm lint:fix` on staged `.js`, `.mjs`, `.ts`, `.vue` files, and `prettier --write` on staged Markdown, JSON, CSS and YAML (files in `.prettierignore`, such as `content/`, are skipped). CI (`pr.yaml`) runs `pnpm lint` and `pnpm format:check`.
 
 ## Working with content files
 
