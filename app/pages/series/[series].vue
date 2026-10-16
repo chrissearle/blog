@@ -25,6 +25,8 @@ const posts = (allPosts.value || []).filter(
   (post) => post.series && safeString(post.series) === slug,
 )
 
+if (posts.length === 0) throw notFound()
+
 const originalSeries =
   posts.length > 0 && posts[0] !== undefined ? posts[0].series : slug
 </script>

@@ -27,6 +27,8 @@ const posts = (allPosts.value || []).filter((post) =>
   }),
 )
 
+if (posts.length === 0) throw notFound()
+
 const originalTag =
   posts[0]?.tags?.find((tag: string) => safeString(tag) === slug) ?? slug
 </script>

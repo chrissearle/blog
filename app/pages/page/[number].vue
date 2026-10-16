@@ -29,6 +29,10 @@ const { data: posts } = await useAsyncData(`Page-${page}`, () =>
 const totalPages = computed(() =>
   pageCount(count.value === undefined ? 0 : count.value),
 )
+
+// Covers /page/abc/ (NaN) and pages past the end
+if (!Number.isInteger(page) || page < 1 || page > totalPages.value)
+  throw notFound()
 </script>
 
 <template>

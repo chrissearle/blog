@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/image",
     "@nuxt/scripts",
-    "nuxt-gtag",
   ],
 
   css: ["~/assets/css/main.css"],
@@ -65,8 +64,25 @@ export default defineNuxtConfig({
     },
   },
 
-  gtag: {
-    id: "G-MFFN7PQDM8",
+  // Self-hosted Umami on the hetzner cluster, loaded by plugins/umami.client.ts
+  // once websiteId is set. The id has to be here, at build time: pages are
+  // prerendered, so the browser gets the public runtime config baked into the
+  // HTML and a pod env var never reaches it. The same image runs on
+  // blog.home, so domains is what stops other hosts from reporting.
+  // Loaded directly rather than through the module's first-party proxy: its
+  // Umami proxy targets Umami Cloud, and bundling would fetch the script from
+  // the cluster at build time
+  scripts: {
+    registry: {
+      umamiAnalytics: {
+        websiteId: "",
+        domains: ["www.chrissearle.org"],
+        scriptInput: { src: "https://stats.chrissearle.org/script.js" },
+        trigger: false,
+        proxy: false,
+        bundle: false,
+      },
+    },
   },
 
   runtimeConfig: {

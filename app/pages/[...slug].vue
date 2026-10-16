@@ -7,9 +7,7 @@ const { data: page } = await useAsyncData(`content-${contentPath}`, () =>
   queryCollection("content").path(contentPath).first(),
 )
 
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: "Page not found" })
-}
+if (!page.value) throw notFound()
 </script>
 
 <template>

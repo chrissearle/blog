@@ -53,10 +53,9 @@ This is a **Nuxt 4** blog using **@nuxt/content** for markdown-based content man
 - `@nuxt/content` - Markdown content with SQLite-backed querying via `queryCollection("content")`
 - `@nuxt/ui` + TailwindCSS 4 - UI components (UContainer, UPageGrid, UApp, etc.)
 - `@nuxt/image` - Image optimisation
-- `@nuxt/scripts` - Third-party script loading
+- `@nuxt/scripts` - Third-party script loading. Used for Umami analytics, self-hosted at `stats.chrissearle.org`: the `scripts.registry.umamiAnalytics` entry in `nuxt.config.ts` is loaded by `app/plugins/umami.client.ts` only when `websiteId` is set. The id must be in the build, because prerendered pages carry their public runtime config. `domains` stops other hosts serving the same image (blog.home) from reporting
 - `@nuxtjs/seo` - SEO including sitemap, robots, schema.org, link checker. Its OG image generation, skew protection and ai-ready modules are disabled in `nuxt.config.ts`; `og:image` comes from each post's own `image` (`posts/long.vue`)
-- `nuxt-gtag` - Google Analytics
-- `@prometheus-io/client` - Prometheus metrics on a separate port (`server/plugins/metrics.ts`, `runtimeConfig.metricsPort`, default 9090); not a Nuxt module
+- `@prometheus-io/client` - Prometheus metrics on a separate port (`server/plugins/metrics.ts`, `runtimeConfig.metricsPort`, default 9090); not a Nuxt module. The same plugin logs each 404 as `[404] <method> <path> from <referer>`
 
 ### Content structure
 
@@ -79,6 +78,7 @@ Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 ### App structure (`app/`)
 
 - `app.vue` - Root component: NavBar + NuxtPage + NavFooter
+- `error.vue` - Error page (any status) in the same layout, using `UError`. Sends an Umami event `error-<status>` with the path and referrer (the previous in-site path after client-side navigation)
 - `pages/index.vue` - Paginated post list (12 per page)
 - `pages/[...slug].vue` - Individual post renderer using `PostsLong`
 - `pages/tags/`, `pages/categories/`, `pages/series/` - Taxonomy pages
@@ -99,6 +99,11 @@ Post images are stored in `public/images/posts/YYYY/MM/DD/`.
 - `useDates.ts` - Date formatting via Luxon (parses `YYYY-MM-DD HH:mm ZZZ` and `YYYY-MM-DD HH:mm:ss ZZZ`)
 - `useLinks.ts`, `useStrings.ts`, `useBadges.ts` - Utility helpers
 - `useTargets.ts` - Rows, catalog columns and Messier/Caldwell progress for `/astrophotography`
+- `useUmami.ts` - The Umami script, or `undefined` when the build has no website id
+
+**Utils** (`app/utils/`):
+
+- `notFound.ts` - The fatal 404 every page throws when it has nothing to show (unknown post, tag, category, series or page number). Must be fatal, or client-side navigation leaves a blank page; never render an empty list with a 200
 
 ### Querying content
 

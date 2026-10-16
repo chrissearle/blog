@@ -25,6 +25,8 @@ const posts = (allPosts.value || []).filter(
   (post) => post.category && safeString(post.category) === slug,
 )
 
+if (posts.length === 0) throw notFound()
+
 const originalCategory =
   posts.length > 0 && posts[0] !== undefined ? posts[0].category : slug
 

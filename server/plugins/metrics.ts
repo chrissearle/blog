@@ -23,6 +23,12 @@ const routeGroup = (path: string): string => {
   return "page"
 }
 
+// The path is attacker-chosen: drop control characters so a request can't
+// write fake lines into the log, and cap the length
+const loggablePath = (path: string): string =>
+  // eslint-disable-next-line no-control-regex
+  path.replace(/[\u0000-\u001f\u007f]/g, "?").slice(0, 200)
+
 // Node accepts any registered HTTP method; only these say anything useful here
 const methodLabel = (method: string): string =>
   ["GET", "HEAD", "POST"].includes(method) ? method : "OTHER"
@@ -57,15 +63,26 @@ export default defineNitroPlugin((nitroApp) => {
     // aren't visitor traffic
     if ("__unenv__" in event.node.req) return
     const start = performance.now()
+    const path = event.path.split("?")[0] ?? ""
     const labels = {
       method: methodLabel(event.method),
-      route_group: routeGroup(event.path.split("?")[0] ?? ""),
+      route_group: routeGroup(path),
     }
     event.node.res.once("finish", () => {
+      const status = event.node.res.statusCode
       duration.observe(
-        { ...labels, status_code: String(event.node.res.statusCode) },
+        { ...labels, status_code: String(status) },
         (performance.now() - start) / 1000,
       )
+      // Which URL a 404 was for, which the histogram deliberately can't say;
+      // the referer tells a broken link apart from a bot probing
+      if (status === 404) {
+        const referer = event.node.req.headers.referer
+        console.warn(
+          `[404] ${labels.method} ${loggablePath(path)}` +
+            (referer ? ` from ${loggablePath(referer)}` : ""),
+        )
+      }
     })
   })
 
