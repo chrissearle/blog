@@ -23,7 +23,7 @@
   "packageManager": "pnpm@12.11.2",
   "devDependencies": {
     "@iconify-json/heroicons": "1.2.3",
-    "@iconify-json/lucide": "1.2.143",
+    "@iconify-json/lucide": "1.2.144",
     "@nuxt/content": "3.16.2",
     "@nuxt/eslint": "1.17.0",
     "@nuxt/image": "2.1.0",
