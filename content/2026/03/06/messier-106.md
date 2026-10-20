@@ -4,7 +4,7 @@ date: 2026-03-06 09:30 +0100
 category: Photography
 tags: [ astrophotography, messier 106, ngc 4258, galaxy, seestar, s-50, zwo ]
 intro: Messier 106 / NGC 4258, a galaxy in Canes Venatici.
-image: /images/posts/2026/03/06/m106.png
+image: lychee:GRwXjJy98uDq3v6zh5uCfBi2
 targets:
   - name: Messier 106
     ids: [ Messier 106, NGC 4258 ]
@@ -31,7 +31,7 @@ been demonstrated from radio-wavelength observations of the rotation of a disk o
 inner light-year around the black hole. NGC 4217 is a possible companion galaxy of Messier 106. Besides the two
 visible arms, it has two "anomalous arms" detectable using an X-ray telescope.[^1]
 
-![Messier 106](/images/posts/2026/03/06/m106.png)
+:lychee{id="GRwXjJy98uDq3v6zh5uCfBi2" title="Messier 106"}
 
 The small galaxy to the bottom right is NGC 4248.
 

@@ -4,7 +4,7 @@ date: 2026-09-20 20:39 +0200
 category: Photography
 tags: [ astrophotography, ic 1396a, nebula, seestar, s-30-pro, zwo ]
 intro: IC 1396A, a nebula in Cepheus.
-image: /images/posts/2026/09/20/IC_1396A.png
+image: lychee:W_cZG8JuxBI6kLqwLx9qGk_R
 targets:
   - name: Elephant's Trunk Nebula
     ids: [ IC 1396A ]
@@ -24,7 +24,7 @@ targets:
 
 The Elephant's Trunk Nebula is a concentration of interstellar gas and dust within the much larger ionized gas region IC 1396 located in the constellation Cepheus about 2,400 light years away from Earth. The nebula is a dark, dense globule that gets its name from its appearance at visible light wavelengths, where there is a dark patch with a bright, sinuous rim.[^1]
 
-![Elephant's Trunk Nebula](/images/posts/2026/09/20/IC_1396A.png)
+:lychee{id="W_cZG8JuxBI6kLqwLx9qGk_R" title="Elephant's Trunk Nebula"}
 
 ## Photo Details
 

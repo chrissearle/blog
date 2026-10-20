@@ -18,6 +18,8 @@ export interface PostPreview {
   category?: string
   intro?: string
   image?: string
+  // Set at build time for gallery images
+  imageSrcset?: string
   embedImage?: string
   series?: string
   targets?: PostTarget[]

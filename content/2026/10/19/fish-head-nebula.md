@@ -4,7 +4,7 @@ date: 2026-10-19 18:43 +0200
 category: Photography
 tags: [ astrophotography, ic 1795, nebula, seestar, s-50, zwo ]
 intro: IC 1795, a nebula in Cassiopeia.
-image: /images/posts/2026/10/19/IC_1795.png
+image: lychee:hgAqnoF3epejBrwKf0u8TkYh
 targets:
   - name: Fish Head Nebula
     ids: [ IC 1795 ]
@@ -25,7 +25,7 @@ targets:
 
 The Fish Head Nebula, or the Northern Bear Nebula, is part of a large star forming system of gas and dust located along the Perseus Arm of the Milky Way. The nebula is located in the Constellation Cassiopeia, approximately 6,000 light-years from Earth and is adjacent to the much larger Heart Nebula.[^1]
 
-![Fish Head Nebula](/images/posts/2026/10/19/IC_1795.png)
+:lychee{id="hgAqnoF3epejBrwKf0u8TkYh" title="Fish Head Nebula"}
 
 ## Photo Details
 

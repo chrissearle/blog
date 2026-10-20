@@ -24,7 +24,7 @@ async function createPost() {
   if (!title) {
     console.error("Usage: post <title> [--images]")
     console.error(
-      "       post --astro [target] [--image <file>] [--laminar <file>]... [--dry-run]",
+      "       post --astro [target] [--image <file> | --gallery <id|url|search>] [--laminar <file>]... [--dry-run]",
     )
     console.error("")
     console.error(

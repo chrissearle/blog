@@ -4,7 +4,7 @@ date: 2026-02-22 12:48 +0100
 category: Photography
 tags: [ astrophotography, messier 1, ngc 1952, sh2-244, nebula, seestar, s-50, zwo ]
 intro: Messier 1 / NGC 1952 / Sh2-244, a supernova remnant in Taurus.
-image: /images/posts/2026/02/22/m1.png
+image: lychee:bJK9R8hNIh3zRMEFLjHACJd8
 targets:
   - name: Crab Nebula
     ids: [ Messier 1, NGC 1952, Sh2-244 ]
@@ -31,7 +31,7 @@ bright supernova observed in AD 1054 by Mayan, Japanese, and Arab stargazers; th
 Chinese astronomers as a guest star. The nebula was the first astronomical object identified that corresponds with a
 historically-observed supernova explosion.[^1]
 
-![Crab Nebula](/images/posts/2026/02/22/m1.png)
+:lychee{id="bJK9R8hNIh3zRMEFLjHACJd8" title="Crab Nebula"}
 
 ## Photo Details
 

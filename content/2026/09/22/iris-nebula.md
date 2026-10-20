@@ -4,7 +4,7 @@ date: 2026-09-22 09:22 +0200
 category: Photography
 tags: [ astrophotography, ngc 7023, caldwell 4, vdb 139, nebula, seestar, s-50, zwo ]
 intro: NGC 7023 / Caldwell 4 / vdB 139, a reflection nebula in Cepheus.
-image: /images/posts/2026/09/22/NGC_7023.png
+image: lychee:GzICJ36hQW23HJQf7me-OCxI
 targets:
   - name: Iris Nebula
     ids: [ NGC 7023, Caldwell 4, vdB 139 ]
@@ -26,7 +26,7 @@ targets:
 
 The Iris Nebula is a bright reflection nebula located about 1,300 light years from Earth in the constellation of Cepheus. The nebula is illuminated by a magnitude +7.4 star designated HD 200775.[^1]
 
-![Iris Nebula](/images/posts/2026/09/22/NGC_7023.png)
+:lychee{id="GzICJ36hQW23HJQf7me-OCxI" title="Iris Nebula"}
 
 ## Photo Details
 

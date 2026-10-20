@@ -4,7 +4,7 @@ date: 2026-10-19 18:33 +0200
 category: Photography
 tags: [ astrophotography, ngc 6888, caldwell 27, nebula, seestar, s-30-pro, zwo ]
 intro: NGC 6888 / Caldwell 27, an emission nebula in Cygnus.
-image: /images/posts/2026/10/19/NGC_6888.png
+image: lychee:-bUl0WST2WfcszLKqx5PRBiw
 targets:
   - name: Crescent Nebula
     ids: [ NGC 6888, Caldwell 27 ]
@@ -25,7 +25,7 @@ targets:
 
 The Crescent Nebula is an emission nebula in the constellation Cygnus, about 5000 light-years away from Earth. It was discovered by William Herschel in 1792.[^1]
 
-![Crescent Nebula](/images/posts/2026/10/19/NGC_6888.png)
+:lychee{id="-bUl0WST2WfcszLKqx5PRBiw" title="Crescent Nebula"}
 
 ## Photo Details
 

@@ -13,7 +13,13 @@ export default defineContentConfig({
           .string()
           .regex(/^\d{4}-\d{2}-\d{2}/, "Date must be YYYY-MM-DD format"),
         tags: z.array(z.string()).default([]),
+        // A local /images/... path, any URL, or a gallery photo as lychee:<id> -
+        // nuxt.config.ts resolves that to the gallery URL at build time
         image: z.string().url().optional(),
+        // The gallery photo page, set at build time for lychee: images
+        imageLink: z.string().url().optional(),
+        // Lychee's size variants for cards and thumbnails, set with imageLink
+        imageSrcset: z.string().optional(),
         category: z.string().optional(),
         intro: z
           .string()

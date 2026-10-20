@@ -22,6 +22,7 @@ export interface TargetPost {
   title: string
   date: string
   image?: string
+  imageSrcset?: string
 }
 
 export interface TargetRow {
@@ -77,6 +78,7 @@ export const useTargets = () => {
           title: post.title ?? target.name,
           date: post.date ?? "",
           image: post.image ?? post.embedImage,
+          imageSrcset: post.image ? post.imageSrcset : undefined,
         })
         rows.set(key, row)
       }

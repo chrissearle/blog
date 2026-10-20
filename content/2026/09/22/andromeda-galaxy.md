@@ -4,7 +4,7 @@ date: 2026-09-22 15:36 +0200
 category: Photography
 tags: [ astrophotography, messier 31, ngc 224, galaxy, seestar, s-30-pro, zwo ]
 intro: Messier 31 / NGC 224, a barred spiral galaxy in the Local Group.
-image: /images/posts/2026/09/22/M_31.png
+image: lychee:T2RvXc49fKmYM7qXVcCmvuhi
 targets:
   - name: Andromeda Galaxy
     ids: [ Messier 31, NGC 224 ]
@@ -26,7 +26,7 @@ targets:
 
 The Andromeda Galaxy is a barred spiral galaxy and is the nearest major galaxy to the Milky Way. It was originally named the Andromeda Nebula and is cataloged as Messier 31, M31, and NGC 224.[^1]
 
-![Andromeda Galaxy](/images/posts/2026/09/22/M_31.png)
+:lychee{id="T2RvXc49fKmYM7qXVcCmvuhi" title="Andromeda Galaxy"}
 
 ## Photo Details
 

@@ -4,7 +4,7 @@ date: 2026-10-10 11:58 +0200
 category: Photography
 tags: [ astrophotography, ic 1848, sh2-199, nebula, seestar, s-30-pro, zwo ]
 intro: IC 1848 / Sh2-199, an emission nebula in Cassiopeia.
-image: /images/posts/2026/10/10/IC_1848.png
+image: lychee:SBZ6YwwQLo-t8QYXWoEfPfJt
 targets:
   - name: Soul Nebula
     ids: [ IC 1848, Sh2-199 ]
@@ -25,7 +25,7 @@ targets:
 
 Westerhout 5 is an emission nebula located in Cassiopeia. Several small open clusters are embedded in the nebula: Collinder 33 and 34 in the head and IC 1848 in the body.[^1]
 
-![Soul Nebula](/images/posts/2026/10/10/IC_1848.png)
+:lychee{id="SBZ6YwwQLo-t8QYXWoEfPfJt" title="Soul Nebula"}
 
 ## Photo Details
 

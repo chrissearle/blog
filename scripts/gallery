@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+// Finds public photos in gallery.chrissearle.org and prints what to paste into
+// a post: `node scripts/gallery "IC 342"` or a photo id / page URL / image URL
+
+import {
+  fetchPublicPhotos,
+  parseGalleryRef,
+  photoPageUrl,
+  searchPhotos,
+} from "../shared/lychee.ts"
+
+const query = process.argv.slice(2).join(" ").trim()
+
+if (!query) {
+  console.error("Usage: gallery <search words | photo id | gallery URL>")
+  process.exit(1)
+}
+
+const photos = await fetchPublicPhotos()
+const direct = parseGalleryRef(query, photos)
+const found = direct ? [direct] : searchPhotos(query, photos)
+
+if (found.length === 0) {
+  console.error(`Nothing in the gallery's public photos matches "${query}"`)
+  process.exit(1)
+}
+
+for (const photo of found) {
+  console.log(
+    [
+      `${photo.title}${photo.description ? ` - ${photo.description}` : ""} (${photo.albumTitle})`,
+      `  ${photoPageUrl(photo)}`,
+      `  image: lychee:${photo.id}`,
+      `  :lychee{id="${photo.id}"}`,
+      "",
+    ].join("\n"),
+  )
+}

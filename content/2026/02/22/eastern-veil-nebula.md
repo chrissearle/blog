@@ -4,7 +4,7 @@ date: 2026-02-22 12:47 +0100
 category: Photography
 tags: [ astrophotography, ngc 6992, caldwell 33, nebula, seestar, s-50, zwo ]
 intro: NGC 6992 / Caldwell 33, a supernova remnant in Cygnus.
-image: /images/posts/2026/02/22/ngc6992.png
+image: lychee:Zi1lQNT_siwlH5tN0fmccGi3
 targets:
   - name: Eastern Veil Nebula
     ids: [ NGC 6992, Caldwell 33 ]
@@ -32,7 +32,7 @@ Moon). While previous distance estimates have ranged from 1,200 to 5,800 light-y
 light-years is based on direct astrometric measurements. (The distance estimates affect also the estimates of size
 and age.)[^1]
 
-![Eastern Veil Nebula](/images/posts/2026/02/22/ngc6992.png)
+:lychee{id="Zi1lQNT_siwlH5tN0fmccGi3" title="Eastern Veil Nebula"}
 
 ## Photo Details
 

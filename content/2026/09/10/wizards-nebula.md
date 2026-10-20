@@ -4,7 +4,7 @@ date: 2026-09-10 16:53 +0200
 category: Photography
 tags: [ astrophotography, ngc 7380, sh2-142, collinder 452, nebula, seestar, s-50, zwo ]
 intro: NGC 7380 / Sh2-142 / Collinder 452, an emission nebula (H II region) in Cepheus.
-image: /images/posts/2026/09/10/Sh2_142.png
+image: lychee:PoMXgT8IkwCRMh5jgJhVM8Mv
 targets:
   - name: Wizard's Nebula
     ids: [ NGC 7380, Sh2-142, Collinder 452 ]
@@ -25,7 +25,7 @@ targets:
 
 NGC 7380 is a young open cluster of stars in the northern circumpolar constellation of Cepheus, discovered by Caroline Herschel in 1787. The surrounding emission nebulosity is known colloquially as the Wizard Nebula, which spans an angle of 25′. German-born astronomer William Herschel included his sister's discovery in his catalog, and labelled it H VIII.77. The nebula is known as S 142 in the 1959 Sharpless catalog (Sh2-142).[^1]
 
-![Wizard's Nebula](/images/posts/2026/09/10/Sh2_142.png)
+:lychee{id="PoMXgT8IkwCRMh5jgJhVM8Mv" title="Wizard's Nebula"}
 
 ## Photo Details
 

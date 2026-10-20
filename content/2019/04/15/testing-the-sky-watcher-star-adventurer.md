@@ -3,7 +3,7 @@ title: Testing the Sky-Watcher Star Adventurer
 date: 2019-04-15 13:49 +0200
 tags: [sky-watcher, star adventurer, star, tracking, stacking, M101, pinwheel galaxy, galaxy, astrophotography]
 category: Photography
-embedImage: https://live.staticflickr.com/7915/33727856238_ab0f2339d6_b.jpg
+image: lychee:nXJuaEDbjEEP-V97aRYnfbeW
 intro: First tests of both wide angle and deep sky astrophotograhy with the Star Adventurer
 ---
 
@@ -23,7 +23,7 @@ There is a fair amount of light pollution, you can see the glow nearer the groun
 
 You have to merge in the foreground in post - the 2 minute exposures with the tracker have enough movement that the foreground is blurred and is in different places in different shots. Not the part of Photoshop I'm that good at - but it was easier in that the foreground was in silhouette.
 
-:flickr{id="33727856238" title="Femsjøen sky" image="https://live.staticflickr.com/7915/33727856238_ab0f2339d6_b.jpg" width="1024" height="682"}
+:lychee{id="nXJuaEDbjEEP-V97aRYnfbeW" title="Femsjøen sky"}
 
 ## Deep Sky
 
@@ -39,7 +39,7 @@ This shot is 400x 10 second shots at 400mm f/5,6 (which is as wide as my 100-400
 
 Stacked using Starry Sky Stacker, then levels adjust etc in photoshop.
 
-![M101 - full image frame](/images/posts/2019/04/m101-sky.jpg)
+:lychee{id="wksyppgzB9a7uF3_3IaqQViN" title="M101 - full image frame"}
 
 ![M101 - zoomed in on galaxy](/images/posts/2019/04/m101-zoom.jpg)
 

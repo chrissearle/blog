@@ -4,7 +4,7 @@ date: 2026-10-19 18:41 +0200
 category: Photography
 tags: [ astrophotography, caldwell 9, sh2-155, nebula, seestar, s-30-pro, zwo ]
 intro: Caldwell 9 / Sh2-155, a reflection nebula in Cepheus.
-image: /images/posts/2026/10/19/C_9.png
+image: lychee:M8ySZcJbQrkXu00hDVEpFtuA
 targets:
   - name: Cave Nebula
     ids: [ Caldwell 9, Sh2-155 ]
@@ -23,7 +23,7 @@ targets:
 
 Sh 2-155 is a diffuse nebula in the constellation Cepheus, within a larger nebula complex containing emission, reflection, and dark nebulosity. It is widely known as the Cave Nebula, though that name was applied earlier to Ced 201, a different nebula in Cepheus.[^1]
 
-![Cave Nebula](/images/posts/2026/10/19/C_9.png)
+:lychee{id="M8ySZcJbQrkXu00hDVEpFtuA" title="Cave Nebula"}
 
 ## Photo Details
 

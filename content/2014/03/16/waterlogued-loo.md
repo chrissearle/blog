@@ -3,7 +3,7 @@ title: Waterlogued Loo
 date: 2014-03-16 17:33 +0100
 tags: [photo, waterlogue, isles of scilly]
 category: Photography
-image: /images/posts/2014/03/penzance.jpg
+image: lychee:J-ROaY-9S8kqtjEtVE6nP4E2
 intro: I needed some different/colourful images for the newly decorated loo wall :)
 ---
 
@@ -13,47 +13,47 @@ So - I picked up a recommendation for [waterlogue app](http://www.waterlogueapp.
 
 Here's the set of images I ended up with:
 
-![Association Boats - St. Marys](/images/posts/2014/03/association-boats.jpg)
+:lychee{id="LuyiSo_5KferOjphDHcFhImK" title="Association Boats - St. Marys"}
 
-![Boats in the bay - view from the quay - St. Marys](/images/posts/2014/03/boats-in-the-bay.jpg)
+:lychee{id="J8vmqu0x6TiNYlUtjG5TnnPu" title="Boats in the bay - view from the quay - St. Marys"}
 
-![View from King Charles Castle over to Bryher showing Cromwell's Castle - Tresco](/images/posts/2014/03/bryher-from-tresco.jpg)
+:lychee{id="djk24ltgSo8yBHxnDz5kqLHe" title="View from King Charles Castle over to Bryher showing Cromwell's Castle - Tresco"}
 
-![Great Bay - St. Martins](/images/posts/2014/03/great-bay.jpg)
+:lychee{id="ct_4ElRdRgQJmZb3jGiMGb3_" title="Great Bay - St. Martins"}
 
 :flickr{id="9427461001" title="_CDS5961" image="https://live.staticflickr.com/7458/9427461001_5d266a71c6_b.jpg" width="1024" height="681"}
 
-![Puffins on the water](/images/posts/2014/03/puffins1.jpg)
+:lychee{id="FBZ59U9E0WEnOf4cUK4UhPXL" title="Puffins on the water"}
 
 :flickr{id="9427459449" title="_CDS5945" image="https://live.staticflickr.com/2829/9427459449_196f450bb5_b.jpg" width="1024" height="681"}
 
-![Puffins on the water](/images/posts/2014/03/puffins2.jpg)
+:lychee{id="tdpC225591DLdV16z5wwji8o" title="Puffins on the water"}
 
-![Pulpit Rock - St. Marys](/images/posts/2014/03/pulpit-rock.jpg)
+:lychee{id="eERgoSY62uOF89QhGPMabtgz" title="Pulpit Rock - St. Marys"}
 
-![A strange rock formation - St. Agnes](/images/posts/2014/03/rock-on-agnes.jpg)
+:lychee{id="tt8RezGMSvUURl63eb8Bsumx" title="A strange rock formation - St. Agnes"}
 
-![Small stones piled on wooden poles - Bryher](/images/posts/2014/03/rock-piles-bryher.jpg)
+:lychee{id="IdBbrecn2o9FGefB6FcPKfzg" title="Small stones piled on wooden poles - Bryher"}
 
-![Sunset from Thomas Porth - St. Marys](/images/posts/2014/03/sunset-from-thomas-porth.jpg)
+:lychee{id="qxL4piOG4avgJEUbxUfXnEXs" title="Sunset from Thomas Porth - St. Marys"}
 
-:flickr{id="9427444951" title="Porth Thomas sunset" image="https://live.staticflickr.com/3758/9427444951_557250f8c6_b.jpg" width="1024" height="680"}
+:lychee{id="JcLgKc1_vvoxznelNAy2maui" title="Porth Thomas sunset"}
 
-![Sunset over Samson - St. Marys](/images/posts/2014/03/sunset-over-samson.jpg)
+:lychee{id="a1tiEHu__BR-Z5fv1WvOcGFw" title="Sunset over Samson - St. Marys"}
 
-:flickr{id="9437064862" title="Samson from Porth Thomas" image="https://live.staticflickr.com/5457/9437064862_7f09fea1d1_b.jpg" width="1024" height="768"}
+:lychee{id="cMcS-jF7g8h8FwABxhBOzLRx" title="Samson from Porth Thomas"}
 
-![Sunset over Thomas Porth - St. Marys](/images/posts/2014/03/sunset-over-thomas-porth.jpg)
+:lychee{id="RP-CFFALHEtD0PgTTLiC5yVi" title="Sunset over Thomas Porth - St. Marys"}
 
 :flickr{id="9427474921" title="Panorama4-done" image="https://live.staticflickr.com/5507/9427474921_9826dcfcd9_b.jpg" width="1024" height="626"}
 
-![View from Buzza - St. Marys](/images/posts/2014/03/view-from-buzza.jpg)
+:lychee{id="jG9Yjk4Hzw_hziLi35dpn47d" title="View from Buzza - St. Marys"}
 
 Finally one I didn't use as it was in black and white - from the trip home - Penzance station.
 
-:flickr{id="9434290255" title="Penzance Station" image="https://live.staticflickr.com/3710/9434290255_9694bee6c7_b.jpg" width="1024" height="768"}
+:lychee{id="RP5YCAeiv1q33OdmygbEOprp" title="Penzance Station"}
 
-![Penzance Station](/images/posts/2014/03/penzance.jpg)
+:lychee{id="J-ROaY-9S8kqtjEtVE6nP4E2" title="Penzance Station"}
 
 So - I printed these out on heavyweight canvas (Canson Infinity PhotoArt HD Canvas 400) and framed them in 4 frames - each with three images.
 

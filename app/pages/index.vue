@@ -15,6 +15,7 @@ const { data: posts } = await useAsyncData("Index", () =>
       "category",
       "intro",
       "image",
+      "imageSrcset",
       "embedImage",
       "series",
     )

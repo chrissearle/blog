@@ -25,9 +25,10 @@ const postPath = computed(() =>
       :aria-label="`Read post: ${post.title}`"
       class="block"
     >
-      <NuxtImg
-        :src="post.image || post.embedImage"
-        :alt="post.title"
+      <PostsImage
+        :src="post.image || post.embedImage || ''"
+        :srcset="post.image ? post.imageSrcset : undefined"
+        :alt="post.title ?? ''"
         width="1600"
         sizes="100vw sm:700px"
         class="w-full max-h-[360px] object-cover transition-transform duration-300 hover:scale-[1.01]"

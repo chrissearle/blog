@@ -4,7 +4,7 @@ date: 2023-01-27 11:08 +0100
 category: Photography
 tags: [ astrophotography, messier 31, ngc 224, galaxy, samyang, sony, a7riv, sky-watcher, star adventurer ]
 intro: Messier 31 / NGC 224, a barred spiral galaxy in the Local Group.
-image: /images/posts/2023/01/m31.png
+image: lychee:-iSrWfE4qN8_TqQC5eKlF83M
 targets:
   - name: Andromeda Galaxy
     ids: [ Messier 31, NGC 224 ]
@@ -32,7 +32,7 @@ approximately 765 kpc (2.5 million light-years) from Earth. The galaxy's name st
 which it appears, the constellation of Andromeda, which itself is named after the princess who was the wife of Perseus
 in Greek mythology.[^1]
 
-![Andromeda Galaxy](/images/posts/2023/01/m31.png)
+:lychee{id="-iSrWfE4qN8_TqQC5eKlF83M" title="Andromeda Galaxy"}
 
 ## Photo Details
 

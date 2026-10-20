@@ -4,7 +4,7 @@ date: 2026-09-28 11:41 +0200
 category: Photography
 tags: [ astrophotography, messier 103, ngc 581, melotte 8, collinder 14, cluster, seestar, s-50, zwo ]
 intro: Messier 103 / NGC 581 / Melotte 8 / Collinder 14, an open cluster in Cassiopeia.
-image: /images/posts/2026/09/28/M_103.png
+image: lychee:WR8Se5xnhbu19Q41BUvtmtFw
 targets:
   - name: Messier 103
     ids: [ Messier 103, NGC 581, Melotte 8, Collinder 14 ]
@@ -26,7 +26,7 @@ targets:
 
 Messier 103 is a small open cluster of many faint stars in Cassiopeia. It was discovered on 27 March 1781 by Pierre Méchain, but later added as Charles Messier's last deep-sky object in his catalogue.[^1]
 
-![Messier 103](/images/posts/2026/09/28/M_103.png)
+:lychee{id="WR8Se5xnhbu19Q41BUvtmtFw" title="Messier 103"}
 
 ## Photo Details
 

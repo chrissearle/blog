@@ -3,6 +3,8 @@ import { copyFile, mkdir, stat, writeFile } from "node:fs/promises"
 import { dirname, extname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 
+import type { LycheePhoto } from "../../shared/lychee.ts"
+
 import { parseCatalogId, type CatalogId } from "./catalogs.ts"
 import {
   type Component,
@@ -21,6 +23,7 @@ import {
   safeTag,
   toSlug,
 } from "./format.ts"
+import { askGalleryPhoto } from "./gallery.ts"
 import {
   cameraSettings,
   captureDates,
@@ -68,6 +71,8 @@ const LARGE_IMAGE_BYTES = 10 * 1024 * 1024
 interface Flags {
   target?: string
   image?: string
+  // A gallery photo id, URL or search - instead of a local --image
+  gallery?: string
   // Laminar capture sidecars - repeat the flag for several videos
   laminar: string[]
   dryRun: boolean
@@ -82,6 +87,7 @@ const parseFlags = (argv: string[]): Flags => {
     const value = () => inline ?? argv[++i]
     if (name === "--target" || name === "-t") flags.target = value()
     else if (name === "--image") flags.image = value()
+    else if (name === "--gallery") flags.gallery = value()
     else if (name === "--laminar") flags.laminar.push(value() ?? "")
     else if (name === "--dry-run" || name === "-n") flags.dryRun = true
     else if (!arg.startsWith("-")) words.push(arg)
@@ -408,6 +414,47 @@ const askImage = async (initial?: string): Promise<string> =>
     "File not found",
   )
 
+// The post's image is either a local file, copied into public/images/posts, or a
+// photo already in the gallery, which is only referenced
+type PostImage =
+  { kind: "local"; source: string } | { kind: "gallery"; photo: LycheePhoto }
+
+const chooseImage = async (
+  flags: Flags,
+  targets: Target[],
+): Promise<PostImage> => {
+  if (flags.image && flags.gallery) {
+    throw new Error("Use --image or --gallery, not both")
+  }
+  const kind =
+    flags.gallery !== undefined
+      ? "gallery"
+      : flags.image !== undefined
+        ? "local"
+        : await menu<PostImage["kind"]>(
+            "\nImage",
+            [
+              { label: "Local file", value: "local" },
+              {
+                label: "Gallery photo (gallery.chrissearle.org)",
+                value: "gallery",
+              },
+            ],
+            0,
+          )
+  if (kind === "gallery") {
+    return { kind, photo: await askGalleryPhoto(targets, flags.gallery) }
+  }
+  const source = await askImage(flags.image)
+  const { size } = await stat(source)
+  if (size > LARGE_IMAGE_BYTES) {
+    say(
+      `  ! ${(size / 1024 / 1024).toFixed(1)} MB - consider exporting a smaller copy`,
+    )
+  }
+  return { kind, source }
+}
+
 const confirmTags = async (tags: string[]): Promise<string[]> => {
   const existing = await existingTagSlugs(CONTENT_DIR)
   const fresh = tags.filter((t) => !existing.has(safeTag(t)))
@@ -478,13 +525,7 @@ const run = async (flags: Flags): Promise<void> => {
   const title = await ask("\nTitle", pickTitle(targets))
   const slug = await ask("Slug", toSlug(title))
 
-  const source = await askImage(flags.image)
-  const { size } = await stat(source)
-  if (size > LARGE_IMAGE_BYTES) {
-    say(
-      `  ! ${(size / 1024 / 1024).toFixed(1)} MB - consider exporting a smaller copy`,
-    )
-  }
+  const image = await chooseImage(flags, targets)
 
   const photo = await askPhotoDetails(captures)
   const located = await addEphemerides(targets, photo, captures)
@@ -493,31 +534,46 @@ const run = async (flags: Flags): Promise<void> => {
   const intro = await ask("\nIntro", buildIntro(located))
 
   const date = postDate()
-  const imageName = imageFileName(primary, slug, source)
-  const imageUrl = `/images/posts/${date.path}/${imageName}`
+  // A local image is copied in; a gallery photo is only referenced
+  const copy =
+    image.kind === "local"
+      ? {
+          source: image.source,
+          file: join(
+            IMAGE_DIR,
+            date.path,
+            imageFileName(primary, slug, image.source),
+          ),
+        }
+      : undefined
+  const imageRef =
+    image.kind === "local"
+      ? `/images/posts/${date.path}/${imageFileName(primary, slug, image.source)}`
+      : `lychee:${image.photo.id}`
 
   const markdown = renderPost({
     title,
     date: date.frontmatter,
     tags,
     intro,
-    image: imageUrl,
+    image: imageRef,
     targets: located,
     descriptions,
     photo,
   })
 
   const postFile = join(CONTENT_DIR, date.path, `${slug}.md`)
-  const imageFile = join(IMAGE_DIR, date.path, imageName)
 
   if (flags.dryRun) {
     say(`\n--- ${postFile} (dry run) ---\n`)
     say(markdown)
-    say(`--- would copy ${source} → ${imageFile}`)
+    if (copy) {
+      say(`--- would copy ${copy.source} → ${copy.file}`)
+    }
     return
   }
 
-  for (const file of [postFile, imageFile]) {
+  for (const file of [postFile, ...(copy ? [copy.file] : [])]) {
     if (
       existsSync(file) &&
       !(await confirm(`${file} exists - overwrite?`, false))
@@ -528,8 +584,10 @@ const run = async (flags: Flags): Promise<void> => {
   }
 
   await mkdir(dirname(postFile), { recursive: true })
-  await mkdir(dirname(imageFile), { recursive: true })
-  await copyFile(source, imageFile)
+  if (copy) {
+    await mkdir(dirname(copy.file), { recursive: true })
+    await copyFile(copy.source, copy.file)
+  }
   await writeFile(postFile, markdown)
   await saveLastSetup(photo.setup)
   if (added.length > 0) {
@@ -540,7 +598,9 @@ const run = async (flags: Flags): Promise<void> => {
   }
 
   say(`\nCreated: ${postFile}`)
-  say(`Copied:  ${imageFile}`)
+  if (copy) {
+    say(`Copied:  ${copy.file}`)
+  }
 }
 
 export const main = async (argv: string[]): Promise<void> => {

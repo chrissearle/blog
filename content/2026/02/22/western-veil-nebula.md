@@ -4,7 +4,7 @@ date: 2026-02-22 12:47 +0100
 category: Photography
 tags: [ astrophotography, ngc 6960, caldwell 34, nebula, seestar, s-50, zwo ]
 intro: NGC 6960 / Caldwell 34, a supernova remnant in Cygnus.
-image: /images/posts/2026/02/22/ngc6960.png
+image: lychee:J-tjQXu1gM0GH8BoySgUEjhD
 targets:
   - name: Western Veil Nebula
     ids: [ NGC 6960, Caldwell 34 ]
@@ -31,7 +31,7 @@ Moon). While previous distance estimates have ranged from 1,200 to 5,800 light-y
 light-years is based on direct astrometric measurements. (The distance estimates affect also the estimates of size
 and age.)[^1]
 
-![Western Veil Nebula](/images/posts/2026/02/22/ngc6960.png)
+:lychee{id="J-tjQXu1gM0GH8BoySgUEjhD" title="Western Veil Nebula"}
 
 ## Photo Details
 

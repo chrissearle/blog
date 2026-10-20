@@ -342,9 +342,10 @@ const cardStyle = computed(() => {
               class="flex items-center gap-3 rounded"
               :class="{ 'group/post hover:bg-elevated': pinned }"
             >
-              <NuxtImg
+              <PostsImage
                 v-if="post.image"
                 :src="post.image"
+                :srcset="post.imageSrcset"
                 width="96"
                 height="96"
                 fit="cover"

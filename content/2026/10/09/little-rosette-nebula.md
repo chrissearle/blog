@@ -4,7 +4,7 @@ date: 2026-10-09 14:21 +0200
 category: Photography
 tags: [ astrophotography, sh2-170, nebula, seestar, s-50, zwo ]
 intro: Sh2-170, an emission nebula in Cassiopeia.
-image: /images/posts/2026/10/09/little_rosette_nebula.png
+image: lychee:MHFOZXpptlclfdLTyQXHaVk_
 targets:
   - name: Little Rosette Nebula
     ids: [ Sh2-170 ]
@@ -25,7 +25,7 @@ targets:
 
 Sharpless 2-170, also known by the common name the Little Rosette Nebula is an emission nebula in the constellation Cassiopeia.[^1]
 
-![Little Rosette Nebula](/images/posts/2026/10/09/little_rosette_nebula.png)
+:lychee{id="MHFOZXpptlclfdLTyQXHaVk_" title="Little Rosette Nebula"}
 
 ## Photo Details
 

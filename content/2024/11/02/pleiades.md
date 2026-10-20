@@ -4,7 +4,7 @@ date: 2024-11-02 10:37 +0100
 category: Photography
 tags: [ astrophotography, messier 45, melotte 22, collinder 42, cluster, seestar, s-50, zwo ]
 intro: Messier 45 / Melotte 22 / Collinder 42, a star cluster in Taurus.
-image: /images/posts/2024/11/02/m45.jpg
+image: lychee:NS9A6WBDSKN1K_peDnZv0YCB
 targets:
   - name: Pleiades
     ids: [ Messier 45, Melotte 22, Collinder 42 ]
@@ -31,7 +31,7 @@ nebulae NGC 1432, an HII region, and NGC 1435, known as the Merope Nebula. Aroun
 vernal point. Due to the brightness of its stars, the Pleiades is viewable from most areas on Earth, even in locations
 with significant light pollution.[^1]
 
-![Pleiades](/images/posts/2024/11/02/m45.jpg)
+:lychee{id="NS9A6WBDSKN1K_peDnZv0YCB" title="Pleiades"}
 
 ## Photo Details
 

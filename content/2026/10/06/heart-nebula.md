@@ -4,7 +4,7 @@ date: 2026-10-06 17:29 +0200
 category: Photography
 tags: [ astrophotography, ic 1805, sh2-190, melotte 15, collinder 26, nebula, seestar, s-30-pro, zwo ]
 intro: IC 1805 / Sh2-190 / Melotte 15 / Collinder 26, an emission nebula in Cassiopeia.
-image: /images/posts/2026/10/06/IC_1805.png
+image: lychee:spjEZXqqyQGXDyqa3aNTFizB
 targets:
   - name: Heart Nebula
     ids: [ IC 1805, Sh2-190, Melotte 15, Collinder 26 ]
@@ -26,7 +26,7 @@ targets:
 
 The Heart Nebula is an emission nebula, 7,500 light-years (2,300 pc) away from Earth and located in the Perseus Arm of the Galaxy in the constellation Cassiopeia. It was discovered by William Herschel on 3 November 1787.[^1]
 
-![Heart Nebula](/images/posts/2026/10/06/IC_1805.png)
+:lychee{id="spjEZXqqyQGXDyqa3aNTFizB" title="Heart Nebula"}
 
 ## Photo Details
 

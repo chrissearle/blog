@@ -11,10 +11,10 @@ While visiting the UK for Christmas this year - we took a trip to see the Kew Ga
 
 While waiting in the car park for the second car - I was able to take this shot of the Thames - this is from the Kew Gardens car park at Brentwood Gate:
 
-:flickr{id="23682506399" title="Thames at night" image="https://live.staticflickr.com/1672/23682506399_61c1f1e0b5_b.jpg" width="1024" height="382"}
+:flickr{id="23682506399" title="Thames at night" image="https://live.staticflickr.com/65535/23682506399_5ca639d01f_b.jpg" width="1024" height="382"}
 
 We then headed into the park for the walk.
 
 One favourite is the lit palm house:
 
-:flickr{id="23457498474" title="Palm House - Kew" image="https://live.staticflickr.com/1672/23682506399_61c1f1e0b5_b.jpg" width="1024" height="567"}
+:flickr{id="23457498474" title="Palm House - Kew" image="https://live.staticflickr.com/1498/23457498474_9779283f12_b.jpg" width="1024" height="567"}

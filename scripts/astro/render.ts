@@ -208,6 +208,7 @@ export interface Frontmatter {
   date: string
   tags: string[]
   intro: string
+  // A local /images/posts/... path, or a gallery photo as lychee:<id>
   image: string
   // Written as the `targets:` block that drives the /astrophotography page
   targets?: Target[]
@@ -276,7 +277,9 @@ export const renderPost = (post: PostContent): string => {
   return `${[
     frontmatter(post),
     ...targetSections,
-    `![${post.title}](${post.image})`,
+    post.image.startsWith("lychee:")
+      ? `:lychee{id="${post.image.slice("lychee:".length)}"}`
+      : `![${post.title}](${post.image})`,
     "## Photo Details",
     photoTable(post.photo),
     footnotes.join("\n"),

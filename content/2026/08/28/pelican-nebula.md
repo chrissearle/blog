@@ -4,7 +4,7 @@ date: 2026-08-28 18:39 +0200
 category: Photography
 tags: [ astrophotography, ic 5070, nebula, seestar, s-50, zwo ]
 intro: IC 5070, an H II region in Cygnus.
-image: /images/posts/2026/08/28/IC_5070.png
+image: lychee:ndUezM_pEMUnrIzvOIgVFo7d
 targets:
   - name: Pelican Nebula
     ids: [ IC 5070 ]
@@ -26,7 +26,7 @@ targets:
 
 The Pelican Nebula is an H II region associated with the North America Nebula in the constellation of Cygnus. The gaseous contortions of this emission nebula bear a resemblance to a pelican, giving rise to its name.[^1]
 
-![Pelican Nebula](/images/posts/2026/08/28/IC_5070.png)
+:lychee{id="ndUezM_pEMUnrIzvOIgVFo7d" title="Pelican Nebula"}
 
 ## Photo Details
 

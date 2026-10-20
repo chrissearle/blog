@@ -15,4 +15,4 @@ Took a couple of panoramas with the osmo too:
 
 :flickr{id="24334278102" title="Svarterud" image="https://live.staticflickr.com/1523/24334278102_13f7f970aa_b.jpg" width="1024" height="307"}
 
-:flickr{id="24442577125" title="Svarterud" image="https://live.staticflickr.com/1548/24442577125_d119657d5e_b.jpg" width="1024" height="254"}
+:lychee{id="qgb8q-bMvoVrBXp-VIH5PkSc" title="Svarterud"}

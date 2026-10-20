@@ -4,7 +4,7 @@ date: 2026-09-10 17:59 +0200
 category: Photography
 tags: [ astrophotography, ngc 7822, sh2-171, nebula, seestar, s-30-pro, zwo ]
 intro: NGC 7822 / Sh2-171, a star forming region in Cepheus.
-image: /images/posts/2026/09/10/NGC_7822.png
+image: lychee:atJfyT8JJeHVOJAeN10VJeOi
 targets:
   - name: Question Mark Nebula
     ids: [ NGC 7822, Sh2-171 ]
@@ -25,7 +25,7 @@ targets:
 
 NGC 7822, also known as the Question Mark Nebula, is a young star forming complex in the constellation of Cepheus. The complex encompasses the emission region designated Sharpless 171, and the young cluster of stars named Berkeley 59.[^1]
 
-![Question Mark Nebula](/images/posts/2026/09/10/NGC_7822.png)
+:lychee{id="atJfyT8JJeHVOJAeN10VJeOi" title="Question Mark Nebula"}
 
 ## Photo Details
 

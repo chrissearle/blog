@@ -14,6 +14,7 @@ const { data: allPosts } = await useAsyncData(`Tag-${slug}`, () =>
       "category",
       "intro",
       "image",
+      "imageSrcset",
       "embedImage",
       "series",
     )

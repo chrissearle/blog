@@ -4,7 +4,7 @@ date: 2026-04-09 11:15 +0200
 category: Photography
 tags: [ astrophotography, messier 51, ngc 5194, arp 85, galaxy, seestar, s-50, zwo ]
 intro: Messier 51 / NGC 5194 / Arp 85, a galaxy in Canes Venatici.
-image: /images/posts/2026/04/09/m51.png
+image: lychee:YkQdSme-Er1_PTKDbDEkso5i
 targets:
   - name: Whirlpool Galaxy
     ids: [ Messier 51, NGC 5194, Arp 85 ]
@@ -31,7 +31,7 @@ classified as a spiral galaxy.[^1]
 I had about 3 hours of data on this but with a couple of clear nights recently at the end of the season I was able to
 add just over 3 hours per night extra.
 
-![Whirlpool Galaxy](/images/posts/2026/04/09/m51.png)
+:lychee{id="YkQdSme-Er1_PTKDbDEkso5i" title="Whirlpool Galaxy"}
 
 ## Photo Details
 

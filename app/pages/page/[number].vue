@@ -18,6 +18,7 @@ const { data: posts } = await useAsyncData(`Page-${page}`, () =>
       "category",
       "intro",
       "image",
+      "imageSrcset",
       "embedImage",
     )
     .order("date", "DESC")

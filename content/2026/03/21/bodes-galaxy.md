@@ -4,7 +4,7 @@ date: 2026-03-21 11:32 +0100
 category: Photography
 tags: [ astrophotography, messier 81, ngc 3031, galaxy, seestar, s-50, zwo ]
 intro: Messier 81 / NGC 3031, a spiral galaxy in Ursa Major.
-image: /images/posts/2026/03/21/m81.png
+image: lychee:sZuztSyX32NVYgdEFoYPocIP
 targets:
   - name: Bode's Galaxy
     ids: [ Messier 81, NGC 3031 ]
@@ -31,7 +31,7 @@ been studied extensively by professional astronomers. The galaxy's large size an
 it a popular target for amateur astronomers. In late February 2022, astronomers reported that M81 may be the source of
 FRB 20200120E, a repeating fast radio burst.[^1]
 
-![Bode's Galaxy](/images/posts/2026/03/21/m81.png)
+:lychee{id="sZuztSyX32NVYgdEFoYPocIP" title="Bode's Galaxy"}
 
 ## Photo Details
 

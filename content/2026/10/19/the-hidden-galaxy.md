@@ -4,7 +4,7 @@ date: 2026-10-19 20:14 +0200
 category: Photography
 tags: [ astrophotography, ic 342, caldwell 5, galaxy, seestar, s-50, zwo ]
 intro: IC 342 / Caldwell 5, a spiral galaxy in Camelopardalis.
-image: /images/posts/2026/10/19/IC_342.png
+image: lychee:wNyirYgJ7aBEuX2MKdtFq3Vf
 targets:
   - name: The Hidden Galaxy
     ids: [ IC 342, Caldwell 5 ]
@@ -26,7 +26,7 @@ targets:
 
 IC 342 is an intermediate spiral galaxy in the constellation Camelopardalis, located relatively close to the Milky Way. Despite its size and actual brightness, its location behind dusty areas near the galactic equator makes it difficult to observe, leading to the nickname "The Hidden Galaxy", though it can readily be detected even with binoculars.[^1]
 
-![The Hidden Galaxy](/images/posts/2026/10/19/IC_342.png)
+:lychee{id="wNyirYgJ7aBEuX2MKdtFq3Vf" title="The Hidden Galaxy"}
 
 ## Photo Details
 

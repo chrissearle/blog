@@ -4,7 +4,7 @@ date: 2026-03-28 23:12 +0100
 category: Photography
 tags: [ astrophotography, arp 317, galaxy, seestar, s-50, zwo, messier 65, ngc 3623, messier 66, ngc 3627, ngc 3628 ]
 intro: Arp 317, a group of galaxies in Leo.
-image: /images/posts/2026/03/28/leo_triplet.png
+image: lychee:zJmwgKUUvWN0cYOSP1S8NKQa
 targets:
   - name: Leo Triplet
     ids: [ Messier 65, Messier 66, NGC 3623, NGC 3627, NGC 3628, Arp 317 ]
@@ -43,7 +43,7 @@ light-years away in the constellation Leo. It was discovered by William Herschel
 300,000 light-years long tidal tail. Its most conspicuous feature is the broad and obscuring band of dust located along
 the outer edge of its spiral arms, effectively transecting the galaxy to the view from Earth. [^4]
 
-![Leo Triplet](/images/posts/2026/03/28/leo_triplet.png)
+:lychee{id="zJmwgKUUvWN0cYOSP1S8NKQa" title="Leo Triplet"}
 
 ## Photo Details
 

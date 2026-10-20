@@ -8,7 +8,15 @@ const { dateFormat } = useDates()
 const { data } = await useAsyncData("Astrophotography", () =>
   queryCollection("content")
     .where("targets", "IS NOT NULL")
-    .select("path", "title", "date", "image", "embedImage", "targets")
+    .select(
+      "path",
+      "title",
+      "date",
+      "image",
+      "imageSrcset",
+      "embedImage",
+      "targets",
+    )
     .order("date", "DESC")
     .all(),
 )
@@ -81,8 +89,9 @@ useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
                   aria-hidden="true"
                   class="shrink-0"
                 >
-                  <NuxtImg
+                  <PostsImage
                     :src="row.posts[0].image"
+                    :srcset="row.posts[0].imageSrcset"
                     width="80"
                     height="80"
                     fit="cover"
@@ -148,8 +157,9 @@ useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
           aria-hidden="true"
           class="shrink-0"
         >
-          <NuxtImg
+          <PostsImage
             :src="row.posts[0].image"
+            :srcset="row.posts[0].imageSrcset"
             width="96"
             height="96"
             fit="cover"

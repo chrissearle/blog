@@ -4,7 +4,7 @@ date: 2024-02-27 17:38 +0100
 category: Photography
 tags: [ astrophotography, barnard 33, ngc 2024, sh2-277, nebula, seestar, s-50, zwo, ic 434 ]
 intro: Barnard 33, a dark nebula in Orion. NGC 2024 / Sh2-277, an emission nebula in Orion.
-image: /images/posts/2024/02/27/ic434.png
+image: lychee:ATJuhjfdqVCnG9scsjQtV74z
 targets:
   - name: Horsehead Nebula
     ids: [ IC 434, Barnard 33 ]
@@ -48,7 +48,7 @@ The Flame Nebula, designated as NGC 2024 and Sh2-277, is an emission nebula in t
 light-years away. At that distance, the Flame Nebula lies within the Orion B cloud of the larger Orion Molecular
 Cloud Complex.[^2]
 
-![Horsehead Nebula and Flame Nebula](/images/posts/2024/02/27/ic434.png)
+:lychee{id="ATJuhjfdqVCnG9scsjQtV74z" title="Horsehead Nebula and Flame Nebula"}
 
 ## Photo Details
 

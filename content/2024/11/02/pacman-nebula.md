@@ -4,7 +4,7 @@ date: 2024-11-02 10:38 +0100
 category: Photography
 tags: [ astrophotography, ngc 281, ic 11, sh2-184, nebula, seestar, s-50, zwo ]
 intro: NGC 281 / IC 11 / Sh2-184, an emission nebula in Cassiopeia.
-image: /images/posts/2024/11/02/ngc281.jpg
+image: lychee:S1siL-clqGl9YIVdjccu3980
 targets:
   - name: Pacman Nebula
     ids: [ NGC 281, IC 11, Sh2-184 ]
@@ -30,7 +30,7 @@ IC 1590, several Bok globules and the multiple star, B 1. It collectively forms 
 40 arcmin. A recent distance from radio parallaxes of water masers at 22 GHz made during 2014 is estimated it lies
 2.82±0.20 kpc (9200 ly) from us. [^1]
 
-![Pacman Nebula](/images/posts/2024/11/02/ngc281.jpg)
+:lychee{id="S1siL-clqGl9YIVdjccu3980" title="Pacman Nebula"}
 
 ## Photo Details
 

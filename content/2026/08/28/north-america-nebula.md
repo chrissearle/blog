@@ -4,7 +4,7 @@ date: 2026-08-28 18:39 +0200
 category: Photography
 tags: [ astrophotography, ngc 7000, caldwell 20, sh2-117, nebula, seestar, s-30-pro, zwo ]
 intro: NGC 7000 / Caldwell 20 / Sh2-117, an emission nebula in Cygnus.
-image: /images/posts/2026/08/28/NGC_7000.png
+image: lychee:W0qyvefcmdAHMvelJBMs9sOz
 targets:
   - name: North America Nebula
     ids: [ NGC 7000, Caldwell 20, Sh2-117 ]
@@ -26,7 +26,7 @@ targets:
 
 The North America Nebula (NGC 7000 or Caldwell 20) is an emission nebula in the constellation Cygnus, close to Deneb (the tail of the swan and its brightest star) in the night sky. It is named because its shape resembles North America.[^1]
 
-![North America Nebula](/images/posts/2026/08/28/NGC_7000.png)
+:lychee{id="W0qyvefcmdAHMvelJBMs9sOz" title="North America Nebula"}
 
 ## Photo Details
 
