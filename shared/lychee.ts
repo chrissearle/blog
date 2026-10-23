@@ -186,7 +186,8 @@ const albumPhotos = async (
 
 let cached: Promise<Map<string, LycheePhoto>> | undefined
 
-// Every public photo, by id. Fetched once per process.
+// Every public photo, by id. Fetched once per process; a failure isn't cached,
+// so the next post retries
 export const fetchPublicPhotos = (): Promise<Map<string, LycheePhoto>> => {
   cached ??= (async () => {
     const headers = await session()
@@ -200,7 +201,10 @@ export const fetchPublicPhotos = (): Promise<Map<string, LycheePhoto>> => {
       }
     }
     return photos
-  })()
+  })().catch((e: unknown) => {
+    cached = undefined
+    throw e
+  })
   return cached
 }
 

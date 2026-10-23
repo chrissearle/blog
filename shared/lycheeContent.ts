@@ -6,7 +6,8 @@
 //
 // Anything else (local /images/... paths, other URLs) is left alone.
 //
-// An unknown or non-public photo is returned as a problem rather than thrown:
+// An unknown or non-public photo, or a gallery that can't be reached, is
+// returned as a problem rather than thrown:
 // Nuxt Content drops a post whose parsing throws, with only a warning. The
 // caller fails the build on problems instead (dev shows them in the post).
 
@@ -107,7 +108,19 @@ export const resolveGalleryRefs = async (
   if (!mentionsGallery(content)) {
     return problems
   }
-  const photos = await fetchPublicPhotos()
+  let photos: Map<string, LycheePhoto>
+  try {
+    photos = await fetchPublicPhotos()
+  } catch (e) {
+    // Thrown, this would drop the post and let the build pass without it
+    problems.push(
+      `gallery unreachable: ${e instanceof Error ? e.message : String(e)}`,
+    )
+    if (typeof content.image === "string" && isGalleryRef(content.image)) {
+      content.image = undefined
+    }
+    return problems
+  }
 
   if (typeof content.image === "string" && isGalleryRef(content.image)) {
     const photo = lookup(content.image, photos, problems)
