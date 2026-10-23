@@ -26,7 +26,7 @@
     "@iconify-json/lucide": "1.2.146",
     "@nuxt/content": "3.16.2",
     "@nuxt/eslint": "1.17.0",
-    "@nuxt/image": "2.1.0",
+    "@nuxt/image": "2.2.0",
     "@nuxt/scripts": "1.3.12",
     "@nuxt/ui": "4.12.0",
     "@nuxtjs/seo": "6.0.1",
