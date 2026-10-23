@@ -119,6 +119,20 @@ const markers = computed(() => {
   })
 })
 
+// The card's thumbnails only render in the browser, so the prerender crawl never
+// sees them. Building their URLs during SSR registers them; /astrophotography
+// only renders the first post of each target. Same modifiers and densities as
+// the PostsImage in the card. Gallery images load from Lychee, not ipx
+if (import.meta.server) {
+  const img = useImage()
+  for (const post of markers.value.flatMap((m) => m.posts)) {
+    if (!post.image || post.imageSrcset) continue
+    for (const size of [96, 192]) {
+      img(post.image, { width: size, height: size, fit: "cover" })
+    }
+  }
+}
+
 // Hover previews a card; click pins it. Only a pinned card has links, and while
 // one is pinned hovering other dots does nothing - so moving the pointer towards
 // the card can't be mistaken for moving to another dot.

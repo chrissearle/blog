@@ -30,6 +30,12 @@ const refinedSrc = computed(() => {
   return props.src
 })
 
+// The lightbox only renders in the browser, so its image is never seen by the
+// prerender crawl. Building the URL here, during SSR, registers it for
+// prerendering. Capped width: 90vw never needs the full-size original
+const img = useImage()
+const lightboxSrc = computed(() => img(refinedSrc.value, { width: 2400 }))
+
 const openLightbox = () => {
   isLightboxOpen.value = true
 }
@@ -66,7 +72,7 @@ const closeLightbox = () => {
   </figure>
 
   <ImageLightbox
-    :src="refinedSrc"
+    :src="lightboxSrc"
     :alt="alt"
     :is-open="isLightboxOpen"
     @close="closeLightbox"

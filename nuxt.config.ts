@@ -93,6 +93,15 @@ export default defineNuxtConfig({
     },
   },
 
+  // Prerender only: every /_ipx variant is generated during the build's crawl
+  // and served as a static file. The deployed server has no ipx handler, so no
+  // sharp in the pod (it was OOM-killed decoding full-size astro PNGs) and no
+  // resizing on demand for arbitrary modifiers. A variant only the browser
+  // asks for must be registered during SSR, as ProseImg and SkyMap do
+  image: {
+    provider: "ipxStatic",
+  },
+
   nitro: {
     prerender: {
       crawlLinks: true,

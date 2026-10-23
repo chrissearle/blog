@@ -98,7 +98,7 @@ watch(
       <!-- Image container -->
       <div class="relative max-h-[90vh] max-w-[90vw] flex flex-col">
         <div class="flex-1 flex items-center justify-center overflow-hidden">
-          <NuxtImg
+          <img
             :src="src"
             :alt="alt"
             class="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl"
