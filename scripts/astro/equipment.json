@@ -38,6 +38,17 @@
       ]
     },
     {
+      "id": "svbony-sv545",
+      "kind": "optics",
+      "name": "SVBONY Sv545",
+      "maker": "SVBONY",
+      "details": "202.5 mm f/4.5",
+      "tags": [
+        "sv545",
+        "svbony"
+      ]
+    },
+    {
       "id": "svbony-mak127-reduced",
       "kind": "optics",
       "name": "SVBONY MAK127 with 0.65× reducer/flattener",
@@ -138,6 +149,16 @@
       "name": "Laminar",
       "maker": "Mac Observatory",
       "tags": []
+    },
+    {
+      "id": "polaris",
+      "kind": "control",
+      "name": "Polaris",
+      "maker": "",
+      "details": "NINA on a Raspberry Pi",
+      "tags": [
+        "polaris"
+      ]
     }
   ]
 }

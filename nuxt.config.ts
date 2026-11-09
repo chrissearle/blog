@@ -3,6 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-12-03",
   devtools: { enabled: true },
 
+  // Workaround for @nuxt/schema 4.6.4: with no HOST/NUXT_HOST/NITRO_HOST set,
+  // devServer.host's $resolve returns undefined and untyped turns that into
+  // {}, so `nuxt dev` dies with "options.hostname.toLowerCase is not a
+  // function". "localhost" is what the CLI binds by default anyway, and a
+  // HOST env var or --host still wins. Remove once @nuxt/schema is fixed.
+  devServer: { host: "localhost" },
+
   modules: [
     "@nuxtjs/seo",
     "@nuxt/ui",
