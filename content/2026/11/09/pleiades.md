@@ -30,15 +30,15 @@ The Pleiades, also known as Seven Sisters and Messier 45 (M45), is an asterism o
 
 ## Photo Details
 
-|                  |                                                                                                 |
-|------------------|-------------------------------------------------------------------------------------------------|
-| Telescope        | SVBONY Sv545 (202.5 mm f/4.5)                                                                   |
-| Camera           | ToupTek ATR533C (IMX533 colour) - Gain 100 -10 °C                                               |
-| Mount            | Sky-Watcher Star Adventurer GTi                                                                 |
-| Control          | Polaris (NINA on a Raspberry Pi)                                                                |
-| Dates            | 2026-11-07                                                                                      |
-| Integration time | 4h 4m                                                                                           |
-| Processing       | PixInsight OSC                                                                                  |
-| Notes            | A revisit to the Pleiades on a mountain cabin trip. Bortle 3 skies and 4 good hours of capture. |
+|                  |                                                                                                                                                            |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Telescope        | SVBONY Sv545 (202.5 mm f/4.5)                                                                                                                              |
+| Camera           | ToupTek ATR533C (IMX533 colour) - Gain 100 -10 °C                                                                                                          |
+| Mount            | Sky-Watcher Star Adventurer GTi                                                                                                                            |
+| Control          | [Polaris](https://polaris-astro.app.br) (N.I.N.A. fork for the Raspberry Pi with a browser UI) :github-link{href="https://github.com/DanWBR/NINA.Polaris"} |
+| Dates            | 2026-11-07                                                                                                                                                 |
+| Integration time | 4h 4m                                                                                                                                                      |
+| Processing       | PixInsight OSC                                                                                                                                             |
+| Notes            | A revisit to the Pleiades on a mountain cabin trip. Bortle 3 skies and 4 good hours of capture.                                                            |
 
 [^1]: [Wikipedia - Pleiades](https://en.wikipedia.org/wiki/Pleiades)

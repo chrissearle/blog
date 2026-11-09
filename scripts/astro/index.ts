@@ -166,6 +166,8 @@ const addComponent = async (
       ? "Focal length / ratio (e.g. 250 mm f/5)"
       : "Details (optional)",
   )
+  const link = await ask("Web page (optional)")
+  const github = await ask("GitHub repository URL (optional)")
   const suggested =
     kind === "optics"
       ? [toSlug(name).replace(/-/g, " "), maker.toLowerCase()]
@@ -186,6 +188,8 @@ const addComponent = async (
     name,
     maker,
     details: details || undefined,
+    link: link || undefined,
+    github: github || undefined,
     tags,
     integrated: integrated || undefined,
   }

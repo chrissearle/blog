@@ -137,8 +137,10 @@
       "id": "pins",
       "kind": "control",
       "name": "PINS",
-      "maker": "",
-      "details": "NINA on a Raspberry Pi with Touch'N'Stars",
+      "maker": "nitr57",
+      "details": "Linux port of N.I.N.A. for the Raspberry Pi, driven from Touch 'N' Stars",
+      "link": "https://touch-n-stars.eu/#pins",
+      "github": "https://github.com/nitr57/pins",
       "tags": [
         "pins"
       ]
@@ -154,8 +156,10 @@
       "id": "polaris",
       "kind": "control",
       "name": "Polaris",
-      "maker": "",
-      "details": "NINA on a Raspberry Pi",
+      "maker": "DanWBR",
+      "details": "N.I.N.A. fork for the Raspberry Pi with a browser UI",
+      "link": "https://polaris-astro.app.br",
+      "github": "https://github.com/DanWBR/NINA.Polaris",
       "tags": [
         "polaris"
       ]

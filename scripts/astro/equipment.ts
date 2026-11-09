@@ -20,6 +20,10 @@ export interface Component {
   maker: string
   // e.g. "250 mm f/5" - shown after the name in the Photo Details table
   details?: string
+  // Project or product page - the name links to it in the Photo Details table
+  link?: string
+  // Source repository - a GitHub icon after the description links to it
+  github?: string
   tags: string[]
   // Smart scopes: optics, camera, mount and control in one unit
   integrated?: boolean
@@ -47,6 +51,8 @@ const parseComponent = (value: unknown): Component | undefined => {
     name,
     maker: str(value.maker) ?? "",
     details: str(value.details),
+    link: str(value.link),
+    github: str(value.github),
     tags: Array.isArray(value.tags)
       ? value.tags.filter((t): t is string => typeof t === "string")
       : [],
@@ -101,6 +107,21 @@ export const describe = (component: Component): string =>
   component.details
     ? `${component.name} (${component.details})`
     : component.name
+
+// Markdown for the Photo Details table: as describe(), with the name linked
+// when the component has a link, and a GitHub icon (app/components/content/
+// GithubLink.vue) when it has a repository
+export const describeLinked = (component: Component): string => {
+  const name = component.link
+    ? `[${component.name}](${component.link})`
+    : component.name
+  return [
+    component.details ? `${name} (${component.details})` : name,
+    component.github ? `:github-link{href="${component.github}"}` : undefined,
+  ]
+    .filter(Boolean)
+    .join(" ")
+}
 
 export const setupTags = (setup: Setup): string[] => [
   ...new Set(KINDS.flatMap((kind) => setup[kind]?.tags ?? [])),

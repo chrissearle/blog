@@ -1,4 +1,4 @@
-import { describe, type Setup, setupTags } from "./equipment.ts"
+import { describeLinked, type Setup, setupTags } from "./equipment.ts"
 import {
   formatDec,
   formatDistance,
@@ -154,7 +154,7 @@ export const photoTable = (photo: PhotoDetails): string => {
   const { optics, camera, mount, control } = photo.setup
   const total = totalMinutes(photo)
   const cameraCell = camera
-    ? [describe(camera), photo.cameraSettings].filter(Boolean).join(" - ")
+    ? [describeLinked(camera), photo.cameraSettings].filter(Boolean).join(" - ")
     : photo.cameraSettings
 
   return table(
@@ -163,12 +163,14 @@ export const photoTable = (photo: PhotoDetails): string => {
       [
         optics?.lens ? "Lens" : "Telescope",
         optics
-          ? [describe(optics), photo.magnifier].filter(Boolean).join(" + ")
+          ? [describeLinked(optics), photo.magnifier]
+              .filter(Boolean)
+              .join(" + ")
           : undefined,
       ],
       ["Camera", cameraCell],
-      ["Mount", mount ? describe(mount) : undefined],
-      ["Control", control ? describe(control) : undefined],
+      ["Mount", mount ? describeLinked(mount) : undefined],
+      ["Control", control ? describeLinked(control) : undefined],
       ["Dates", photo.times ?? photo.dates.join(", ")],
       ["Integration time", total > 0 ? formatDuration(total) : undefined],
       ["Frames", photo.frames],
