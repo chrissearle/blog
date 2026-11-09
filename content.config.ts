@@ -18,6 +18,10 @@ export default defineContentConfig({
         image: z.string().url().optional(),
         // The gallery photo page, set at build time for lychee: images
         imageLink: z.string().url().optional(),
+        // Pixel size of a gallery image, for og:image:width/height - without
+        // them Facebook processes the image asynchronously
+        imageWidth: z.number().int().optional(),
+        imageHeight: z.number().int().optional(),
         // Lychee's size variants for cards and thumbnails, set with imageLink
         imageSrcset: z.string().optional(),
         category: z.string().optional(),

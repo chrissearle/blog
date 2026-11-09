@@ -23,6 +23,8 @@ export interface LycheeVariant {
   url: string
   width: number
   height: number
+  // From Lychee's human-readable filesize ("5.18 MB"); undefined if unparseable
+  bytes?: number
 }
 
 export interface LycheePhoto {
@@ -44,6 +46,18 @@ const str = (value: unknown): string | undefined =>
 const records = (value: unknown): Record<string, unknown>[] =>
   Array.isArray(value) ? value.filter(isRecord) : []
 
+const UNITS: Record<string, number> = { B: 0, KB: 1, MB: 2, GB: 3 }
+
+// Lychee reports sizes in binary units: "631.56 KB" is 646,716 bytes
+const parseFilesize = (value: unknown): number | undefined => {
+  const match = str(value)?.match(/^([\d.]+)\s*([KMG]?B)$/i)
+  const [, amount, unit] = match ?? []
+  const power = unit ? UNITS[unit.toUpperCase()] : undefined
+  return amount && power !== undefined
+    ? Math.round(Number(amount) * 1024 ** power)
+    : undefined
+}
+
 const variant = (value: unknown): LycheeVariant | undefined => {
   if (!isRecord(value)) {
     return undefined
@@ -51,7 +65,7 @@ const variant = (value: unknown): LycheeVariant | undefined => {
   const url = str(value.url)
   const { width, height } = value
   return url && typeof width === "number" && typeof height === "number"
-    ? { url, width, height }
+    ? { url, width, height, bytes: parseFilesize(value.filesize) }
     : undefined
 }
 
@@ -215,26 +229,46 @@ export const photoPageUrl = (photo: LycheePhoto): string =>
 export const displayVariant = (photo: LycheePhoto): LycheeVariant | undefined =>
   photo.variants.medium ?? photo.variants.original ?? photo.variants.small2x
 
-// og:image and post cards - large enough for link previews, but never the
-// original, which can be many megabytes
-export const ogUrl = (photo: LycheePhoto): string | undefined =>
-  (
-    photo.variants.medium2x ??
-    photo.variants.medium ??
-    photo.variants.small2x ??
-    photo.variants.original
-  )?.url
+// Astro PNGs are 16-bit, so medium2x can be 20 MB and the original ~100 MB.
+// Facebook rejects og:images over 8 MB as "corrupted", and nothing that size
+// belongs in a srcset either: a 3x phone would pick medium2x for a 100vw image
+const MAX_BYTES = 8_000_000
 
-export const srcset = (photo: LycheePhoto): string =>
-  (["small", "small2x", "medium", "medium2x", "original"] as const)
-    .flatMap((name) => {
-      const v = photo.variants[name]
-      return v ? [v] : []
-    })
-    // Lychee doesn't upscale, so small images have several equal-width sizes
-    .filter((v, i, all) => all.findIndex((o) => o.width === v.width) === i)
-    .map((v) => `${v.url} ${v.width}w`)
-    .join(", ")
+// An unknown size is let through: Lychee reports one for every variant
+const withinLimit = (v: LycheeVariant): boolean =>
+  v.bytes === undefined || v.bytes <= MAX_BYTES
+
+// og:image and post cards: the largest variant link previews will accept.
+// Never the original, which can be ~100 MB
+export const ogVariant = (photo: LycheePhoto): LycheeVariant | undefined => {
+  const candidates = (["medium2x", "medium", "small2x", "small"] as const)
+    .map((name) => photo.variants[name])
+    .filter((v): v is LycheeVariant => v !== undefined)
+  return (
+    candidates.find((v) => v.bytes !== undefined && withinLimit(v)) ??
+    // No sizes reported: the smallest is the safest bet
+    candidates.at(-1) ??
+    photo.variants.original
+  )
+}
+
+export const srcset = (photo: LycheePhoto): string => {
+  const all = (
+    ["small", "small2x", "medium", "medium2x", "original"] as const
+  ).flatMap((name) => {
+    const v = photo.variants[name]
+    return v ? [v] : []
+  })
+  const allowed = all.filter(withinLimit)
+  // Keep the smallest even if it's over the limit, rather than no srcset
+  return (
+    (allowed.length > 0 ? allowed : all.slice(0, 1))
+      // Lychee doesn't upscale, so small images have several equal-width sizes
+      .filter((v, i, list) => list.findIndex((o) => o.width === v.width) === i)
+      .map((v) => `${v.url} ${v.width}w`)
+      .join(", ")
+  )
+}
 
 const ID = /^[A-Za-z0-9_-]{24}$/
 

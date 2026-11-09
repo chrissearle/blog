@@ -1,7 +1,7 @@
 // Build-time resolution of gallery references in posts, run from the
 // content:file:afterParse hook in nuxt.config.ts:
 //
-//   image: lychee:<id>        → image: <gallery URL>, imageLink: <photo page>
+//   image: lychee:<id>        → image: <gallery URL> (+ its width/height), imageLink: <photo page>
 //   :lychee{id="<id>"}        → the same node with src, srcset, size, title and href
 //
 // Anything else (local /images/... paths, other URLs) is left alone.
@@ -16,7 +16,7 @@ import {
   fetchPublicPhotos,
   isGalleryRef,
   type LycheePhoto,
-  ogUrl,
+  ogVariant,
   parseGalleryRef,
   photoPageUrl,
   srcset,
@@ -125,7 +125,10 @@ export const resolveGalleryRefs = async (
   if (typeof content.image === "string" && isGalleryRef(content.image)) {
     const photo = lookup(content.image, photos, problems)
     // An unresolved image is dropped rather than left as an unloadable lychee: URL
-    content.image = photo ? ogUrl(photo) : undefined
+    const og = photo ? ogVariant(photo) : undefined
+    content.image = og?.url
+    content.imageWidth = og?.width
+    content.imageHeight = og?.height
     content.imageLink = photo ? photoPageUrl(photo) : undefined
     content.imageSrcset = photo ? srcset(photo) : undefined
   }
