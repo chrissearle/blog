@@ -194,3 +194,36 @@ export const postDate = (now = new Date()): PostDate => {
     frontmatter: `${y}-${mo}-${d} ${two(now.getHours())}:${two(now.getMinutes())} ${tz}`,
   }
 }
+
+// --date: "YYYY-MM-DD" or "YYYY-MM-DD HH:mm" (also with a T), in local time like the
+// default. A date alone keeps the current time of day. Undefined when it isn't a real
+// local date and time (2026-02-30, or a time skipped by a DST change).
+export const parsePostDate = (
+  input: string,
+  now = new Date(),
+): Date | undefined => {
+  const match = /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2}))?$/.exec(
+    input.trim(),
+  )
+  if (!match) {
+    return undefined
+  }
+  const [y, mo, d] = [match[1], match[2], match[3]].map(Number) as [
+    number,
+    number,
+    number,
+  ]
+  const h = match[4] === undefined ? now.getHours() : Number(match[4])
+  const mi = match[5] === undefined ? now.getMinutes() : Number(match[5])
+  const date = new Date(y, mo - 1, d, h, mi)
+  // Date rolls 2026-02-30 over to 2026-03-02 rather than failing
+  const exact =
+    date.getFullYear() === y &&
+    date.getMonth() === mo - 1 &&
+    date.getDate() === d &&
+    date.getHours() === h &&
+    date.getMinutes() === mi
+  return exact ? date : undefined
+}
+
+export const DATE_USAGE = `--date takes YYYY-MM-DD or "YYYY-MM-DD HH:mm" (local time)`

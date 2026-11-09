@@ -22,7 +22,11 @@ Always use the script — and ask if images are needed before running:
 ```bash
 node scripts/post "Post Title"            # Creates content/YYYY/MM/DD/post-title.md
 node scripts/post "Post Title" --images   # Also creates public/images/posts/YYYY/MM/DD/
+node scripts/post "Post Title" --date 2026-11-01           # Backdated: path and frontmatter use that date
+node scripts/post "Post Title" --date "2026-11-01 20:30"   # ...and that time (local; a date alone keeps the current time)
 ```
+
+`--date` (`-d`) also works with `--astro`. It is parsed by `parsePostDate()` in `scripts/astro/format.ts`, which rejects dates that don't exist (2026-02-30, or a time skipped by DST); the timezone offset is the one in effect on that date.
 
 ### Creating an astrophotography post
 

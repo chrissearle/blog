@@ -17,8 +17,10 @@ import {
   type Setup,
 } from "./equipment.ts"
 import {
+  DATE_USAGE,
   formatDuration,
   parseDuration,
+  parsePostDate,
   postDate,
   safeTag,
   toSlug,
@@ -75,6 +77,8 @@ interface Flags {
   gallery?: string
   // Laminar capture sidecars - repeat the flag for several videos
   laminar: string[]
+  // Post date (--date) - defaults to now
+  date?: Date
   dryRun: boolean
 }
 
@@ -89,7 +93,14 @@ const parseFlags = (argv: string[]): Flags => {
     else if (name === "--image") flags.image = value()
     else if (name === "--gallery") flags.gallery = value()
     else if (name === "--laminar") flags.laminar.push(value() ?? "")
-    else if (name === "--dry-run" || name === "-n") flags.dryRun = true
+    else if (name === "--date" || name === "-d") {
+      const input = value() ?? ""
+      flags.date = parsePostDate(input)
+      if (!flags.date) {
+        console.error(`Not a valid date: "${input}" - ${DATE_USAGE}`)
+        process.exit(1)
+      }
+    } else if (name === "--dry-run" || name === "-n") flags.dryRun = true
     else if (!arg.startsWith("-")) words.push(arg)
   }
   // `post --astro "M 81"` - bare words are the target
@@ -537,7 +548,7 @@ const run = async (flags: Flags): Promise<void> => {
   const tags = await confirmTags(postTags(located, photo.setup))
   const intro = await ask("\nIntro", buildIntro(located))
 
-  const date = postDate()
+  const date = postDate(flags.date)
   // A local image is copied in; a gallery photo is only referenced
   const copy =
     image.kind === "local"

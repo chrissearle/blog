@@ -4,10 +4,11 @@ import { mkdir, writeFile } from "fs/promises"
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
 
+import { DATE_USAGE, parsePostDate, postDate } from "./astro/format.ts"
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const args = process.argv.slice(2)
-const hasImages = args.includes("--images") || args.includes("-i")
 const isAstro = args.includes("--astro") || args.includes("-a")
 
 if (isAstro) {
@@ -18,22 +19,48 @@ if (isAstro) {
   await createPost()
 }
 
+function usage() {
+  console.error("Usage: post <title> [--images] [--date <date>]")
+  console.error(
+    "       post --astro [target] [--image <file> | --gallery <id|url|search>] [--laminar <file>]... [--date <date>] [--dry-run]",
+  )
+  console.error("")
+  console.error(
+    "  target     catalog id, name or Sun/Moon/planet; comma-separate for several",
+  )
+  console.error(
+    "  --laminar  Laminar capture JSON (planetary); repeat for several videos",
+  )
+  console.error(
+    '  --date     YYYY-MM-DD or "YYYY-MM-DD HH:mm", local time (default now)',
+  )
+  process.exit(1)
+}
+
+function parseArgs(argv) {
+  const flags = { images: false, date: undefined, words: [] }
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i]
+    const [name, inline] = arg.split(/=(.*)/s)
+    if (name === "--images" || name === "-i") flags.images = true
+    else if (name === "--date" || name === "-d") {
+      const input = inline ?? argv[++i] ?? ""
+      flags.date = parsePostDate(input)
+      if (!flags.date) {
+        console.error(`Not a valid date: "${input}" - ${DATE_USAGE}`)
+        process.exit(1)
+      }
+    } else if (!arg.startsWith("-")) flags.words.push(arg)
+  }
+  return flags
+}
+
 async function createPost() {
-  const title = args.filter((a) => !a.startsWith("-")).join(" ")
+  const flags = parseArgs(args)
+  const title = flags.words.join(" ")
 
   if (!title) {
-    console.error("Usage: post <title> [--images]")
-    console.error(
-      "       post --astro [target] [--image <file> | --gallery <id|url|search>] [--laminar <file>]... [--dry-run]",
-    )
-    console.error("")
-    console.error(
-      "  target     catalog id, name or Sun/Moon/planet; comma-separate for several",
-    )
-    console.error(
-      "  --laminar  Laminar capture JSON (planetary); repeat for several videos",
-    )
-    process.exit(1)
+    usage()
   }
 
   const slug = title
@@ -42,29 +69,15 @@ async function createPost() {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "")
 
-  const now = new Date()
-  const pad = (n) => String(n).padStart(2, "0")
-  const year = now.getFullYear()
-  const month = pad(now.getMonth() + 1)
-  const day = pad(now.getDate())
-  const hours = pad(now.getHours())
-  const minutes = pad(now.getMinutes())
-  const tzOffset = -now.getTimezoneOffset()
-  const tzSign = tzOffset >= 0 ? "+" : "-"
-  const tzHours = pad(Math.floor(Math.abs(tzOffset) / 60))
-  const tzMins = pad(Math.abs(tzOffset) % 60)
-  const tz = `${tzSign}${tzHours}${tzMins}`
+  const date = postDate(flags.date)
 
-  const datePath = `${year}/${month}/${day}`
-  const dateStr = `${year}-${month}-${day} ${hours}:${minutes} ${tz}`
-
-  const contentDir = join(__dirname, "..", "content", datePath)
+  const contentDir = join(__dirname, "..", "content", date.path)
   const postFile = join(contentDir, `${slug}.md`)
 
-  const imageLine = hasImages ? `image: /images/posts/${datePath}/\n` : ""
+  const imageLine = flags.images ? `image: /images/posts/${date.path}/\n` : ""
   const content = `---
 title: ${title}
-date: ${dateStr}
+date: ${date.frontmatter}
 tags:
 intro:
 ${imageLine}---
@@ -74,14 +87,14 @@ ${imageLine}---
   await writeFile(postFile, content)
   console.log(`Created: ${postFile}`)
 
-  if (hasImages) {
+  if (flags.images) {
     const imageDir = join(
       __dirname,
       "..",
       "public",
       "images",
       "posts",
-      datePath,
+      date.path,
     )
     await mkdir(imageDir, { recursive: true })
     console.log(`Created: ${imageDir}`)
