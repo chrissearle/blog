@@ -111,14 +111,15 @@ useFeed("/astrophotography/feed.xml", "Chris Searle - Astrophotography")
                     class="font-mono text-xs text-muted"
                   >
                     also
-                    <NuxtLink
-                      v-for="post in row.posts.slice(1)"
+                    <template
+                      v-for="(post, i) in row.posts.slice(1)"
                       :key="post.path"
-                      :to="post.path"
-                      class="hover:text-primary"
                     >
-                      {{ dateFormat(post.date) }}
-                    </NuxtLink>
+                      <template v-if="i > 0">, </template>
+                      <NuxtLink :to="post.path" class="hover:text-primary">
+                        {{ dateFormat(post.date) }}
+                      </NuxtLink>
+                    </template>
                   </p>
                 </div>
               </div>
