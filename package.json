@@ -42,7 +42,7 @@
     "lint-staged": "17.6.0",
     "luxon": "3.7.2",
     "nuxt": "4.6.4",
-    "parse5": "8.1.0",
+    "parse5": "8.1.1",
     "prettier": "3.9.10",
     "rehype-raw": "7.0.0",
     "remark-emoji": "5.0.2",
