@@ -3,20 +3,21 @@ import { getJson, isRecord, num, str } from "./http.ts"
 // SIMBAD's TAP service takes ADQL (SQL for astronomy). The ident table matches
 // loosely, so "M81", "M 81", "Sh2-142" and "Whirlpool Galaxy" all resolve.
 // Strasbourg is the primary; Harvard runs an official mirror of the same
-// database. A mirror that can't be reached is skipped for the rest of the run,
-// so an outage costs one timeout rather than one per query.
+// database. A mirror that fails is skipped for the rest of the run, so an
+// outage costs one timeout rather than one per query.
+//
+// Any failure counts, not just an unreachable host: during maintenance
+// Strasbourg answers 404 with an HTML page, which getJson turns into undefined.
+// The queries are fixed templates with escaped input, so a failure is the
+// server's, and the next mirror is worth trying.
 const TAP_URLS = [
   "https://simbad.cds.unistra.fr/simbad/sim-tap/sync",
   "https://simbad.harvard.edu/simbad/sim-tap/sync",
 ]
-const unreachable = new Set<string>()
+const unavailable = new Set<string>()
 
-// fetch rejects with a TypeError ("fetch failed") when it never gets a
-// response, and AbortSignal.timeout rejects with a TimeoutError. HTTP errors
-// come back as a plain Error from getJson and are not worth retrying elsewhere.
-const isNetworkError = (error: unknown): boolean =>
-  error instanceof TypeError ||
-  (error instanceof DOMException && error.name === "TimeoutError")
+const describe = (error: unknown): string =>
+  error instanceof Error ? error.message : String(error)
 
 export interface SimbadObject {
   mainId: string
@@ -40,20 +41,20 @@ const tap = async (query: string): Promise<unknown[][]> => {
     query,
   })
   let lastError: unknown = new Error("No SIMBAD mirror reachable")
-  for (const url of TAP_URLS.filter((u) => !unreachable.has(u))) {
+  for (const url of TAP_URLS.filter((u) => !unavailable.has(u))) {
+    const host = new URL(url).host
     try {
       const json = await getJson(url, { method: "POST", body }, 10000)
       if (!isRecord(json) || !Array.isArray(json.data)) {
-        throw new Error("Unexpected SIMBAD response")
+        throw new Error(
+          json === undefined ? "404 from SIMBAD" : "Unexpected SIMBAD response",
+        )
       }
       return json.data.filter((row): row is unknown[] => Array.isArray(row))
     } catch (error) {
-      if (!isNetworkError(error)) {
-        throw error
-      }
-      unreachable.add(url)
+      unavailable.add(url)
       lastError = error
-      console.warn(`SIMBAD at ${new URL(url).host} unreachable, trying mirror`)
+      console.warn(`SIMBAD at ${host} failed (${describe(error)})`)
     }
   }
   throw lastError
