@@ -20,7 +20,7 @@
   "dependencies": {
     "better-sqlite3": "13.2.0"
   },
-  "packageManager": "pnpm@12.21.0",
+  "packageManager": "pnpm@12.22.0",
   "devDependencies": {
     "@iconify-json/heroicons": "1.2.3",
     "@iconify-json/lucide": "1.2.157",
