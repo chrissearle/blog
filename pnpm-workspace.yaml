@@ -8,18 +8,14 @@ allowBuilds:
 
 overrides:
   # ipx (via @nuxt/image) pins h3 2.0.1-rc exactly, while the whole Nuxt stack
-  # is on 1.x. Without this we get two h3 copies and Nitro's tracing mangles
-  # the build output (see the nuxtseo-shared note below for the failure mode).
-  # Kept as a range, not an exact pin, so it follows h3 1.x without going stale.
+  # (Nitro 2) is on 1.x. Two h3 copies in the server bundle make Nitro's
+  # external tracing collapse them into one .output/server/node_modules dir and
+  # drop files, producing ERR_MODULE_NOT_FOUND at runtime while `pnpm build`
+  # still passes. Kept as a range so it follows h3 1.x. Remove when Nuxt moves
+  # to Nitro 3.
   h3: "^1.15.11"
   # ...except devframe (via @nuxt/fonts and @eslint/config-inspector), which
   # is built on the h3 2 API (`import { H3 } from "h3"`) and crashes `nuxt dev`
   # when forced onto 1.x. It runs only at dev/build time and isn't traced into
   # the server bundle, so a second h3 copy here doesn't hit the Nitro trap.
   "devframe>h3": "^2.0.8"
-  # Every @nuxtjs/seo module depends on nuxtseo-shared. If two versions get
-  # locked, Nitro's external tracing collapses both copies into one
-  # .output/server/node_modules dir and drops files, producing
-  # ERR_MODULE_NOT_FOUND at runtime. One range for all of them keeps it to a
-  # single copy; renovate groups its major bumps with @nuxtjs/seo.
-  nuxtseo-shared: "^6.0.1"

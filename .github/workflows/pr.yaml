@@ -21,6 +21,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Two locked versions of a package the server bundle uses (h3,
+      # nuxtseo-shared and micromark have all done it) break .output at
+      # runtime while the build still passes. Fix with `pnpm dedupe`.
+      - name: Dedupe check
+        run: pnpm dedupe --check
+
       - name: Lint
         run: pnpm lint
 
