@@ -163,6 +163,15 @@
       "tags": [
         "polaris"
       ]
+    },
+    {
+      "id": "nina",
+      "kind": "control",
+      "name": "N.I.N.A",
+      "maker": "",
+      "tags": [
+        "nina"
+      ]
     }
   ]
 }
