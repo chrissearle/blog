@@ -2,7 +2,7 @@
 title: γ Cyg Nebula
 date: 2026-11-26 21:55 +0100
 category: Photography
-tags: [ astrophotography, ic 1318, nebula, sv545, svbony, touptek, atr533c, imx533, sky-watcher, star adventurer gti, nina ]
+tags: [ astrophotography, ic 1318, nebula, sv545, svbony, sv220, touptek, atr533c, imx533, sky-watcher, star adventurer gti, nina ]
 intro: IC 1318, a nebula near the star Sadr in Cygnus.
 image: lychee:VclfjhKfZ2cW5aU3cDcAKp53
 targets:
@@ -36,7 +36,7 @@ IC 1318 is the diffuse emission nebula and a H II region surrounding the star Sa
 | Control          | N.I.N.A                                           |
 | Dates            | 2026-11-23, 2026-11-25, 2026-11-26                |
 | Integration time | 9h 56m                                            |
-| Filters          | Narrowband (Sv220)                                |
+| Filters          | SV220 (Hα/OIII dual-band)                         |
 | Processing       | PixInsight, DynamicInverse palette                |
 
 [^1]: [Wikipedia - IC 1318](https://en.wikipedia.org/wiki/IC_1318)

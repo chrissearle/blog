@@ -172,6 +172,43 @@
       "tags": [
         "nina"
       ]
+    },
+    {
+      "id": "seestar-uv-ir-cut",
+      "kind": "filter",
+      "name": "UV/IR cut",
+      "maker": "ZWO",
+      "tags": [],
+      "optics": [
+        "seestar-s50",
+        "seestar-s30-pro"
+      ]
+    },
+    {
+      "id": "seestar-lp",
+      "kind": "filter",
+      "name": "LP",
+      "maker": "ZWO",
+      "details": "Hα/OIII",
+      "tags": [],
+      "optics": [
+        "seestar-s50",
+        "seestar-s30-pro"
+      ]
+    },
+    {
+      "id": "svbony-sv220",
+      "kind": "filter",
+      "name": "SV220",
+      "maker": "SVBONY",
+      "details": "Hα/OIII dual-band",
+      "tags": [
+        "sv220",
+        "svbony"
+      ],
+      "optics": [
+        "svbony-sv545"
+      ]
     }
   ]
 }

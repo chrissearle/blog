@@ -1,4 +1,10 @@
-import { describeLinked, type Setup, setupTags } from "./equipment.ts"
+import {
+  type Component,
+  describe,
+  describeLinked,
+  type Setup,
+  setupTags,
+} from "./equipment.ts"
 import {
   formatDec,
   formatDistance,
@@ -14,10 +20,17 @@ import type { Target } from "./lookup.ts"
 import { type Ephemeris, moonPhaseName } from "./solar.ts"
 
 export interface IntegrationLine {
-  // Filter / mode, e.g. "UV/IR cut" or "LP (Hα/OIII)". May be empty.
+  // A filter from equipment.json, e.g. the SV220 or a Seestar's LP filter
+  filter?: Component
+  // Free text: a note after the filter ("25 × 300s"), or the whole label when
+  // no filter was picked ("Broadband"). May be empty.
   label: string
   minutes: number
 }
+
+// "SV220 (Hα/OIII dual-band) - 25 × 300s", "Broadband", or ""
+export const lineLabel = (line: IntegrationLine): string =>
+  [line.filter && describe(line.filter), line.label].filter(Boolean).join(" - ")
 
 export interface PhotoDetails {
   setup: Setup
@@ -135,17 +148,17 @@ export const totalMinutes = (photo: PhotoDetails): number =>
   photo.integration.reduce((sum, line) => sum + line.minutes, 0)
 
 const filtersRow = (photo: PhotoDetails): string | undefined => {
-  const labelled = photo.integration.filter((line) => line.label !== "")
-  if (labelled.length === 0) {
+  const labels = photo.integration.map(lineLabel)
+  if (labels.every((label) => label === "")) {
     return undefined
   }
   if (photo.integration.length === 1) {
-    return labelled[0]?.label
+    return labels[0]
   }
   return photo.integration
     .map(
-      (line) =>
-        `${line.label || "unfiltered"}: ${formatDuration(line.minutes)}`,
+      (line, i) =>
+        `${labels[i] || "unfiltered"}: ${formatDuration(line.minutes)}`,
     )
     .join(", ")
 }
@@ -194,7 +207,11 @@ const needsQuotes = (value: string): boolean =>
 export const yamlValue = (value: string): string =>
   needsQuotes(value) ? JSON.stringify(value) : value
 
-export const postTags = (targets: Target[], setup: Setup): string[] => [
+export const postTags = (
+  targets: Target[],
+  setup: Setup,
+  integration: IntegrationLine[],
+): string[] => [
   ...new Set([
     "astrophotography",
     ...targets.flatMap((t) => t.names.map((n) => n.tag)),
@@ -202,6 +219,7 @@ export const postTags = (targets: Target[], setup: Setup): string[] => [
     ...targets.flatMap((t) => (t.solar ? [t.solar.name.toLowerCase()] : [])),
     ...targets.flatMap((t) => (t.typeTag ? [t.typeTag] : [])),
     ...setupTags(setup),
+    ...integration.flatMap((line) => line.filter?.tags ?? []),
   ]),
 ]
 

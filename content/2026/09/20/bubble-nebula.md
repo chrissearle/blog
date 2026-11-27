@@ -30,12 +30,12 @@ The Bubble Nebula, also known as NGC 7635, Sharpless 162, or Caldwell 11, is an 
 
 ## Photo Details
 
-|                  |                                                             |
-|------------------|-------------------------------------------------------------|
-| Telescope        | Seestar S50 (250 mm f/5)                                    |
-| Dates            | 2026-09-19                                                  |
-| Integration time | 5h 13m                                                      |
-| Filters          | UV/IR cut: 28m 30s, Integration 2: LP (Hα/OIII): 4h 44m 30s |
-| Processing       | UV/IR cut used for stars, LP for the nebulosity             |
+|                  |                                                 |
+|------------------|-------------------------------------------------|
+| Telescope        | Seestar S50 (250 mm f/5)                        |
+| Dates            | 2026-09-19                                      |
+| Integration time | 5h 13m                                          |
+| Filters          | UV/IR cut: 28m 30s, LP (Hα/OIII): 4h 44m 30s    |
+| Processing       | UV/IR cut used for stars, LP for the nebulosity |
 
 [^1]: [Wikipedia - Bubble Nebula](https://en.wikipedia.org/wiki/Bubble_Nebula)

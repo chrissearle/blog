@@ -9,6 +9,7 @@ import { parseCatalogId, type CatalogId } from "./catalogs.ts"
 import {
   type Component,
   describe,
+  filtersFor,
   type Kind,
   loadEquipment,
   loadLastSetup,
@@ -19,13 +20,13 @@ import {
 import {
   DATE_USAGE,
   formatDuration,
-  parseDuration,
   parsePostDate,
   postDate,
   safeTag,
   toSlug,
 } from "./format.ts"
 import { askGalleryPhoto } from "./gallery.ts"
+import { parseIntegration } from "./integration.ts"
 import {
   cameraSettings,
   captureDates,
@@ -56,6 +57,7 @@ import {
   displayNames,
   pickTitle,
   type IntegrationLine,
+  lineLabel,
   type PhotoDetails,
   postTags,
   renderPost,
@@ -276,30 +278,32 @@ const parseDates = (answer: string): string[] | undefined => {
   return valid ? [...new Set(dates)].sort() : undefined
 }
 
-const parseIntegration = (answer: string): IntegrationLine | undefined => {
-  const match = /^(.*?)\s*((?:\d+(?:\.\d+)?\s*[hms]\s*)+)$/i.exec(answer)
-  const minutes = match?.[2] ? parseDuration(match[2]) : undefined
-  return match && minutes
-    ? { label: (match[1] ?? "").trim(), minutes }
-    : undefined
-}
-
-const askIntegration = async (): Promise<IntegrationLine[]> => {
+const askIntegration = async (
+  filters: Component[],
+): Promise<IntegrationLine[]> => {
   say(
-    "\nIntegration - one line per filter/mode, e.g. 'UV/IR cut 3h55m' or 'LP (Hα/OIII) 4h26m'.",
+    "\nIntegration - one line per filter: filter, optional note, duration, e.g. '2 4h26m' or '1 25 × 300s 2h5m'.",
   )
-  say("Just a duration is fine for a single filter. Blank line to finish.")
+  if (filters.length > 0) {
+    say(
+      `  Filters: ${filters.map((f, i) => `${i + 1} ${describe(f)}`).join(", ")} - or free text, e.g. 'Broadband'`,
+    )
+  }
+  say("Just a duration is fine with no filter. Blank line to finish.")
   const lines: IntegrationLine[] = []
   for (;;) {
     const answer = await ask(`  Integration ${lines.length + 1}`)
     if (answer === "") {
       return lines
     }
-    const line = parseIntegration(answer)
+    const line = parseIntegration(answer, filters)
     if (line) {
       lines.push(line)
       const total = lines.reduce((sum, l) => sum + l.minutes, 0)
-      say(`    total so far: ${formatDuration(total)}`)
+      const label = lineLabel(line)
+      say(
+        `    ${label ? `${label}, ` : ""}total so far: ${formatDuration(total)}`,
+      )
     } else {
       say("    Couldn't find a duration at the end - try e.g. '3h55m' or '90m'")
     }
@@ -322,8 +326,9 @@ const laminarDetails = (captures: LaminarCapture[]) => {
   return details
 }
 
-const askCaptureDetails = async (hasCamera: boolean) => {
-  const settings = hasCamera
+const askCaptureDetails = async (setup: Setup) => {
+  const filters = filtersFor(setup.optics, await loadEquipment())
+  const settings = setup.camera
     ? await ask("Camera settings (e.g. ISO 400, gain 100 -10 °C)")
     : undefined
   const dates = await askValid(
@@ -335,7 +340,7 @@ const askCaptureDetails = async (hasCamera: boolean) => {
   return {
     cameraSettings: settings || undefined,
     dates,
-    integration: await askIntegration(),
+    integration: await askIntegration(filters),
   }
 }
 
@@ -346,7 +351,7 @@ const askPhotoDetails = async (
   const capture =
     captures.length > 0
       ? laminarDetails(captures)
-      : await askCaptureDetails(setup.camera !== undefined)
+      : await askCaptureDetails(setup)
   const weather = conditions(captures)
   return {
     setup,
@@ -545,7 +550,9 @@ const run = async (flags: Flags): Promise<void> => {
   const photo = await askPhotoDetails(captures)
   const located = await addEphemerides(targets, photo, captures)
 
-  const tags = await confirmTags(postTags(located, photo.setup))
+  const tags = await confirmTags(
+    postTags(located, photo.setup, photo.integration),
+  )
   const intro = await ask("\nIntro", buildIntro(located))
 
   const date = postDate(flags.date)

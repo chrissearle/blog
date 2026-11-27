@@ -2,7 +2,7 @@
 title: Andromeda Galaxy
 date: 2026-10-19 17:44 +0200
 category: Photography
-tags: [ astrophotography, messier 31, ngc 224, galaxy, sv545, svbony, touptek, atr533c, imx533, sky-watcher, star adventurer gti, polaris ]
+tags: [ astrophotography, messier 31, ngc 224, galaxy, sv545, svbony, sv220, touptek, atr533c, imx533, sky-watcher, star adventurer gti, polaris ]
 intro: Messier 31 / NGC 224, a barred spiral galaxy in the Local Group.
 image: lychee:bUhDzQX0qObwauzHrDXQDjrS
 targets:
@@ -37,8 +37,8 @@ The Andromeda Galaxy is a barred spiral galaxy and is the nearest major galaxy t
 | Mount            | Sky-Watcher Star Adventurer GTi                                                                                                                            |
 | Control          | [Polaris](https://polaris-astro.app.br) (N.I.N.A. fork for the Raspberry Pi with a browser UI) :github-link{href="https://github.com/DanWBR/NINA.Polaris"} |
 | Dates            | 2026-10-06, 2026-10-16, 2026-10-17, 2026-10-18                                                                                                             |
-| Integration time | 13h 9m                                                                                                                                                     |
-| Filters          | Broadband - 464 × 60s -: 7h 44m, Broadband - 20 × 10s -: 3h 20m, Narrowband (Sv220) - 25 × 300s -: 2h 5m                                                   |
+| Integration time | 9h 52m 20s                                                                                                                                                 |
+| Filters          | Broadband - 464 × 60s: 7h 44m, Broadband - 20 × 10s: 3m 20s, SV220 (Hα/OIII dual-band) - 25 × 300s: 2h 5m                                                  |
 | Processing       | Broadband RGB with Hα from the SV220 (dual-band) added to the red channel to bring out the star-forming regions; short 10 s subs blended in for the core   |
 | Notes            | Third attempt - this time using a full rig and merging both broadband and narrowband.                                                                      |
 

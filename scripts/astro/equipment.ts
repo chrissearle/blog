@@ -10,12 +10,18 @@ const REGISTRY = join(here, "equipment.json")
 // Per-machine convenience - gitignored
 const LAST_SETUP = join(here, ".last-setup.json")
 
+// The kinds that make up a Setup - one of each per post
 export const KINDS = ["optics", "camera", "mount", "control"] as const
 export type Kind = (typeof KINDS)[number]
 
+// Filters are not part of the Setup: a post can have several, one per
+// integration line
+export const COMPONENT_KINDS = [...KINDS, "filter"] as const
+export type ComponentKind = (typeof COMPONENT_KINDS)[number]
+
 export interface Component {
   id: string
-  kind: Kind
+  kind: ComponentKind
   name: string
   maker: string
   // e.g. "250 mm f/5" - shown after the name in the Photo Details table
@@ -29,12 +35,20 @@ export interface Component {
   integrated?: boolean
   // Camera lens rather than a telescope - labels the Photo Details row "Lens"
   lens?: boolean
+  // Filters only: ids of the optics this filter fits (a smart scope's built-in
+  // filters, or the main rig). Absent means any optics.
+  optics?: string[]
 }
 
 export type Setup = Partial<Record<Kind, Component>>
 
-const isKind = (value: unknown): value is Kind =>
-  KINDS.some((kind) => kind === value)
+const isKind = (value: unknown): value is ComponentKind =>
+  COMPONENT_KINDS.some((kind) => kind === value)
+
+const strings = (value: unknown): string[] | undefined =>
+  Array.isArray(value)
+    ? value.filter((v): v is string => typeof v === "string")
+    : undefined
 
 const parseComponent = (value: unknown): Component | undefined => {
   if (!isRecord(value) || !isKind(value.kind)) {
@@ -53,11 +67,10 @@ const parseComponent = (value: unknown): Component | undefined => {
     details: str(value.details),
     link: str(value.link),
     github: str(value.github),
-    tags: Array.isArray(value.tags)
-      ? value.tags.filter((t): t is string => typeof t === "string")
-      : [],
+    tags: strings(value.tags) ?? [],
     integrated: value.integrated === true ? true : undefined,
     lens: value.lens === true ? true : undefined,
+    optics: strings(value.optics),
   }
 }
 
@@ -126,3 +139,14 @@ export const describeLinked = (component: Component): string => {
 export const setupTags = (setup: Setup): string[] => [
   ...new Set(KINDS.flatMap((kind) => setup[kind]?.tags ?? [])),
 ]
+
+// The filters that can be used with these optics
+export const filtersFor = (
+  optics: Component | undefined,
+  components: Component[],
+): Component[] =>
+  components.filter(
+    (c) =>
+      c.kind === "filter" &&
+      (!optics || !c.optics || c.optics.includes(optics.id)),
+  )
