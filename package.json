@@ -32,7 +32,7 @@
     "@nuxtjs/seo": "6.1.0",
     "@prometheus-io/client": "0.16.1",
     "@types/luxon": "3.7.6",
-    "@types/node": "26.6.6",
+    "@types/node": "26.6.10",
     "astronomy-engine": "2.1.19",
     "debug": "4.4.3",
     "eslint": "10.15.0",
